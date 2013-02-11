@@ -1,0 +1,290 @@
+@import "body_color";
+@import "buttom";
+@import "form";
+body{
+  @include body_color;
+  margin:0;
+  padding:0;
+}
+
+header#outside{
+  width:1000px;
+  margin:auto;
+}
+
+div.container{
+  margin:auto;
+  width:1000px;
+}
+  
+
+
+div.logo{
+  display:inline;
+  margin: 0 0 0 50px;
+}
+  
+div.front_menu{
+  float:right;
+  li{
+    list-style:none;
+    display:inline;
+    padding: 5px 5px;
+  }
+  a{
+    @include menu_buttom(15px);
+   }
+  a:hover{
+    @include menu_buttom_hover;
+  }
+}
+
+
+//MENU Rozwijane //
+div#menu{
+  @include  header_menu_style;
+	height: 32px;
+	margin:0 auto;
+}
+div#sMenu {
+  display:table;
+  margin: 0 auto;
+}
+
+div#sMenu a {
+	@include menu_buttom(20px);
+}
+
+div#sMenu ul ul a{
+  @include menu_buttom(16px);
+}
+div#sMenu ul,
+div#sMenu li {
+	margin: 0px;
+	padding: 0px;
+}
+
+div#sMenu li {
+	list-style: none;
+	list-style-image: none;
+	position: relative;
+	padding: 3px 5px;
+	white-space: nowrap;
+}
+
+div#sMenu ul li:hover {
+	@include menu_buttom_hover;
+}
+div#sMenu ul li a:hover {
+	@include menu_buttom_hover;
+}
+/**
+ * Poziome menu pierwszego poziomu
+ * - nie mozna uzyc >, IE6
+ */
+div#sMenu > ul li {
+	float: left;
+	@include header_menu_style;
+}
+
+div#sMenu ul ul li {
+	float: none;
+}
+
+/**
+ * Menu kolejnych poziomow
+ */
+div#sMenu ul ul {
+	z-index: 50;
+	display: none;
+	position: absolute;
+	top: 29px;
+}
+
+div#sMenu li:hover > ul {
+	display: block;
+}
+
+/**
+ * Menu drugiego poziomu - pierwsze rozwiniecie
+ */
+div#sMenu ul ul {
+	left: 0px;
+}
+
+div#sMenu ul ul ul {
+	left: 100%;
+	top: 0px;
+	z-index: 75;
+}
+
+/*div#sMenu li select{
+  width:100%;
+  height:40px;
+  background:#F2F2F2;
+} */
+///////koniec menu /////////
+.hidden{
+  visibility:hidden;
+}
+
+form{
+  position:relative;
+  top: 20px;
+  padding: 10px;
+  width: 250px;
+  margin:auto;
+  
+  div label{
+    color:#21221b;
+    font-weight: bold;
+    font-size: 18px;
+  }
+  
+  div input[type="submit"]{
+   position:relative;
+   left:33%;
+   top:15px;
+   padding: 3px;
+   @include submit_buttom;
+  }
+}
+
+div#navi{
+ background-image:url("navi.png");
+ margin:auto;
+ width:400px;
+ height:305px; 
+}
+
+#animation{
+  width:302;
+  height:212;
+ position:relative;
+ left: 72px;
+ bottom: -41px;
+}
+div#cos{
+ display:block;
+ width:800px;
+ margin:50px auto;
+ 
+  div.load_gpx_name{
+    width:100px;
+    @include header_menu_style;
+    position:relative;
+    left:10px;
+  }
+  div#mapa{
+    background:#4f4f4f;
+    width:800px;
+    height:490px;
+    z-index:0;
+  }
+
+}
+
+section#action{
+  margin: 0 auto;
+}
+// dodawanie pliku gpx formularz
+div#add_gpx{
+  display:none;
+  @include form_background;
+  @include form_body(150px);
+}
+///Dodawanie image
+div#add_image{
+  display:none;
+  @include form_background;
+  @include form_body(325px);
+}
+form,input,textarea{
+  margin:0;
+  padding:0;
+  }
+//////////////////////////////////  
+ul.list_locations{
+  list-style:none;
+  display:none;
+}
+
+ul.profile_buttons{
+  list-style:none;
+  display:none;
+}
+
+div#about{
+  width:350px;
+  margin:25px auto;
+  ul{
+    list-style:upper-roman;
+    li{
+      margin:5px 0;
+    }
+    ul {
+      list-style:decimal;
+    }
+   }
+}
+///// show galery///////////////////
+div#galery{
+  margin: 20px 0 0 0;
+  div.image{
+    margin: 10px 20px;
+    width:280px;
+    height:300px;
+    position:relative;
+    border:4px solid black;
+    float:left;
+    vertical-align: middle;
+    background-color:#f5f0f4;
+    
+    img{
+      margin:10px 0 0 0;
+    }
+
+    .name_image{
+        width:280px;
+        position:absolute;
+        top:160px;
+        p{
+          font-size:20px;
+          font-family:"Comic Sans MS", cursive, sans-serif;
+          text-align:center;
+          color:#202221;
+        }
+     }
+    .description_image{
+      width:280px;
+      position:absolute;
+      top:200px;
+      p{ 
+        margin: 5px 10px;
+        font-size:15px;
+        font-family:"Lucida Sans Unicode", "Lucida Grande", sans-serif;
+        text-align:left;
+        word-wrap:break-word;
+        color:#202221;
+      }
+    }
+    .action_image{
+      width:280px;
+      position:absolute;
+      top:270px;
+      a{ 
+        margin: 5px 10px;
+        font-size:15px;
+        font-family:"Lucida Sans Unicode", "Lucida Grande", sans-serif;
+        text-align:center;
+      }
+    }
+  }
+}
+/////////////profile /////
+div#profile{
+  width:300px;
+  margin:25px auto;
+}
+
+

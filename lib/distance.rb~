@@ -1,0 +1,23 @@
+module Geolocation
+ 
+  def distance(lat1,lng1,lat2,lng2)
+    dtor = Math::PI/180
+    r = 6378.14*1000
+
+    rlat1 = lat1.to_f * dtor
+    rlng1 = lng1.to_f * dtor
+    rlat2 = lat2.to_f * dtor
+    rlng2 = lng2.to_f * dtor
+    
+    nlat = rlat1 - rlat2
+    nlng = rlng1 - rlng2
+    
+    a = power(Math::sin(nlat/2), 2) + Math::cos(rlat1) * Math::cos(rlat2) * power(Math::sin(nlng/2), 2)
+    c = 2 * Math::atan2(Math::sqrt(a), Math::sqrt(1-a))
+    d = r * c
+  end
+  
+  def power(a,b)
+    result=a**b
+  end
+end

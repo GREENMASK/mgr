@@ -1,0 +1,5 @@
+
+<%= remotipart_response do %>
+   $("#add_image").css("display","none");
+   change_marker_icon(<%= @photo_id %>);
+<% end %>

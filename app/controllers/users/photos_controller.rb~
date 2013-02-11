@@ -1,0 +1,35 @@
+class PhotosController < ApplicationController
+
+  #before_filter :authenticate_user!
+  #before_filter :load_photo_user
+  
+  def index
+    raise "dupa"
+    @photos = @user.photos
+    @photo = @user.photos.new
+  end
+  
+  def new
+    @photo = @user.photos.new
+  end
+  
+  def create
+    @photo = @user.photos.new(params[:photo])
+    if @photo.save
+      #flash[:notice] => "Save new photo"
+    else
+      #flash[:alert] => "No save new photo"
+    end
+    redirect_to galery_user_index_path(:id => current_user.id)
+  end
+  
+  def edit
+  end
+  
+  private
+  
+  def load_photo_user
+    raise "dupa"
+    @user = current_user
+  end
+end

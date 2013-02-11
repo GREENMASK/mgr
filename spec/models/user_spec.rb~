@@ -1,0 +1,36 @@
+require 'spec_helper'
+
+describe User do
+  
+
+  describe "Validations" do
+    context "validations succes" do
+      before(:each) do 
+        @user = FactoryGirl.build(:user)
+      end 
+      it{@user.should be_valid}
+    end
+    
+    context "validations failed" do
+      before(:each) do 
+        @user = FactoryGirl.build(:user)
+      end  
+      it "wrong email" do 
+        @user.email = "aaa@pl"
+        @user.should_not be_valid
+      end
+      
+      it "empty email" do 
+        @user.email =""
+        @user.should_not be_valid
+      end
+      
+      it "short password" do 
+        @user.password ="12345"
+        @user.password_confirmation="12345"
+        @user.should_not be_valid
+      end
+    end
+  end
+  
+end

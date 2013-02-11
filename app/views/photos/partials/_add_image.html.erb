@@ -1,0 +1,15 @@
+<div id="add_image">
+  <%= form_for @photo ,:url=>user_photos_path(@user),:html=>{:mulitpart => true} ,:remote => true do |p| %>
+    <ul>
+    <li><%= p.label :name %>:</li>
+    <li><%= p.text_field :name %></li>
+    <li><%= p.file_field :image %></li>
+    <li><%= p.label      :description %>:</li>
+    <li><%= p.text_area  :description, :cols=> 30, :rows => 5 %></li>
+    <li><%= p.label      :location_id %></li>
+    <li><%= p.text_field :location_id,:readonly => true %></li>
+    <li><%= p.submit %></li>
+    </ul>
+  <% end %>
+  
+</div>

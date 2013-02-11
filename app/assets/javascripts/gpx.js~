@@ -1,0 +1,26 @@
+$(document).ready(function(){
+  home_animation();
+});
+
+
+// zmienia foto na stronie głownej
+function home_animation(){
+  $("div#animation").cycle({
+  fx: "uncover", 
+  delay: 2000  
+ });
+}
+
+var handle;
+function myMapsEvent(my_f){
+  if(typeof(handle) == 'object'){
+    google.maps.event.removeListener(handle);
+  }
+  if(my_f == 'get_position_marker'){
+    made = get_position_marker
+  }
+  for(i in markersArray){
+    handle = google.maps.event.addListener(markersArray[i],"click",made(markersArray[i]))
+  }
+  
+}

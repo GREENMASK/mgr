@@ -1,0 +1,82 @@
+// linki menu
+@mixin header_menu_style($font_size,$bottom){
+      @if $bottom{
+        ul{
+          background:#F2F2F2;
+          padding: 5px 0;
+          text-align:center;
+          border-radius: 25px;
+          -moz-border-radius:25px;
+          -webkit-border-radius:25px;
+          -o-border-radius:25px;
+          box-shadow: 0 0 10px #F2F2F2;
+          -mox-box-shadow: 0 0 10px #F2F2F2;
+          -webkit-box-shadow: 0 0 10px #F2F2F2;
+          -o-box-shadow: 0 0 10px #F2F2F2;
+        }
+      }
+      li{
+      list-style:none;
+      padding: 0 10px 0 10px;
+      
+      @if $bottom{
+        border-left: 1px solid white;
+      }
+      a{
+        text-decoration:none;
+        text-transform:lowercase;
+        font-family:"Arial",sans-serif;
+        font-size:$font_size;
+        font-weight: bold;
+        font-style: italic;
+        color: #3b3d34;
+       }
+
+      a:hover{
+        color: white;
+        padding:4px 3px;
+        background:#3b3d34;
+        border-radius: 25px;
+        -webkit-border-radius: 25px;
+        -moz-border-radius: 25px;
+        text-shadow: #be0df2 0px 0px 20px;
+        -moz-text-shadow: #be0df2 0px 0px 20px;
+        -webkit-text-shadow: #be0df2 0 0 20px;
+      }
+    }
+    
+  @if $bottom{
+    li:first-child{
+      border:none;
+    }
+  }
+}
+
+
+//submit buttom
+
+@mixin submit_bottom{
+  -moz-border-radius: 5px;
+  -moz-box-shadow: #6E7849 0px 0px 10px;
+  -moz-transition: all 0.5s ease;
+  -ms-transition: all 0.5s ease;
+  -o-transition: all 0.5s ease;
+  -webkit-border-radius: 5px;
+  -webkit-box-shadow: #6E7849 0 0 10px;
+  -webkit-transition: all 0.5s ease;
+  background-color: #21221b;
+  border-radius: 5px;
+  border: 2px solid #4a5032;
+  box-shadow: #6E7849 0px 0px 10px;
+  color: #ffffff;
+  display: inline-block;
+  font-size: 1em;
+  margin: auto;
+  text-decoration: none;
+  text-shadow: #000000 5px 5px 15px;
+  background-image: -moz-linear-gradient(90deg, #4f4f4f, #21221b);
+  background-image: -ms-linear-gradient(90deg, #4f4f4f, #21221b);
+  background-image: -o-linear-gradient(90deg, #4f4f4f, #21221b);
+  background-image: -webkit-linear-gradient(90deg, #4f4f4f, #21221b);
+  background-image: linear-gradient(90deg, #4f4f4f, #21221b);
+}

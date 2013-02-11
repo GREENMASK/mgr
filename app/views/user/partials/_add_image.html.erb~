@@ -1,0 +1,14 @@
+<div id="add_file">
+  <%= form_for @photo, :html=>{:mulitpart => true} do |p| %>
+    <ul>
+    <li><%= p.label :name %></li>
+    <li><%= p.text_field :name %></li>
+    <li><%= p.file_field :image %></li>
+    <li><%= p.label      :description %></li>
+    <li><%= p.text_area :description %></li>
+    <li><%= %></li>
+    <li><%= %></li>
+    <li><%= p.submit %></li>
+    </ul>
+  <% end %>
+</div>

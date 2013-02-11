@@ -1,0 +1,51 @@
+<%=content_for :title,"Profile"%>
+
+<div id="profile">
+  <table>
+    <p>Użytkownik:</p>
+    <tr>
+      <th><th>
+      <th><th>
+    </tr>
+    <tr>
+      <td>Id:</td>
+      <td><%= @user.id %></td>
+    </tr>
+    <tr>
+    <td>
+     Email:
+    </td>
+     <td>
+     <%= @user.email %>
+    </td>
+    </tr>
+    <tr>
+      <td>Utworzono:</td>
+      <td><%= @user.created_at.to_date %></td>
+    </tr>
+    <tr>
+      <td>Edytowano:</td>
+      <td><%= @user.updated_at.to_date %></td>
+    </tr>
+    <tr>
+      <td>Liczba plików gpx:</td>
+      <td><%= @location_name.count %></td>
+   </tr>
+  <table>
+  </br>
+  <table>
+    <p>Pliki gpx użytkownika:<p>
+    <tr>
+      <th></th>
+      <th></th>
+    </tr>
+    <% @location_name.each do |file|%>
+      <tr>
+        <td><%= file %> </td>
+        <td> <%= link_to "Usuń", location_path(file), :method => :delete,:confirm => true %></td>
+      </tr>
+    <% end %>
+    
+  </table>
+
+</div>

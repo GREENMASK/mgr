@@ -1,0 +1,22 @@
+<%=content_for :title,"Galery"%>
+<div id="galery">
+  <% @photos.each do |p|%>
+    <div class="image">
+      <center><%= image_tag p.image_url(:thumb).to_s %></center>
+      <div class="name_image">
+        <p><%= p.name %></p>
+      </div>
+      <div class="description_image">
+        <p><%= p.description %></p>
+      </div>
+      <div class="action_image">
+      <center>
+        <%= link_to "Edytuj","#"%>
+        <%= link_to "Usuń" ,
+            user_photo_path(@user,p),
+            :confirm => 'Czy napewno chcesz usunąć?',
+            :method => :delete %></center>
+      </div>
+    </div>
+  <%end%>
+</div>

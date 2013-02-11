@@ -1,0 +1,21 @@
+
+$(document).ready(function(){
+  $('#new_photo').submit(function(){
+    alert($("#new_photo").serialize().toString());
+    post_ajax($("#new_photo"));
+  });
+})
+
+function post_ajax(object){
+var url = object.attr("action").toString();
+var data = object.serialize().toString();
+$.post(url, data, function(data){kosa(data);}, "script");
+
+$(object).bind("ajax:success", function(){
+  if ( $(this).data('remotipartSubmitted') )
+});
+}
+
+function kosa(data){
+  alert("dupa");
+}

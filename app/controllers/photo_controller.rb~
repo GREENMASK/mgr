@@ -1,0 +1,9 @@
+class PhotoController < ApplicationController
+ 
+  def new
+  end
+  
+  def create
+   raise params[:photo]
+  end
+end

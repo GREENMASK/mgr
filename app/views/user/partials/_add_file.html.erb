@@ -1,0 +1,13 @@
+
+<div id="add_gpx">
+  <%= form_for @location_file, :html => {:mulitpart => true} do |f| %>
+  <ul>
+    <li><%= f.label :name %>:</li>
+    <li><%= f.text_field :name %></li>
+    <li><%= f.file_field :gpx %></li>
+    <li><%= f.label :range %>:[50m-1000m]</li>
+    <li><%= f.text_field :range%></li>
+    <li><%= f.submit :class => "submit" %></li>
+  </ul>
+  <% end %>
+</div>

@@ -1,0 +1,20 @@
+class Users::SessionsController<Devise::SessionsController
+  
+  before_filter :dupa
+  
+  def new 
+  end
+  
+  def create
+  end
+  
+  def destroy
+    redirect_to root_path
+  end
+  
+  private
+  
+  def dupa
+    raise "dupa"
+  end
+end

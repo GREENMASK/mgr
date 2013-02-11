@@ -1,0 +1,12 @@
+<% content_for :title, "GPX"%>
+<article>
+  <div id="navi">
+     <%= image_tag("navi.png") %>
+
+  
+  <div id="animation">
+    <%= image_tag("world.png") %>
+    <%= image_tag("pl.png") %>
+  </div>
+  </div>
+</article>

@@ -1,0 +1,11 @@
+
+@mixin form_body($h_size){
+    width:320px;
+  height:$h_size;
+  ul{
+    list-style:none;
+    li{
+      margin:10px 0;
+    }
+  }
+}

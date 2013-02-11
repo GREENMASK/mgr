@@ -1,0 +1,9 @@
+pl:
+  activerecord:
+    errors:
+      models:
+        user:
+          attributes:
+            email:      
+              blank:    'Email nie może być pusty'
+            password:   'Hasło nie może być puste'

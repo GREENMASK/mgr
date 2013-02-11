@@ -1,0 +1,15 @@
+<ul>
+  <li><%= link_to "Dodaj GPX", "#",:class=> "add_gpx"%></li>
+  <li><%= link_to "Wrzytaj GPX", "#",:class=> "load_list_gpx"%>
+  <%= render :partial => "user/partials/load_location"%>
+  </li>
+  <li><%=link_to "Edytuj GPX","#"%>
+  <ul>
+     <li><%= link_to "Wybierz Punkty do usuniecia", "#",:class=> "get_markers_to_remove"%></li>
+    <li><%= link_to "Usuń punkt","#",:class =>"set_markers_to_remove" %></li>  
+    <li><%= link_to "Stwórz punkty","#",:class=>"create_new_markers"%></li>
+    <li><%= link_to "Dodaj nowy","#",:class => "add_new_markers"%></li>
+  </ul>
+  </li>
+  
+</ul>

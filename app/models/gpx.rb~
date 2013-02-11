@@ -1,0 +1,15 @@
+class Gpx < ActiveRecord::Base
+  belongs_to :user
+  attr_accessible :lat, :lng, :name
+  attr_accessor :gpx
+  
+  before_validates :load_gpx
+  mount_uploader :gpx, GpxUploader
+  
+  private
+  
+  def load_gpx
+    raise "dupa"
+    #raise self.gpx.inspect
+  end
+end

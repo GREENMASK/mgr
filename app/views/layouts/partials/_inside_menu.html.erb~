@@ -1,0 +1,24 @@
+<div id="menu">
+<div id ="sMenu">
+  <ul>
+  <li><%= link_to "Główna", root_path %></li>
+  <%if user_signed_in?%>
+  <li><%= link_to "Mapa", user_path(current_user)%>
+    <% if params[:action] == "show" %>
+    <ul><li>
+    <%= render :partial => "user/partials/gpx_action"%>
+    </li>
+      <li><%= link_to "Profil terenu", "#", :class=>"profile_area"%></li>
+      <li><%= link_to "Dodaj zdjęcie", "#",:class=> "add_image_postion"%></li>
+    </ul>
+    <% end %>
+  </li>
+  <li><%= link_to "Galeria", user_photos_path(@user)%></li>
+  <li><%= link_to "Profil", profile_user_index_path(:id => @user.id)%>
+  </li>
+  <% end %>
+  <li><%= link_to "O nas", about_path %></li>
+  </ul>
+</div>
+</div>
+

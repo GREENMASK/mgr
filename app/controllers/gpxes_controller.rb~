@@ -1,0 +1,17 @@
+class GpxController < ApplicationController
+
+  def index
+  end
+
+  def create
+   @gpx_file = Gpx.new(params[:gpx])
+   raise :dupa
+   if @gps_file.save
+      
+   else
+   end
+  end
+  
+  def edit
+  end
+end
