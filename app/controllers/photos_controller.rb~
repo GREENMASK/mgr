@@ -16,11 +16,11 @@ class PhotosController < ApplicationController
   
   def create
     respond_to do |format| 
-
+    @photo = @user.photos.new(params[:photo])
+    @photo_id = @photo.location_id
+    
       if @photo.save
-        @photo = @user.photos.new(params[:photo])
-        @photo_id = @photo.location_id
-        format.js  #{ render :json => @photo_id }
+        format.js  #{ render :json=>@photo_id }
       end
     end
   end

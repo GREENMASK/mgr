@@ -1,5 +1,6 @@
 
 <%= remotipart_response do %>
    $("#add_image").css("display","none");
-   change_marker_icon(<%= @photo_id %>);
+   alert("dupa");
+   change_marker_icon(<%= @photo_id %>);// maps.js
 <% end %>

@@ -124,7 +124,7 @@ function createBounds(lat,lng){
 function createLatLng(json){
    var lats = new Array();
    var lngs = new Array();
-   alert(json);
+
   for(i=0;i<(json.length-1);i++){
      lats.push(parseFloat(json[i].lat));
      lngs.push(parseFloat(json[i].lng));
@@ -146,6 +146,7 @@ function deleteOverlays() {
 // proces podmiany icony markera po dodaniu noweg image
 function change_marker_icon(id){
   var mark;
+  alert(id);
   mark = find_marker(id);
   add_marker(mark.getPosition(),id,1);
 }
