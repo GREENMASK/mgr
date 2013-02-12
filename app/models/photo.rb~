@@ -4,10 +4,5 @@ class Photo < ActiveRecord::Base
   
   attr_accessible :description, :image, :name, :location_id
   mount_uploader :image, ImageUploader
-  
-  before_save :cos
-  
-  def cos
-    raise self.location_id.to_s
-  end
+
 end
