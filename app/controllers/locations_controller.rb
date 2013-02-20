@@ -20,7 +20,7 @@ class LocationsController < ApplicationController
     redirect_to user_path(@user)
   end
   
-  def destroy
+  def destroy #cały plik GPX
     if @user.locations.with_name(params[:id]).delete_all
       flash[:notice] = "Poprawnie usunieto plik: #{params[:id]}"
     else
@@ -34,6 +34,8 @@ class LocationsController < ApplicationController
     respond_to do |format|
       if @user.locations.destroy_checekd_location(@makrers_id.split(','))
         format.js {render :json => {odp:"ok"}}
+      else
+        format.js{ render :json => {odp: "wrong"}}
       end
     end
   end

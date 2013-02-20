@@ -11,19 +11,20 @@ class Location < ActiveRecord::Base
 
   
   #walidacje
-  validates :name, presence: true
-  validates :lat,  presence: true
-  validates :lng,  presence: true
-  
+  validates :name,    presence: true
+  validates :lat,     presence: true
+  validates :lng,     presence: true
+  validates :user_id, presence: true
   
   #zapisywanie współrzednych gps z pliku gxp
   def save_location(gpx2)
     file_name = gpx2[:name].downcase.to_s
     return false unless file_submited?(gpx2) && file_name_exist?(file_name) && user_loaction_exist?(file_name)
-      file = read_file(gpx2)
-      hash = gpx_to_hash(file)
+    file = read_file(gpx2)
+    hash = gpx_to_hash(file)
+    return false unless hash
     return false unless correct_hash?(hash)
-      new_hash = Geolocation.separation(hash,gpx2[:range].to_i)
+    new_hash = Geolocation.separation(hash,gpx2[:range].to_i)
       Location.transaction do 
         new_hash.each do |nh|
         Location.create(:name => file_name,
@@ -43,7 +44,11 @@ class Location < ActiveRecord::Base
   def self.destroy_checekd_location(tab)
     Location.transaction do
       tab.each do |t|
-        Location.find(t).delete
+        begin
+          Location.find(t).delete
+        rescue ActiveRecord::RecordNotFound
+          false
+        end
       end
     end
   end
@@ -53,8 +58,13 @@ class Location < ActiveRecord::Base
      string[0]=""
      string[string.size - 1]=""
      
-     json = JSON.parse(string.gsub("\\\"","\""))
-     return false unless json 
+     json = begin
+       JSON.parse(string.gsub("\\\"","\""))
+     rescue  JSON::ParserError
+       false 
+     end
+     
+     return false unless json
      name = json["name"]
 
      Location.transaction do 
@@ -95,7 +105,11 @@ class Location < ActiveRecord::Base
   
   #zamieniam plik na hash wyodrebniajac zakladke wpt
   def gpx_to_hash(file)
-    Hash.from_xml(file).with_indifferent_access[:gpx][:wpt]
+   data = begin
+      Hash.from_xml(file).with_indifferent_access[:gpx][:wpt]
+    rescue
+      false
+    end
   end
   
   def correct_hash?(tab)
