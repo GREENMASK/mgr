@@ -1,6 +1,7 @@
 $(document).ready(function(){
   get_markers_to_remove();// zbiera info o markerach do usuniecia
   set_markers_to_remove();// wykonuje akcje usuniecia oznaczonych markerow
+  clear_all_markers_to_remove();// odznacza wszystkie markery do usuniecia
 })
 
   function get_markers_to_remove(){
@@ -105,6 +106,7 @@ $(document).ready(function(){
    });
   }
   
+  // usuwa markery z mapy, oraz podmienia stara tablice na nowe z markerami
   function remove_checed_marker_from_map(){
     var temp =[];
     for(i in markersArray){
@@ -112,10 +114,24 @@ $(document).ready(function(){
         markersArray[i].setMap(null);
       }
       else{
-        temp.push(markersArray[i]);// podmieni stare markery na nowe
+        temp.push(markersArray[i]);
       }
     }
     markersArray = temp;
     remove_markers =[];
+  }
+  
+  // funckja odznacza wszystkie markery do usuniecia
+  function clear_all_markers_to_remove(){
+    $("a.clear_all_markers_to_remove").on("click",function(){
+       remove_new_markers_from_map();
+    });
+  }
+  
+  function remove_checked_markers_from_map(){
+    for(i in markersArray){
+      markersArray[i].set("destroy","0");
+      change_marcker_icon(markersArray[i],"no");
+    }
   }
   

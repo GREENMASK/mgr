@@ -3,14 +3,22 @@ var newMarkersArray=[];
 $(document).ready(function(){
   start_action_create();
   add_new_markers();
+  clear_all_new_markers();
 })
 
+// funkcja wyłącza funkcje dodwania nowych pkt na mapie
+function remove_action_add_new_markers(){
+  google.maps.event.clearListeners(mapa,'click');
+}
 
 
 function start_action_create(){
-  $("a.create_new_markers").on("click",function(){
-    var str = $("div.load_gpx_name").text();
 
+  $("a.create_new_markers").on("click",function(){
+    if(typeof(handle)=="object"){
+      clear_action_on_markers();
+    }
+    var str = $("div.load_gpx_name").text();
     google.maps.event.addListener(mapa,'click',function(event){
       create_new_location(event);
     });
@@ -128,4 +136,11 @@ function clear_new_markers_from_map(){
 function reload_locations_on_map(){
   var name = $("div.load_gpx_name").text().split(": ");
   get_ajax(name[1]);// location.js
+}
+
+// funckja usuwa z mapy nowe punkty po kliknieciu wyczyśc
+function clear_all_new_markers(){
+  $("a.clear_all_new_markers").on("click",function(){
+    clear_new_markers_from_map();
+  });
 }

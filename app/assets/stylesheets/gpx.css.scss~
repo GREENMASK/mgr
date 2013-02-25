@@ -170,9 +170,9 @@ div#cos{
  margin:50px auto;
  
   div.load_gpx_name{
-    @include header_menu_style;
-    position:relative;
-    left:10px;
+    color: #3b3d34;
+    font-family:"Arial",sans-serif;
+    font-weight: bold;
   }
   div#mapa{
     background:#4f4f4f;
@@ -203,10 +203,7 @@ form,input,textarea{
   padding:0;
   }
 //////////////////////////////////  
-ul.list_locations{
-  list-style:none;
-  display:none;
-}
+
 
 ul.profile_buttons{
   list-style:none;
@@ -285,5 +282,55 @@ div#profile{
   width:300px;
   margin:25px auto;
 }
+////////// action_buttons////////
+div.action_buttons ul,
+div.action_buttons li {
+	margin: 0px;
+	padding: 0px;
+}
 
+div.action_buttons ul ul {
+	z-index: 50;
+	position: absolute;
+	display:inline;
+	top: 29px;
+}
+
+
+div.action_buttons{
+  margin:auto;
+  @include header_menu_style;
+  display:table;
+  ul{
+    list-style:none;
+    li{
+      position: relative;
+      float:left;
+      margin: 0 5px;
+      padding: 1px;
+      background:#F2F2F2;
+      
+      a{
+        @include menu_buttom(16px);
+      }
+      a:hover{
+        @include menu_buttom_hover;
+      }
+    }
+         
+      .edit_gpx_points{
+        display:none;
+      }
+      .remove_gpx_points{
+        display:none;
+      }
+      .add_gpx_points{
+        display:none;
+      }
+      .list_locations{
+        list-style:none;
+        display:none;
+      }
+  }
+}
 

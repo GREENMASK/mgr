@@ -1,15 +1,31 @@
 <ul>
-  <li><%= link_to "Dodaj GPX", "#",:class=> "add_gpx"%></li>
-  <li><%= link_to "Wrzytaj GPX", "#",:class=> "load_list_gpx"%>
-  <%= render :partial => "user/partials/load_location"%>
-  </li>
-  <li><%=link_to "Edytuj GPX","#"%>
-  <ul>
-     <li><%= link_to "Wybierz Punkty do usuniecia", "#",:class=> "get_markers_to_remove"%></li>
-    <li><%= link_to "Usuń punkt","#",:class =>"set_markers_to_remove" %></li>  
-    <li><%= link_to "Stwórz punkty","#",:class=>"create_new_markers"%></li>
-    <li><%= link_to "Dodaj nowy","#",:class => "add_new_markers"%></li>
-  </ul>
+<li><div class="load_gpx_name"></div></li>
+<li><%= link_to "Dodaj GPX", "#",:class=> "add_gpx"%>
+</li>
+<li><%= link_to "Wrzytaj GPX", "#",:class=> "load_list_gpx"%>
+    <%= render :partial => "user/partials/load_location"%>
+</li>
+
+
+<li><%=link_to "Edytuj GPX","#",:class=> "edit_gpx"%></li>
+<spam class="edit_gpx_points">
+  <li><%= link_to "Usuń", "#",:class=> "get_markers_to_remove"%>
+    <spam class="remove_gpx_points">
+    <ul>
+      <li><%= link_to "Zapisz","#",:class =>"set_markers_to_remove" %></li>
+      <li><%= link_to "Wyczyść","#",:class =>"clear_all_markers_to_remove" %></li>
+    </ul>
+    </spam>
   </li>
   
+  <li><%= link_to "Dodaj","#",:class=>"create_new_markers"%>
+    <spam class="add_gpx_points">
+  <ul>
+    <li><%= link_to "Zapisz","#",:class => "add_new_markers"%></li>
+    <li><%= link_to "Wyczyść","#",:class =>"" %></li>
+  </ul>
+  </spam>
+  </li>
+  
+</spam>
 </ul>

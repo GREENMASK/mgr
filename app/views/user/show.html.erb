@@ -1,12 +1,16 @@
 <%= content_for :title,"Map" %>
 <section id="action">
-
 <%= render :partial => "user/partials/add_file"%>
 <%= render :partial => "user/partials/profile_buttons"%>
 </section>
 
 <div id="cos">
-  <div class="load_gpx_name"></div>
+  
+
+  <div class="action_buttons">
+    <%= render :partial => "user/partials/gpx_action"%>
+  </div>
+
   <div id="mapa"></div>
 </div>
 
