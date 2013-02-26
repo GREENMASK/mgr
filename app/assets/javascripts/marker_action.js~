@@ -17,15 +17,13 @@ function position_image_function(){
   });
 }
 
-
-
-
 // funkcja podaje wspórzedne markerach dla nowego zdjecia
 get_image_position = function(object){
   $("input#photo_location_id").val(object.get("id"));
 }
 
-//// TWORZENIE AKCJI NA markerach lewy click
+
+//// TWORZENIE AKCJI NA markerach lewy click///////////////////////////
 
 // funkcja obsługje zdarzenia na markerach
 var handle;
@@ -60,4 +58,17 @@ function clear_action_on_markers(){
     clear_all_from_map();
     google.maps.event.clearListeners(markersArray[i],'click');
   }
+}
+
+//// Prawe klikniecie na marker ///////////////////////
+
+var right_handle;
+
+function right_click_marker_action(){
+  if(typeof(right_handle)=='object'){
+    for(i in markersArray){
+      google.maps.event.clearListeners(markersArray[i],'rightclick');
+    }
+  }
+
 }

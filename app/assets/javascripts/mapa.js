@@ -22,7 +22,7 @@ function create_markers(ob_json){
   for(i=0;i<(points.length-1);i++){
     add_marker(points[i],ob_json[i].id ,ob_json[i].photo);
   }
-  
+  right_click_marker_action();
 }
 
 // funkcja dodaje marker na obiekt mapy

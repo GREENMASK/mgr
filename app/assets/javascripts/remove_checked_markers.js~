@@ -59,7 +59,14 @@ $(document).ready(function(){
     object.setIcon(ic);
     object.setShadow(sh);
   }
-
+  // funckcja usuwa tylko jeden pkt z mapy przy użyciu contextmenu 
+  function remove_one_point(object){
+    $("a.menu_context_destroy").on("click",function(){
+      object.set("destroy",1);
+      start_remove_markers();
+      $(".contextmenu").css("visibility","hidden");
+    });
+  }
 
   function set_markers_to_remove(){
     $("a.set_markers_to_remove").on("click",function(){
@@ -94,7 +101,7 @@ $(document).ready(function(){
    
    $.ajax({
     traditional: true,
-    url:'/locations/destroy_checked',
+    url:'locations/destroy_checked',
     type:"DELETE",
     dataType: 'json',
     data:myObject,
@@ -124,7 +131,7 @@ $(document).ready(function(){
   // funckja odznacza wszystkie markery do usuniecia
   function clear_all_markers_to_remove(){
     $("a.clear_all_markers_to_remove").on("click",function(){
-       remove_new_markers_from_map();
+       remove_checked_markers_from_map();
     });
   }
   

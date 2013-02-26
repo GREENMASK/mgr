@@ -27,7 +27,6 @@ function show_edit_buttons(){
 
 function show_remove_buttons(){
   $("a.get_markers_to_remove").on("click",function(){
-   alert("dupa");
     $("spam.add_gpx_points").css("display","none");
     $("spam.remove_gpx_points").css("display","inline");
     remove_action_add_new_markers(); //create_new_location.js

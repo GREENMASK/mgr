@@ -59,3 +59,21 @@ function clear_action_on_markers(){
     google.maps.event.clearListeners(markersArray[i],'click');
   }
 }
+
+//// Prawe klikniecie na marker ///////////////////////
+
+var right_handle;
+
+function right_click_marker_action(){
+  if(typeof(right_handle)=='object'){
+    for(i in markersArray){
+      google.maps.event.clearListeners(markersArray[i],'rightclick');
+    }
+  }
+  
+  for(i in markersArray){
+    google.maps.event.addListener(markersArray[i],'rightclick',function(){
+      markers_menu(this);
+    });
+  }
+}

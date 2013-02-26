@@ -59,7 +59,14 @@ $(document).ready(function(){
     object.setIcon(ic);
     object.setShadow(sh);
   }
-
+  // funckcja usuwa tylko jeden pkt z mapy przy użyciu contextmenu 
+  function remove_one_point(object){
+    $("a.menu_context_destroy").on("click",function(){
+      object.set("destroy",1);
+      start_remove_markers();
+      $(".contextmenu").css("visibility","hidden");
+    });
+  }
 
   function set_markers_to_remove(){
     $("a.set_markers_to_remove").on("click",function(){

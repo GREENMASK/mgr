@@ -14,7 +14,7 @@ function get_ajax(value){
 
   $('div.load_gpx_name').text("");
   $('div.load_gpx_name').text("Wczytano: "+value);
-  $(object_tab[i]).css("display","none");
+  $("ul.list_locations").css("display","none");
   var parametr = {'name':value };
   $.ajax({
 		type: 'GET',

@@ -60,6 +60,9 @@ function change_display_value(object,value){
    }
    $(object_tab[i]).css("display",f_value);
  }
+  remove_checked_markers_from_map();//remove_checked_markers.js
+  remove_action_add_new_markers(); //create_new_location.js
+  clear_new_markers_from_map();//create_new_location.js
 }
 
 

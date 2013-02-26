@@ -1,6 +1,6 @@
 
 @mixin body_color{
-  background-image: url('gray_jean.png');
+  background-image: url('wild_oliva.png');
 }
 
 

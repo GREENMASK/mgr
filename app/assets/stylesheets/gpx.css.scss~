@@ -27,12 +27,13 @@ div.logo{
 div.front_menu{
   float:right;
   li{
+    @include header_menu_style;
     list-style:none;
     display:inline;
-    padding: 5px 5px;
+    padding: 2px 3px;
   }
   a{
-    @include menu_buttom(15px);
+    @include menu_buttom(14px);
    }
   a:hover{
     @include menu_buttom_hover;
@@ -190,7 +191,7 @@ section#action{
 div#add_gpx{
   display:none;
   @include form_background;
-  @include form_body(150px);
+  @include form_body(190px);
 }
 ///Dodawanie image
 div#add_image{
@@ -279,8 +280,32 @@ div#galery{
 }
 /////////////profile /////
 div#profile{
-  width:300px;
+  width:350px;
   margin:25px auto;
+  
+  spam{
+    margin: 40px auto;
+    @include header_menu_style;
+    @include menu_buttom(17px);
+    background:#7ce4de;
+    padding:2px 5px;
+  }
+    
+  table{
+    td{
+      @include header_menu_style;
+      @include menu_buttom(13px);
+      background:#ffffff;
+      text-align:left;
+      padding: 2px 25px;
+      margin: 25px;
+      color:#15120e;
+      a{
+        text-decoration:none;
+        @include submit_buttom;
+      }
+    }
+  }
 }
 ////////// action_buttons////////
 div.action_buttons ul,
@@ -299,17 +324,17 @@ div.action_buttons ul ul {
 
 div.action_buttons{
   margin:auto;
-  @include header_menu_style;
+  
   display:table;
+  @include header_menu_style;
   ul{
     list-style:none;
     li{
+      @include header_menu_style;
       position: relative;
       float:left;
       margin: 0 5px;
       padding: 1px;
-      background:#F2F2F2;
-      
       a{
         @include menu_buttom(16px);
       }
@@ -333,4 +358,29 @@ div.action_buttons{
       }
   }
 }
+///////////////////////context_menu marker////////
+
+.contextmenu{
+  visibility:hidden;
+  background:#ffffff;
+  border:1px solid #8888FF;
+  z-index: 10;  
+  position: relative;
+  width: 100px;
+  ul{
+    list-style:none;
+    margin:0;
+    padding:0;
+    li{
+      display:box;
+      a{
+        @include menu_buttom(13px);
+      }
+      a:hover{
+        @include menu_buttom_hover;
+      }
+    }
+  }
+}
+
 

@@ -51,7 +51,15 @@ class LocationsController < ApplicationController
      end
   end
   
-  def chart_popup
+  def update
+    @location = Location.find(params[:id])
+    respond_to do |format|
+      if @location.update_attributes(params[:position])
+        format.js{ render :json => {odp:"ok"}}
+      else
+        format.js{ render :json => {odp:"wrong"}}
+      end
+    end
   end
   
   private 
