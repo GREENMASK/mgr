@@ -14,8 +14,14 @@
 </head>
 
 <body <%= mapa_load %>>
+<div id="overlay">
+ <%= image_tag "close.png",:class=> "close_overlay"%>
+ <%= yield(:add_image)%>
+</div>
+
 <%= render :partial=>"layouts/partials/header"%>
 <%= render :partial=>"layouts/partials/flash_info"%>
+
 <div class="container">
 <%= yield %></div>
 </body>

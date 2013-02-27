@@ -1,6 +1,7 @@
 
 <div id="add_gpx">
   <%= form_for @location_file, :html => {:mulitpart => true} do |f| %>
+  <center>
   <ul>
     <li><%= f.label :name %>:</li>
     <li><%= f.text_field :name %></li>
@@ -9,5 +10,6 @@
     <li><%= f.text_field :range%></li>
     <li><%= f.submit :class => "submit" %></li>
   </ul>
+  </center>
   <% end %>
 </div>

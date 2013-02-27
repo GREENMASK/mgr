@@ -1,31 +1,42 @@
 function markers_menu(object){
-  showContextMenu(object);
+  showContextMenu(object,'contextmenu');
   remove_one_point(object);
   start_move_marker(object);// move_marker.js
   update_move_marker_position(object);// move_marker.js
+  position_image_function(object); // add_image.js
 }
 
-function showContextMenu(object) {
+function showContextMenu(object,class_name) {
   var caurrentLatLng = object.getPosition();
   var projection;
-  var contextmenuDir;
-  projection = mapa.getProjection() ;
-  $('.contextmenu').remove();
-  contextmenuDir = document.createElement("div");
-  contextmenuDir.className  = 'contextmenu';
-  contextmenuDir.innerHTML = menuContextString(object);
+  projection = mapa.getProjection();
+  
+  $("."+class_name).remove();
+  var object_to_show = create_object_to_show_on_map(object,class_name);
 
-  $(mapa.getDiv()).append(contextmenuDir);
+  $(mapa.getDiv()).append(object_to_show);
   setMenuXY(caurrentLatLng);
   
-  $('.contextmenu').css("visibility","visible");
+  $("."+class_name).css("visibility","visible");
   $('.contextmenu').mouseleave(function(){
-    $('.contextmenu').css("visibility","hidden");
+  $('.contextmenu').css("visibility","hidden");
   });
-
-
 }
 
+function create_object_to_show_on_map(object,class_name){
+  var show_dir;
+  show_dir = document.createElement("div");
+  if(class_name =="contextmenu"){
+    show_dir.className  = class_name;
+    show_dir.innerHTML = menuContextString(object);
+  }
+  if(class_name == "form_image"){
+    show_dir.className  = class_name;
+    show_dir.innerHTML = menuContextString(object);
+  }
+
+  return show_dir;
+}
 
 function getCanvasXY(caurrentLatLng){
   var scale = Math.pow(2, mapa.getZoom());
@@ -67,14 +78,14 @@ function setMenuXY(caurrentLatLng){
 
 function menuContextString(object){
  var str = '<ul>'
- str = str + '<li><a class="menu_context_destroy">Usuń<\/a><\/li>';
+ str = str + '<li><a class="menu_context_destroy">Usuń marker<\/a><\/li>';
  if(object.getDraggable()){
    str = str + '<li><a class="update_move_marker_position">Zapisz<\/a><\/li>';
  }
  else{
    str = str + '<li><a class="start_move_marker">Zmień pozycje<\/a><\/li>';
  }
-
+ str = str+ '<li><a class="add_image_postion">Dodaj zdjęcie<\/a></li>';
  str = str +'<\/ul>';
  return str;
 }

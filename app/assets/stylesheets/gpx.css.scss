@@ -1,6 +1,6 @@
 @import "body_color";
 @import "buttom";
-@import "form";
+
 body{
   @include body_color;
   margin:0;
@@ -42,10 +42,12 @@ div.front_menu{
 
 
 //MENU Rozwijane //
-
+div#menu{
+   width:1000px;
+   @include  header_menu_style;
+}
 div#sMenu {
   display:table;
-  @include  header_menu_style;
   margin: 0 auto;
 }
 
@@ -126,7 +128,7 @@ div#sMenu ul ul ul {
 .hidden{
   visibility:hidden;
 }
-
+/**/
 form{
   position:relative;
   top: 20px;
@@ -163,10 +165,11 @@ div#navi{
  left: 72px;
  bottom: -41px;
 }
-div#cos{
+div#show_body{
  display:block;
  width:800px;
  margin:50px auto;
+
  
   div.load_gpx_name{
     color: #3b3d34;
@@ -175,28 +178,53 @@ div#cos{
   }
   div#mapa{
     background:#4f4f4f;
+    position:relative;
+    overflow: auto;
     width:800px;
     height:490px;
-    z-index:0;
+    z-index:1;
   }
-
+  
+  
 }
 
 section#action{
   margin: 0 auto;
 }
-// dodawanie pliku gpx formularz
-div#add_gpx{
-  display:none;
-  @include form_background;
-  @include form_body(190px);
+
+div#overlay{
+    display:none;
+    background-image:url("overlay.png");
+    position:fixed;
+    width:100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    z-index: 4000;
+    .close_overlay{
+      background-image:url("close.png");
+    }
 }
 ///Dodawanie image
 div#add_image{
   display:none;
-  @include form_background;
-  @include form_body(325px);
+  
+  form{
+    width:320px;
+    padding: 15px;
+    @include header_menu_style;
+    ul{
+      li{
+        list-style:none;
+        margin: 10px 0;
+        text-align:left;
+      }
+    }
+  }
 }
+
+///overlay
+
 form,input,textarea{
   margin:0;
   padding:0;
@@ -330,6 +358,7 @@ div.action_buttons{
     li{
       @include header_menu_style;
       position: relative;
+      left:-20px;
       float:left;
       margin: 0 5px;
       padding: 1px;
@@ -338,6 +367,34 @@ div.action_buttons{
       }
       a:hover{
         @include menu_buttom_hover;
+      }
+      form{
+        width:320px;
+        @include header_menu_style;
+      }
+      // dodawanie pliku gpx formularz
+      div#add_gpx{
+        display:none;
+        position:absolute;
+        top:0;
+        left:0;
+        form{
+          width:330px;
+          height:250px;
+          padding: 5px;
+          @include header_menu_style;
+          ul{
+            position:relative;
+            top:0;
+            left:60px;
+            li{
+              width:300px;
+              list-style:none;
+              margin: 10px 0;
+              text-align:left;
+            }
+          }
+        }
       }
     }
          

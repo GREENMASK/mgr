@@ -1,6 +1,11 @@
 <ul>
 <li><div class="load_gpx_name"></div></li>
 <li><%= link_to "Dodaj GPX", "#",:class=> "add_gpx"%>
+    <ul>
+      <li>
+          <%= render :partial => "user/partials/add_file"%>
+      </li>
+    </ul>
 </li>
 <li><%= link_to "Wrzytaj GPX", "#",:class=> "load_list_gpx"%>
     <%= render :partial => "user/partials/load_location"%>
@@ -22,7 +27,7 @@
     <spam class="add_gpx_points">
   <ul>
     <li><%= link_to "Zapisz","#",:class => "add_new_markers"%></li>
-    <li><%= link_to "Wyczyść","#",:class =>"" %></li>
+    <li><%= link_to "Wyczyść","#",:class =>"clear_all_new_markers" %></li>
   </ul>
   </spam>
   </li>

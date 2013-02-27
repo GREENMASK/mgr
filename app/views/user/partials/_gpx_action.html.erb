@@ -1,6 +1,11 @@
 <ul>
 <li><div class="load_gpx_name"></div></li>
 <li><%= link_to "Dodaj GPX", "#",:class=> "add_gpx"%>
+    <ul>
+      <li>
+        <%= render :partial => "user/partials/add_file"%>
+      </li>
+    </ul>
 </li>
 <li><%= link_to "Wrzytaj GPX", "#",:class=> "load_list_gpx"%>
     <%= render :partial => "user/partials/load_location"%>

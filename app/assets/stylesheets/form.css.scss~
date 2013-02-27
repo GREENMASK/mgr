@@ -1,7 +1,7 @@
 
-@maixin form_body($h_size){
-    width:320px;
-  height:$h_size;
+@mixin form_body{
+  width:auto;
+  height:auto;
   ul{
     list-style:none;
     li{

@@ -1,18 +1,19 @@
 <%= content_for :title,"Map" %>
-<section id="action">
+<%= content_for :add_image do %>
+  <center><%= render :partial => "photos/partials/add_image" %><center>
+<% end %>
 
-<%= render :partial => "user/partials/add_file"%>
-<%= render :partial => "user/partials/profile_buttons"%>
+<section id="action">
+  <%= render :partial => "user/partials/add_file"%>
+  <%= render :partial => "user/partials/profile_buttons"%>
 </section>
 
-<div id="cos">
-  
-
+<div id="show_body">
   <div class="action_buttons">
     <%= render :partial => "user/partials/gpx_action"%>
   </div>
-
-  <div id="mapa"></div>
+  <div id="mapa">
+  </div>
 </div>
 
-<%= render :partial => "photos/partials/add_image" %>
+

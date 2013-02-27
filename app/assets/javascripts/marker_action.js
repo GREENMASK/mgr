@@ -1,27 +1,3 @@
-//// DODAWANIE ID do ZDJECIA///////////
-
-$(document).ready(function(){
-  position_image_function();
-})
-
-// funkcja sprawdza czy wyswietlone markery,aby dodac image
-function position_image_function(){
-  $("a.add_image_postion").on("click",function(){
-    if(markersArray.length > 0){
-      action_on_markers("get_image_position");
-      $("div#add_image").css("display","block");
-    }
-    else{
-      alert("Nie wczytano pliku gpx");
-    }
-  });
-}
-
-// funkcja podaje wspórzedne markerach dla nowego zdjecia
-get_image_position = function(object){
-  $("input#photo_location_id").val(object.get("id"));
-}
-
 
 //// TWORZENIE AKCJI NA markerach lewy click///////////////////////////
 
@@ -35,9 +11,6 @@ function action_on_markers(str){
   switch(str){
     case "get_position_to_profile":
       switch_method = get_position_to_profile;
-    break;
-    case "get_image_position":
-      switch_method = get_image_position;
     break;
     case "get_markers_id_to_destroy":
       switch_method = get_markers_id_to_destroy; 

@@ -16,5 +16,5 @@ $(document).ready(function(){
 function close_overlay(){
   $(".close_overlay").on("click",function(){
     $("div#overlay").css("display","none");
-  })
+  });
 }
