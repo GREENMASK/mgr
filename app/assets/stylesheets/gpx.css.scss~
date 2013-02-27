@@ -42,13 +42,10 @@ div.front_menu{
 
 
 //MENU Rozwijane //
-div#menu{
-  @include  header_menu_style;
-	height: 32px;
-	margin:0 auto;
-}
+
 div#sMenu {
   display:table;
+  @include  header_menu_style;
   margin: 0 auto;
 }
 
@@ -59,6 +56,7 @@ div#sMenu a {
 div#sMenu ul ul a{
   @include menu_buttom(16px);
 }
+
 div#sMenu ul,
 div#sMenu li {
 	margin: 0px;
@@ -372,7 +370,7 @@ div.action_buttons{
     margin:0;
     padding:0;
     li{
-      display:box;
+      display:block;
       a{
         @include menu_buttom(13px);
       }
