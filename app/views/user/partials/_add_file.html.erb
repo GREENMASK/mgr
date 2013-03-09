@@ -1,15 +1,16 @@
 
 <div id="add_gpx">
+  <%= image_tag "close.png",:class=> "close_add_gpx"%>
   <%= form_for @location_file, :html => {:mulitpart => true} do |f| %>
-  <center>
+  <div class="box_form">
   <ul>
-    <li><%= f.label :name %>:</li>
-    <li><%= f.text_field :name %></li>
-    <li><%= f.file_field :gpx %></li>
-    <li><%= f.label :range %>:[50m-1000m]</li>
-    <li><%= f.text_field :range%></li>
+    <li><%= f.label "Name:",:size=> 22,:class=>"text" %></li>
+    <li><%= f.text_field :name ,:size=> 22 ,:class=>"wpis"%></li>
+    <li><%= f.file_field :gpx ,:size=> 22 ,:class=>"file"%></li>
+    <li><%= f.label "Range:[50m-1000m]" ,:size=> 22,:class=>"text" %></li>
+    <li><%= f.text_field :range ,:size=> 22 ,:class=>"wpis"%></li>
     <li><%= f.submit :class => "submit" %></li>
   </ul>
-  </center>
+  </div>
   <% end %>
 </div>

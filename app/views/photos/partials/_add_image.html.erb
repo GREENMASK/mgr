@@ -1,14 +1,14 @@
 <div id="add_image">
   <%= form_for @photo ,:url=>user_photos_path(@user),:html=>{:mulitpart => true} ,:remote => true do |p| %>
     <ul>
-    <li><%= p.label :name %>:</li>
-    <li><%= p.text_field :name %></li>
-    <li><%= p.file_field :image %></li>
-    <li><%= p.label      :description %>:</li>
-    <li><%= p.text_area  :description, :cols=> 30, :rows => 5 %></li>
-    <li><%= p.label      :location_id %></li>
-    <li><%= p.text_field :location_id,:readonly => true %></li>
-    <li><%= p.submit %></li>
+    <li><%= p.label "Nazwa:",:class=>"text" %></li>
+    <li><%= p.text_field :name,:class=>"wpis"%></li>
+    <li><%= p.file_field :image,:class=>"file" %></li>
+    <li><%= p.label      "Opis:",:class=>"text" %></li>
+    <li><%= p.text_area  :description, :cols=> 37, :rows => 5,:class=>"text"%></li>
+    <li><%= p.label      "Location:",:class=>"text" %></li>
+    <li><%= p.text_field :location_id,:readonly => true,:class=>"wpis" %></li>
+    <li><%= p.submit :class=>"submit" %></li>
     </ul>
   <% end %>
   

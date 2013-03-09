@@ -5,6 +5,8 @@ $(document).ready(function(){
   show_list_locations();
   show_add_file_gpx();
   show_profile_buttons();
+  close_add_gpx_form();
+  only_numbers_on_range();
 })
 
 function show_add_file_gpx(){
@@ -73,6 +75,26 @@ function show_profile_buttons(){
       }
       else{
         alert("Nie wczytano pliku gpx.");
+      }
+  });
+}
+
+// zamykanie okienka add_gpx_file
+function close_add_gpx_form(){
+  $("img.close_add_gpx").on("click",function(){
+    $("div#add_gpx").css("display","none");
+  });
+}
+
+// blokowanie wpisywania liter do add_gpx, range input
+
+function only_numbers_on_range(){
+  $("form input#location_range").keydown(function(key){
+      if((key.which > 47) && (key.which < 58)){
+        $(this).text(String.fromCharCode(key.which));
+      }
+      else{
+        return false;
       }
   });
 }

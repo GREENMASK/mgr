@@ -1,5 +1,6 @@
 <% content_for :title, "Zaloguj się"%>
-<div class="sign_in">
+<div class="session_form">
+<center class="sign_in">
 <%= form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f| %>
   <div><%= f.label :email %><br />
   <%= f.email_field :email %></div>
@@ -13,4 +14,4 @@
 
   <div><%= f.submit "Sign in" %></div>
 <% end %>
-</div>
+</center>
