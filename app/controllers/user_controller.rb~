@@ -7,7 +7,7 @@ class UserController < ApplicationController
   def show
     @location_file = @user.locations.new
     @location_name = locations_name_to_array
-        @photo = @user.photos.new
+    @photo = @user.photos.new
   end
   
   def profile

@@ -62,7 +62,26 @@ class LocationsController < ApplicationController
     end
   end
   
+  def show_photos 
+    respond_to do |format| 
+      @location = Location.find(params[:id])
+      @photos = @location.photos
+      unless @photos.empty?
+        format.js{render :json => {data: photo_url(@photos)}}
+      end
+    end
+  end
+  
   private 
+  
+  def photo_url(photo)
+    tab=[]
+    photo.each do |p|
+      p[:url]=p.image_url
+      tab.push(p)
+    end
+    tab
+  end
   
   def load_user
    @user = current_user

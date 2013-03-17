@@ -20,7 +20,7 @@ class PhotosController < ApplicationController
     @photo_id = @photo.location_id
     
       if @photo.save
-        format.js  #{ render :json=>@photo_id }
+        format.js 
       end
     end
   end

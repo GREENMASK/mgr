@@ -3,4 +3,5 @@
    $("#add_image").css("display","none");
    $("div#overlay").css("display","none");
    change_marker_icon(<%= @photo_id %>);// maps.js
+   right_click_marker_action(); // markers_action.js
 <% end %>

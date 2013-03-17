@@ -12,9 +12,6 @@ function action_on_markers(str){
     case "get_position_to_profile":
       switch_method = get_position_to_profile;
     break;
-    case "get_image_position":
-      switch_method = get_image_position;
-    break;
     case "get_markers_id_to_destroy":
       switch_method = get_markers_id_to_destroy; 
       // remove_checked_markers.js
@@ -41,6 +38,7 @@ function clear_action_on_markers(){
 var right_handle;
 
 function right_click_marker_action(){
+  alert(typeof(right_handle));
   if(typeof(right_handle)=='object'){
     for(i in markersArray){
       google.maps.event.clearListeners(markersArray[i],'rightclick');

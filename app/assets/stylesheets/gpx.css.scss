@@ -202,7 +202,7 @@ section#action{
 ///Dodawanie image
 
 div#add_image{
-  display:none;
+  display:block;
   width:400px;
   height:300px;
   position:relative;
@@ -283,61 +283,45 @@ div#about ul ul{
   list-style:decimal;
 }
 /////////////////////////////////////////////////////////////////////////////
+
 ///// show galery///////////////////
 div#galery{
-  margin: 20px 0 0 0;
-  div.image{
-    margin: 10px 20px;
-    width:280px;
-    height:300px;
-    position:relative;
-    border:4px solid black;
-    float:left;
-    vertical-align: middle;
-    background-color:#f5f0f4;
-    
-    div#galery img{
-      margin:10px 0 0 0;
-    }
+  margin: 50px 0;
+  width:1000px;
+}
 
-    div#galery .name_image{
-        width:280px;
-        position:absolute;
-        top:160px;
-        div#galery p{
-          font-size:20px;
-          font-family:"Comic Sans MS", cursive, sans-serif;
-          text-align:center;
-          color:#202221;
-        }
-     }
-    div#galery .description_image{
-      width:280px;
-      position:absolute;
-      top:200px;
-     div#galery p{ 
-        margin: 5px 10px;
-        font-size:15px;
-        font-family:"Lucida Sans Unicode", "Lucida Grande", sans-serif;
-        text-align:left;
-        word-wrap:break-word;
-        color:#202221;
-      }
-    }
-    div#galery .action_image{
-      width:280px;
-      position:absolute;
-      top:270px;
-      div#galery a{ 
-        margin: 5px 10px;
-        font-size:15px;
-        font-family:"Lucida Sans Unicode", "Lucida Grande", sans-serif;
-        text-align:center;
-      }
-    }
-  }
+div#galery div.image_container{
+  width:150px;
+  margin:20px 20px;
+  padding:5px;
+  background:url("white_wall.png");
+  float:left;
+}
+div.image{
+  width:150px;
+  height:100px;
+}
+div.name_image{
+  height:12px;
+  font-size:13px;
+  font-style:italic;
+  font-weight:bold;
+  text-align:center;
+}
+
+div.action_image{
+  
+  text-align:center;
+  text-decoration:none;
+}
+div.action_image a{
+  @include menu_buttom(10px);
+}
+div.action_image a:hover{
+  @include menu_buttom_hover;
 }
 /////////////profile /////
+
 div#profile{
   width:350px;
   margin:25px auto;
@@ -503,4 +487,8 @@ div.box_form li input.submit{
 }
 .contextmenu li a:hover{
   @include menu_buttom_hover;
+}
+
+div#marker_gallery_fancybox{
+  display:none;
 }

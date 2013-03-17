@@ -45,7 +45,9 @@ function create_marker_object(point,id,type){
 
   marker = new google.maps.Marker(markerOptions);
   marker.set("id",id);
-  
+  if(type == "photo"){
+    marker.set("photo",true);
+  }
   return marker;
 }
 

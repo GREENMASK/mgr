@@ -1,0 +1,8 @@
+
+$("div#overlay").css("display","block");
+<%= content_for :overlay do %>
+   <% @photos.each do |p| %>
+     <%= image_tag p.image_url %>
+   <% end %>
+<% end %>
+

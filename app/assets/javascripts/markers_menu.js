@@ -4,6 +4,7 @@ function markers_menu(object){
   start_move_marker(object);// move_marker.js
   update_move_marker_position(object);// move_marker.js
   position_image_function(object); // add_image.js
+  load_marker_photo(object);
 }
 
 function showContextMenu(object,class_name) {
@@ -84,6 +85,10 @@ function menuContextString(object){
  }
  else{
    str = str + '<li><a class="start_move_marker">Zmień pozycje<\/a><\/li>';
+ }
+ 
+ if(object.get("photo")){
+   str= str + '<li><a class="load_marker_photo">Pokaż zdjecia<\/a><\/li>' 
  }
  str = str+ '<li><a class="add_image_postion">Dodaj zdjęcie<\/a></li>';
  str = str +'<\/ul>';

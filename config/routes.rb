@@ -11,6 +11,7 @@ Mgr::Application.routes.draw do
     get 'load_location'
     delete 'destroy_checked'
     put 'update_location'
+    get 'show_photos'
    end 
  end
   
