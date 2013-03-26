@@ -14,6 +14,7 @@ Mgr::Application.routes.draw do
     get 'show_photos'
     post 'create_from_map'
     get 'check_name'
+    get 'download_gpx'
    end 
  end
   

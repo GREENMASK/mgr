@@ -230,6 +230,8 @@ function after_create_new_locations(data,name){
     get_ajax(name);// location.js
     $.fancybox.close();
     $("spam.new_gpx_points").css("display","none");
+    $("select").append($(document.createElement("option")).
+                        attr("value",name).text(name));
   }
 }
 

@@ -1,7 +1,9 @@
 class LocationsController < ApplicationController
   require 'json'
+  include Gpx # ./lib/gpx.rb
   before_filter :load_user
-  
+    
+
   def load_location
     @locations = @user.locations.find_all_by_name(params[:name])
     @new_locations = photo_include?(@locations)
@@ -91,6 +93,11 @@ class LocationsController < ApplicationController
     end
   end
   
+  def download_gpx
+    @location = Location.find_all_by_name(params[:format])
+    send_data(Gpx.creator(@location),:type=>"text/xml",:filename=>"#{@location.first.name}.gpx")
+  end
+
   private 
   
   def photo_url(photo)

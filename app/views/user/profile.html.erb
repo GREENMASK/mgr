@@ -43,6 +43,7 @@
       <tr>
         <td><%= file %> </td>
         <td> <%= link_to "Usuń", location_path(file), :method => :delete,:confirm => true %></td>
+        <td><%= link_to "Pobierz",download_gpx_locations_path(file)%></td>
       </tr>
     <% end %>
     

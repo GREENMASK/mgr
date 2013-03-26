@@ -2,10 +2,10 @@
 <div id="galery">
   <% @photos.each do |p|%>
     <div class="image_container">
-      <center>
+
         <div class="image">
         <%= link_to(image_tag(p.image_url(:thumb).to_s), p.image_url.to_s,:rel=> "image_group",:title =>p.description.to_s )%></div>
-      </center>
+
       <div class="name_image">
         <p><%= p.name %></p>
       </div>

@@ -221,7 +221,6 @@ function post_create_new_gpx_file(name){
   else{
     $("spam.answer").css("color","red");
     $("spam.answer").text("Brak punktów na mapie!");
-    $.fancybox.close();
   }
 }
 
