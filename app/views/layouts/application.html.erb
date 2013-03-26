@@ -13,16 +13,20 @@
 
 </head>
 
-<body <%= mapa_load %>>
+<body <%= mapa_load %> >
+
 <div id="overlay">
  <%= image_tag "close.png",:class=> "close_overlay"%>
   <%= yield(:overlay)%>
 </div>
-
+<div id="body_page">
 <%= render :partial=>"layouts/partials/header"%>
 <%= render :partial=>"layouts/partials/flash_info"%>
 
-<div class="container">
-<%= yield %></div>
+  <div class="container">
+    <%= yield %>
+  </div>
+
+</div>
 </body>
 </html>

@@ -6,6 +6,12 @@ body{
   margin:0;
   padding:0;
 }
+
+div#body_page{
+  margin:auto;
+  padding:0;
+  width:1000px;
+}
 form, input, select, textarea {
     margin:0;
     padding:0;
@@ -63,6 +69,9 @@ div#sMenu ul ul a{
   @include menu_buttom(16px);
 }
 
+div#sManu ul ul ul a{
+  @include menu_buttom(12px);
+}
 div#sMenu ul,
 div#sMenu li {
 	margin: 0px;
@@ -180,9 +189,6 @@ div#show_body{
     color: #3b3d34;
     font-family:"Arial",sans-serif;
     font-weight: bold;
-    border-right-style:solid;
-    border-right-color:#58D411;
-    border-right-width:2px;
     padding-right: 2px;
   }
   div#mapa{
@@ -267,6 +273,10 @@ ul.profile_buttons{
   list-style:none;
   display:none;
 }
+
+ul.profile_buttons a{
+  font-size:12px;
+}
 /* About */
 div#about{
   width:350px;
@@ -294,7 +304,7 @@ div#galery div.image_container{
   width:150px;
   margin:20px 20px;
   padding:5px;
-  background:white;
+  background:url("white_wall.png");
   float:left;
 }
 div.image{
@@ -363,6 +373,7 @@ div.action_buttons ul,
 div.action_buttons li{
 	margin: 0px;
 	padding: 0px;
+	
 }
 
 div.action_buttons li{
@@ -373,6 +384,7 @@ div.action_buttons li{
 div.action_buttons > ul li{
   float:left;
   margin:0 2px;
+  padding:0 2px;
 }
 
 div.action_buttons > ul ul li{
@@ -386,6 +398,9 @@ div.action_buttons ul ul{
   position:absolute;
 }
 
+.new_gpx_points{
+  display:none;
+}
 .edit_gpx_points{
   display:none;
 }
@@ -395,6 +410,7 @@ div.action_buttons ul ul{
 .add_gpx_points{
   display:none;
   }
+  
 .list_locations{
   width:100px;
   list-style:none;
@@ -491,4 +507,16 @@ div.box_form li input.submit{
 
 div#marker_gallery_fancybox{
   display:none;
+}
+// popup new_name
+spam.answer{
+  margin:0;
+  padding: 0 10px;
+}
+spam.new_name{
+  margin:0;
+  padding: 10px 0px;
+  font-size:16px;
+  font-style:bold;
+  color: #3b3d34;
 }

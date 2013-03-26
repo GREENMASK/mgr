@@ -19,7 +19,7 @@ function create_markers(ob_json){
   var points = create_points(ob_json);
   openMapaCenter(ob_json);
 
-  for(i=0;i<(points.length-1);i++){
+  for(i=0;i<(points.length);i++){
     add_marker(points[i],ob_json[i].id ,ob_json[i].photo);
   }
   right_click_marker_action();
@@ -45,7 +45,7 @@ function create_marker_object(point,id,type){
 
   marker = new google.maps.Marker(markerOptions);
   marker.set("id",id);
-  if(type ="photo"){
+  if(type == "photo"){
     marker.set("photo",true);
   }
   return marker;

@@ -13,12 +13,10 @@
 
 </head>
 
-<body <%= mapa_load %>>
+<body <%= mapa_load %> >
 <div id="overlay">
  <%= image_tag "close.png",:class=> "close_overlay"%>
-
   <%= yield(:overlay)%>
-
 </div>
 
 <%= render :partial=>"layouts/partials/header"%>

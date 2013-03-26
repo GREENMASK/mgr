@@ -55,15 +55,16 @@ class Location < ActiveRecord::Base
   
   # dodaje do istniejacego pliku nowe współrzedne
   def self.update_old_location_file(string)
-     string[0]=""
-     string[string.size - 1]=""
+    
+    string[0]=""
+    string[string.size - 1]=""
      
-     json = begin
-       JSON.parse(string.gsub("\\\"","\""))
-     rescue  JSON::ParserError
-       false 
-     end
-     
+    json = begin
+      JSON.parse(string.gsub("\\\"","\""))
+    rescue  JSON::ParserError
+      false 
+    end
+    
      return false unless json
      name = json["name"]
 
@@ -75,6 +76,31 @@ class Location < ActiveRecord::Base
        end
      end
   end
+  
+  # tworzy nowa grupe wspórzednych na podsatwie mapy
+  def self.create_new_file_from_map(string)
+    
+    string[0]=""
+    string[string.size - 1]=""
+     
+    json = begin
+      JSON.parse(string.gsub("\\\"","\""))
+    rescue  JSON::ParserError
+      false 
+    end
+    
+    return false unless json
+    name = json["name"]
+        
+    Location.transaction do 
+    json["locations"].each do |l|
+      Location.create(:name=> name,
+                         :lat => l[1]["lat"].to_f,
+                         :lng => l[1]["lng"].to_f)
+      end
+    end
+  end
+  
   
   private 
   

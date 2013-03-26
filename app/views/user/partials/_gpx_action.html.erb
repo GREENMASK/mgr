@@ -11,7 +11,14 @@
     <%= render :partial => "user/partials/load_location"%>
 </li>
 
-
+<li><%= link_to "Nowy GPX","#",:class=> "new_gpx"%>
+  <spam class="new_gpx_points">
+  <ul>
+    <li><%= link_to "Zapisz","#",:class => "add_new_markers"%></li>
+    <li><%= link_to "Wyczyść","#",:class =>"clear_all_new_markers" %></li>
+  </ul>
+  </spam>
+</li>
 <li><%=link_to "Edytuj GPX","#",:class=> "edit_gpx"%></li>
 <spam class="edit_gpx_points">
   <li><%= link_to "Usuń", "#",:class=> "get_markers_to_remove"%>

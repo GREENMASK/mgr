@@ -11,7 +11,7 @@ module Geolocation
      tab.each do |t|
       new_tab.each do |nt|
         d = distance(nt[:lat],nt[:lon],t[:lat],t[:lon])
-        if d<50
+        if d<range
           d=0
           break
         end

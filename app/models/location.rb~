@@ -20,11 +20,11 @@ class Location < ActiveRecord::Base
   def save_location(gpx2)
     file_name = gpx2[:name].downcase.to_s
     return false unless file_submited?(gpx2) && file_name_exist?(file_name) && user_loaction_exist?(file_name)
-      file = read_file(gpx2)
-      hash = gpx_to_hash(file)
-      return false unless hash
+    file = read_file(gpx2)
+    hash = gpx_to_hash(file)
+    return false unless hash
     return false unless correct_hash?(hash)
-      new_hash = Geolocation.separation(hash,gpx2[:range].to_i)
+    new_hash = Geolocation.separation(hash,gpx2[:range].to_i)
       Location.transaction do 
         new_hash.each do |nh|
         Location.create(:name => file_name,
@@ -55,15 +55,16 @@ class Location < ActiveRecord::Base
   
   # dodaje do istniejacego pliku nowe współrzedne
   def self.update_old_location_file(string)
-     string[0]=""
-     string[string.size - 1]=""
+    
+    string[0]=""
+    string[string.size - 1]=""
      
-     json = begin
-       JSON.parse(string.gsub("\\\"","\""))
-     rescue  JSON::ParserError
-       false 
-     end
-     
+    json = begin
+      JSON.parse(string.gsub("\\\"","\""))
+    rescue  JSON::ParserError
+      false 
+    end
+    
      return false unless json
      name = json["name"]
 
@@ -75,6 +76,32 @@ class Location < ActiveRecord::Base
        end
      end
   end
+  
+  # tworzy nowa grupe wspórzednych na podsatwie mapy
+  def self.create_new_file_from_map(string)
+    
+    string[0]=""
+    string[string.size - 1]=""
+     
+    json = begin
+      JSON.parse(string.gsub("\\\"","\""))
+    rescue  JSON::ParserError
+      false 
+    end
+    
+    return false unless json
+    name = json["name"]
+    return false unless user_loaction_exist?(name)
+    
+    Location.transaction do 
+    json["locations"].each do |l|
+      Location.create(:name=> name,
+                         :lat => l[1]["lat"].to_f,
+                         :lng => l[1]["lng"].to_f)
+      end
+    end
+  end
+  
   
   private 
   

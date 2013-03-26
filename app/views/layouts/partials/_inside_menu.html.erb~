@@ -7,7 +7,6 @@
     <% if params[:action] == "show" %>
     <ul>
       <li><%= link_to "Profil terenu", "#", :class=>"profile_area"%></li>
-      <li><%= link_to "Dodaj zdjęcie", "#",:class=> "add_image_postion"%></li>
     </ul>
     <% end %>
   </li>

@@ -6,7 +6,9 @@
   <li><%= link_to "Mapa", user_path(current_user)%>
     <% if params[:action] == "show" %>
     <ul>
-      <li><%= link_to "Profil terenu", "#", :class=>"profile_area"%></li>
+      <li><%= link_to "Profil terenu", "#", :class=>"profile_area"%>
+        <%= render :partial => "user/partials/profile_buttons"%>
+      </li>
     </ul>
     <% end %>
   </li>

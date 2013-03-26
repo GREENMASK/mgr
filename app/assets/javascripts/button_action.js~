@@ -7,12 +7,21 @@ $(document).ready(function(){
   show_profile_buttons();
   close_add_gpx_form();
   only_numbers_on_range();
+  clear_polyline();
+  new_gpx_file();
 })
 
 function show_add_file_gpx(){
  $("a.add_gpx").on("click",function(){
    change_display_value("#add_gpx","block");
  });
+}
+
+function new_gpx_file(){
+  $("a.new_gpx").on("click",function(){
+    change_display_value("spam.new_gpx_points","block");
+    start_create_new_point();//create_new_location.js
+  });
 }
 
 function show_list_locations(){
@@ -50,7 +59,8 @@ function change_display_value(object,value){
                    "spam.remove_gpx_points",
                    "spam.edit_gpx_points",
                    "ul.list_locations",
-                   "#add_gpx"]
+                   "#add_gpx",
+                   "spam.new_gpx_points"]
   var f_value ="";
 
  for(i in object_tab){
@@ -99,3 +109,10 @@ function only_numbers_on_range(){
   });
 }
 
+// usuwanie polilini z mapy akcja
+
+function clear_polyline(){
+  $("a.clear_polyline").on("click",function(){
+      clear_all_from_map(); // chart_drwa.js
+  });
+}

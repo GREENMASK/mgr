@@ -20,6 +20,25 @@ class LocationsController < ApplicationController
     redirect_to user_path(@user)
   end
   
+  def create_from_map
+    @locations = params[:data].inspect
+     respond_to do |format| 
+       if @user.locations.create_new_file_from_map(@locations)
+         format.js{ render :json => {odp: "ok"}}
+       else
+         format.js{ render :json => {odp: "wrong"}}
+       end
+     end
+  end
+  
+  def check_name
+    @name = Location.find_by_name(params[:name])
+    answer = @name.nil? ? "ok":"wrong"
+    respond_to do |format|
+      format.js{render :json =>{odp: answer}}
+    end
+  end
+  
   def destroy #cały plik GPX
     if @user.locations.with_name(params[:id]).delete_all
       flash[:notice] = "Poprawnie usunieto plik: #{params[:id]}"

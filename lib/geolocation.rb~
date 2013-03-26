@@ -11,12 +11,12 @@ module Geolocation
      tab.each do |t|
       new_tab.each do |nt|
         d = distance(nt[:lat],nt[:lon],t[:lat],t[:lon])
-        if d<50
+        if d<range
           d=0
           break
         end
       end # new_tab.each
-      
+      raise range.to_s
       if d>range
         new_tab.push(t)
       end
@@ -26,7 +26,7 @@ module Geolocation
   end
   
   # sprawdzam czy nie przekorczyło zakresu[50 - 1000m]
-  def check_range_value(range)
+  def self.check_range_value(range)
      range  = if range > 49 && range < 1001
                  range
               elsif range <50

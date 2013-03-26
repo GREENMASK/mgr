@@ -29,7 +29,7 @@ get_position_to_profile = function(object){
         draw_polyline(p1,p2);
       }
   $('a.draw_chart').on('click',function(){
-    if(typeof(p1)=='object' && typeof(p2)=='object'){
+    if(typeof(p1)=='object' && typeof(p2)=='object' && (p1 != p2)){
       drawPath(p1,p2);
     }
   });
@@ -38,7 +38,7 @@ get_position_to_profile = function(object){
 // Rysuje polilinie między dwoma pkt,
 var polyline;
 function draw_polyline(p1,p2){
-  clear_all_from_map();
+  clear_polyline_from_map();
   polyline = new google.maps.Polyline({
     path:[p1,p2],
     strokeColor: "#FF0000",
@@ -48,10 +48,23 @@ function draw_polyline(p1,p2){
   polyline.setMap(mapa);
 }
 
+function clear_polyline_from_map(){
+  if(typeof(polyline) == 'object'){
+    polyline.setMap(null);
+  }
+}
+
 function clear_all_from_map(){
   if(typeof(polyline) == 'object'){
     polyline.setMap(null);
-  } 
+  }
+  if(typeof(p1)=='object'){
+    p1=false;
+  }
+  if(typeof(p2)=='object'){
+    p2=false;
+  }
+  
 }
 
 // funkcja inicializuje zapytanie o elevation_chart

@@ -12,6 +12,8 @@ Mgr::Application.routes.draw do
     delete 'destroy_checked'
     put 'update_location'
     get 'show_photos'
+    post 'create_from_map'
+    get 'check_name'
    end 
  end
   
