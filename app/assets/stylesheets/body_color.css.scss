@@ -3,6 +3,16 @@
   background-image: url('cartographer.png');
 }
 
+@mixin flash_message($bc,$br_c){
+  background:$bc;
+  list-style:none;
+  border-style:solid;
+  border-width:2px;
+  border-color:$br_c;
+  border-radius:25px;
+  -moz-border-radius:25px;
+  -webkit-border-radius:25px;
+}
 
 
 

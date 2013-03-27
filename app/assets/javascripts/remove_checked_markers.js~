@@ -101,13 +101,14 @@ $(document).ready(function(){
    
    $.ajax({
     traditional: true,
-    url:'locations/destroy_checked',
+    url:'/locations/destroy_checked',
     type:"DELETE",
     dataType: 'json',
     data:myObject,
     success: function(odp){
       if(odp.odp == "ok"){
         remove_checed_marker_from_map();
+        flash_message("notice",["Poprawnie usunięto punkty."]);// flash.js
       }
     }
    });

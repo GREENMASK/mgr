@@ -1,4 +1,6 @@
-<% unless flash.blank? %>
-<%= show_info(flash) %>
-<% end %>
 
+<div id="info" <%= flash.blank? ? "" :"style='display: inline'" %>>
+    <% unless flash.blank? %>
+      <%= show_info(flash) %>
+    <% end %>
+</div>

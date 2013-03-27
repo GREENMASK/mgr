@@ -232,6 +232,10 @@ function after_create_new_locations(data,name){
     $("spam.new_gpx_points").css("display","none");
     $("select").append($(document.createElement("option")).
                         attr("value",name).text(name));
+    flash_message("notice",["Stworzono nowy gpx: "+ name]);
+  }
+  else{
+    flash_message("alert",["Bląd tworznia gpx."]);//flash.js
   }
 }
 
@@ -239,9 +243,10 @@ function after_upadate_locations(txt){
   if(txt["odp"] == "ok"){
     clear_new_markers_from_map();
     reload_locations_on_map();
+    flash_message("notice",["Zapisano nowe punkty."]);
   }
   else{
-    
+    flash_message("alert",["Błąd zapisu punktów."]);//flash.js
   }
 }
 

@@ -108,6 +108,11 @@ $(document).ready(function(){
     success: function(odp){
       if(odp.odp == "ok"){
         remove_checed_marker_from_map();
+        flash_message("notice",["Poprawnie usunięto punkty."]);
+	// flash.js
+      }
+      else{
+        flash_message("alert",["Bład usuwania punktów."]);
       }
     }
    });

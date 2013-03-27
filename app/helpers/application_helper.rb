@@ -1,13 +1,11 @@
 module ApplicationHelper
 
-  def show_info(info)
+  def show_info(info) 
     type , msg = info.first
     html = <<-HTML
-  <div id="info">
     <ul class=#{type}>
       #{type_msg(msg)}
     </ul>
-  </div>
   HTML
 
   html.html_safe

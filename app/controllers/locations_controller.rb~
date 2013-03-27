@@ -54,7 +54,8 @@ class LocationsController < ApplicationController
     @makrers_id = params[:markers]
     respond_to do |format|
       if @user.locations.destroy_checekd_location(@makrers_id.split(','))
-        format.js {render :json => {odp:"ok"}}
+        format.js {render :json => {odp:"ok"}
+		   flash[:notice]="Poprawnie usunieto podane punkty."}
       else
         format.js{ render :json => {odp: "wrong"}}
       end

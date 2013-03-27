@@ -1,8 +1,18 @@
 
 @mixin body_color{
-  background-image: url('wild_oliva.png');
+  background-image: url('cartographer.png');
 }
 
+@mixin flash_message($bc){
+  background:$bc;
+  list-style:none;
+  border-style:solid;
+  border-width:2px;
+  border-color:#2c6310;
+  border-radius:25px;
+  -moz-border-radius:25px;
+  -webkit-border-radius:25px;
+}
 
 
 
