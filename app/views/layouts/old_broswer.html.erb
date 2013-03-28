@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title><%= yield(:title)%></title>
+  <%= stylesheet_link_tag    "application", :media => "all" %>
+  <%= csrf_meta_tags %>
+ <meta http-equiv="X-UA-Compatible" content="IE=9" />
+</head>
+
+<body>
+  <div class="container">
+    <%= yield %>
+  </div>
+</div>
+</body>
+</html>

@@ -5,7 +5,8 @@ Mgr::Application.routes.draw do
 
   root :to => "gpx#index"
   match '/about' ,:to => "gpx#about"
-  
+  match '/old_broswer', :to => "gpx#old_broswer"
+
   resources :locations do
    collection do 
     get 'load_location'

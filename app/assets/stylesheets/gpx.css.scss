@@ -549,3 +549,37 @@ spam.new_name{
   font-width:2px;
   color: #3b3d34;
 }
+
+///old_broswer
+div.broswer{
+ margin:200px auto;
+ width:500px;
+
+}
+
+div.broswer spam{
+  font-size:25px;
+  color:#e0d9e0;
+}
+ul.broswer_list{
+  width:300px;
+  margin:20px auto;
+  list-style:none;
+}
+
+ul.broswer_list li{
+  display:table;
+  width:180px;
+}
+ul.broswer_list li a{
+  margin:0;
+  display:inline;
+  text-align:center;
+  text-decoration:none;
+  font-size:20px;
+  color:#e0d9e0;
+}
+ul.broswer_list li a:hover {
+  font-size:23px;
+  color:#2fb9eb;
+}

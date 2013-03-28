@@ -2,7 +2,7 @@ class UserController < ApplicationController
   include ApplicationHelper
   before_filter :authenticate_user!
   before_filter :load_user, :only =>[:show,:profile]
-  before_filter :user_authorize, :only =>[:show,:profile]
+
 
   def show
     @location_file = @user.locations.new
@@ -18,13 +18,9 @@ class UserController < ApplicationController
   
   def load_user
     @user = User.find_by_id(params[:id])
+    authorize_user(@user)
   end
-  
-  def user_authorize 
-    unless authorize_user(@user)
-      redirect_to user_path(current_user), alert: "No access"
-    end
-  end
+
   
   def locations_name_to_array
     loc_name = @user.locations.select('DISTINCT name')

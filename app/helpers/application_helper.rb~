@@ -2,8 +2,13 @@ module ApplicationHelper
 
   def show_info(info) 
     type , msg = info.first
-    html = type_msg(msg)
-    html.html_safe
+    html = <<-HTML
+    <ul class=#{type}>
+      #{type_msg(msg)}
+    </ul>
+  HTML
+
+  html.html_safe
   end
   
   def type_msg(msg)
@@ -15,8 +20,12 @@ module ApplicationHelper
   end 
   
   def authorize_user(user)
-    return false if user.nil?
-    user.id == current_user.id
-  end
-     
+    b = case
+        when user.nil? then false
+        when user.id == current_user.id then true
+        when user.id != current_user.id then false
+    end
+    unless b
+      redirect_to user_path(current_user), alert: "Brak dostepu!"
+    end
 end

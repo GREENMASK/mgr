@@ -2,7 +2,7 @@ class LocationsController < ApplicationController
   require 'json'
   include Gpx # ./lib/gpx.rb
   before_filter :load_user
-    
+  before_filter :authenticate_user!  
 
   def load_location
     @locations = @user.locations.find_all_by_name(params[:name])
@@ -54,8 +54,7 @@ class LocationsController < ApplicationController
     @makrers_id = params[:markers]
     respond_to do |format|
       if @user.locations.destroy_checekd_location(@makrers_id.split(','))
-        format.js {render :json => {odp:"ok"}
-		   flash[:notice]="Poprawnie usunieto podane punkty."}
+        format.js {render :json => {odp:"ok"}}
       else
         format.js{ render :json => {odp: "wrong"}}
       end

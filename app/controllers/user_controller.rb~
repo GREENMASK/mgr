@@ -18,6 +18,7 @@ class UserController < ApplicationController
   
   def load_user
     @user = User.find_by_id(params[:id])
+    authorize_user(@user)
   end
   
   def user_authorize 

@@ -1,8 +1,9 @@
 class LocationsController < ApplicationController
   require 'json'
+  include ApplicationHelper
   include Gpx # ./lib/gpx.rb
   before_filter :load_user
-    
+  before_filter :authenticate_user!  
 
   def load_location
     @locations = @user.locations.find_all_by_name(params[:name])

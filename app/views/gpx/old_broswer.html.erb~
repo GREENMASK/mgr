@@ -1,0 +1,14 @@
+<%=content_for :title ,"UPDATE BROSWER"%>
+
+<div class="broswer">
+<spam>  Przepraszamy, używaż satrszej wersji przeglądarki.</br>Pobierz nowszą wersję Twojej przeglądarki,</br>aby poprawnie korzystać znaszej aplikacji.</spam>
+<ul class="broswer_list">
+	<li><%= link_to (image_tag "Chrome.png", :size => "50x50"),"http://www.google.com/intl/pl/chrome/browser/" %><%= link_to "CHROME","http://www.google.com/intl/pl/chrome/browser/"%></li>
+  
+  <li><%= link_to (image_tag "firefox.png",:size=>"50x50"),"http://www.mozilla.org/pl/firefox/new/" %><%= link_to "FIREFOX","http://www.mozilla.org/pl/firefox/new/"%></li>
+  
+  <li><%= link_to (image_tag "ie7.png", :size=>"50x50"), "http://windows.microsoft.com/en-us/internet-explorer/downloads/ie-9/worldwide-languages"%><%=link_to "IE9","http://windows.microsoft.com/en-us/internet-explorer/downloads/ie-9/worldwide-languages"%></li>
+  
+</ul>
+</div>
+

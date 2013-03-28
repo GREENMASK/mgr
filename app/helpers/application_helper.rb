@@ -20,8 +20,13 @@ module ApplicationHelper
   end 
   
   def authorize_user(user)
-    return false if user.nil?
-    user.id == current_user.id
+    b = case
+        when user.nil? then false
+        when user.id == current_user.id then true
+        when user.id != current_user.id then false
+    end
+    unless b
+      redirect_to user_path(current_user), alert: "Brak dostepu!"
+    end
   end
-     
 end
