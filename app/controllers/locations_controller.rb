@@ -18,7 +18,7 @@ class LocationsController < ApplicationController
     if @location_file.save_location(params[:location])
       flash[:notice] = "Poprawnie dodano plik"
     else
-      flash[:alert] = @location_file.errors.full_messages
+      flash[:alert] = @location_file.errors.values.sum
     end
     redirect_to user_path(@user)
   end

@@ -16,4 +16,13 @@ class User < ActiveRecord::Base
     object = self.locations.find_by_name(name)
     object.nil? ? true : false
   end
+
+  def self.destroy_all(user)
+    User.transaction do 
+      user.locations.destroy_all
+      user.photos.destroy_all
+      user.destroy
+      false
+    end
+  end
 end

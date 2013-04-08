@@ -1,7 +1,8 @@
 Mgr::Application.routes.draw do
   devise_for :users, 
   :controllers => { :sessions => "users/sessions",
-                    :registrations => "users/registrations" }
+                    :registrations => "users/registrations",
+                    :passwords => "users/passwords" }
 
   root :to => "gpx#index"
   match '/about' ,:to => "gpx#about"

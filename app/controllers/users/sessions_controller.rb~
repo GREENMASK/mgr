@@ -8,12 +8,13 @@ class Users::SessionsController<Devise::SessionsController
   def create
     resource = warden.authenticate!(:scope => resource_name, :recall => "#{controller_path}#new")
     sign_in(resource_name,resource)
-    flash[:notice] = "Sign in"
-    redirect_to uset_path(current_user)
+    flash[:notice] = I18n.t :signed_in, :scope=>[:devise,:sessions]
+    redirect_to user_path(current_user)
   end
   
   def destroy
     sign_out(@user)
+    flash[:notice] = I18n.t :singed_out, :scope=>[:devise,:sessions]
     redirect_to root_path
   end
 end

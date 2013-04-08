@@ -1,6 +1,7 @@
 module ApplicationHelper
 
   def show_info(info) 
+    raise info.inspect 
     type , msg = info.first
     html = <<-HTML
     <ul class=#{type}>
@@ -28,4 +29,5 @@ module ApplicationHelper
     unless b
       redirect_to user_path(current_user), alert: "Brak dostepu!"
     end
+  end
 end

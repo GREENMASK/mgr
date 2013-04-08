@@ -31,9 +31,9 @@ class PhotosController < ApplicationController
   
   def destroy
     if @photo.destroy
-      flash[:notice] ="Deleting a successful"
+      flash[:notice] = I18n.t(:success, :scope => [:controller, :photo, :destroy]) 
     else
-      flash[:alert] = "Removing is failed"
+      flash[:alert] = I18n.t :faild, :scope => [:controller, :photo, :destroy]
     end
     redirect_to user_photos_path(@user)
   end
