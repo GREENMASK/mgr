@@ -18,9 +18,10 @@ group :test do
   gem 'faker'
 end
 
-
+gem 'shelly-dependencies'
 group :production do
-  gem 'pg', '0.12.2'
+  gem 'shelly-dependencies'
+  gem 'thin'
 end
 
 # Gems used only for assets and not required
