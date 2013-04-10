@@ -22,6 +22,7 @@ gem 'shelly-dependencies'
 group :production do
   gem 'shelly-dependencies'
   gem 'thin'
+  gem 'pg'
 end
 
 # Gems used only for assets and not required
