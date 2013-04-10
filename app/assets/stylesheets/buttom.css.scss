@@ -72,3 +72,11 @@ $radius: 20px;
   -webkit-border-radius: 25px;
   border-radius: 25px;
 }
+
+@mixin profile_link{
+  color:black;
+  text-decoration:none;
+  font-style:italic;
+  font-weight:bold;
+}
+  

@@ -22,7 +22,7 @@ $radius: 20px;
   font-style: italic;
   color: #3b3d34;
 }
-@mixin menu_buttom_hover($font_size){
+@mixin menu_buttom_hover{
     color: white;
     background:#3b3d34;
     border-radius: 25px;
@@ -71,4 +71,13 @@ $radius: 20px;
   -moz-border-radius: 25px;
   -webkit-border-radius: 25px;
   border-radius: 25px;
+}
+
+@mixin profile_link{
+  color:black;
+  text-decoration:none;
+  font-style:italic;
+  font-weight:bold;
+}
+  
 }

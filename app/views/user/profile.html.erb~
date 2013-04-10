@@ -1,8 +1,8 @@
 <%=content_for :title,"Profile"%>
 
 <div id="profile">
-  <table>
-    <spam>Użytkownik:</spam>
+  <table class="user_attributes">
+    <spam class="table_title">Użytkownik:</spam>
     <tr>
       <th><th>
       <th><th>
@@ -31,16 +31,13 @@
       <td>Liczba plików gpx:</td>
       <td><%= @location_name.count %></td>
    </tr>
+   <tr>
+   <td><%= link_to "Edytuj profil", edit_user_registration_path(:id => @user.id) %></td></tr>
   <table>
   </br>
-    <%= link_to "cos", edit_user_registration_path(:id => @user.id) %>
-    
-    <%# render :template => 'users/passwords/edit', 
-               :locals => { :resource =>current_user, 
-                            :resource_name => "User" } %>
   
-  <table>
-    <spam>Pliki gpx użytkownika:</spam>
+  <table class="gpx_list">
+    <spam class="table_title">Pliki gpx użytkownika:</spam>
     <tr>
       <th></th>
       <th></th>
