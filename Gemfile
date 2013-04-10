@@ -4,12 +4,20 @@ gem 'rails', '3.2.3'
 
 gem 'json'
 
-group :development, :test do
+group :development do
   gem 'rspec-rails'
   gem 'sqlite3'
   gem "factory_girl_rails", "~> 4.0"
   gem 'faker'
 end
+
+group :test do
+  gem 'rspec-rails'
+  gem 'sqlite3'
+  gem "factory_girl_rails", "~> 4.0"
+  gem 'faker'
+end
+
 
 group :production do
   gem 'pg', '0.12.2'
