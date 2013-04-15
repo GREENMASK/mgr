@@ -576,6 +576,13 @@ spam.new_name{
   color: #3b3d34;
 }
 
+a.delete_acount{
+  @include menu_buttom(15);
+}
+
+a.delete_acount:hover{
+  @include menu_buttom_hover;
+}
 ///old_broswer
 div.broswer{
  margin:200px auto;
@@ -609,3 +616,4 @@ ul.broswer_list li a:hover {
   font-size:23px;
   color:#2fb9eb;
 }
+
