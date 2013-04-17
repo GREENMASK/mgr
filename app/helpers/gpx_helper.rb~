@@ -8,4 +8,68 @@ module GpxHelper
   end
   html.html_safe
  end
+ 
+ def load_friend(user)
+   html = '<table class="user_attributes">'
+   html+='<spam class="table_title">Znajomi:</spam>'
+   html+= '    
+    <tr>
+      <th><th>
+      <th><th>
+    </tr>'
+  tab =[]   
+
+  user.friendships.each do |fs|
+    user.inverse_friends.each do |ifs|
+     if ifs.email == fs.friend.email
+       tab.push(fs.friend)
+     end
+    end  
+  end 
+  raise (user == current_user).to_s 
+  if tab.empty?
+    html +='<tr><td>Brak znajomych</td></tr>'
+  else
+    tab.each do |user|
+      html+="<tr>
+		<td> #{ link_to user.email, profile_users_path(:id=> user.id) }</td>"
+      if user == current_user
+        html+=   "<td> #{ link_to 'Usun' , friendship_path(user),:method => :delete }</td>"
+      end      
+      html+="</tr>"
+    end
+  end
+  
+  html +='</table>'
+  html.html_safe
+ end
+ 
+ def load_user_list(users)
+    html = ""
+    users.each do |user|
+      if user == current_user || User.friends?(user,current_user)
+      elsif !current_user.invited?(user)	
+	html += "
+	<tr>
+	  <td>#{link_to user.email.to_s, profile_users_path(:id => user.id)}</td>
+	  <td>#{link_to 'Akceptuj zaprosznie',friendships_path(:friend_id => user.id), :method=> :post }</td>
+	  <td>#{link_to 'Odrzuc zaproszenie', destroy_invited_friendships_path(:id => user.id),:method=> :delete}</td>
+	</tr>"
+     elsif current_user.send_invite?(user)	
+	html += "
+	<tr>
+	  <td>#{link_to user.email.to_s, profile_users_path(:id => user.id)}</td>
+	  <td>#{link_to 'Usun zaproszenie',destroy_send_invite_friendships_path(:id => user.id), :method => :delete }</td>
+	</tr>"
+      else
+	html += "
+	<tr>
+	  <td>#{link_to user.email.to_s, profile_users_path(:id => user.id)}</td>
+	  <td>#{link_to 'Dodaj do znajomych',friendships_path(:friend_id => user.id), :method=> :post }</td>
+	</tr>"
+      end 
+    end
+  html.html_safe
+ end
+ 
 end

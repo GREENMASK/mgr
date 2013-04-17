@@ -19,6 +19,7 @@
      <%= @user.email %>
     </td>
     </tr>
+    <%if @user == current_user %>
     <tr>
       <td>Utworzono:</td>
       <td><%= @user.created_at.to_date %></td>
@@ -27,12 +28,15 @@
       <td>Edytowano:</td>
       <td><%= @user.updated_at.to_date %></td>
     </tr>
+    <% end %>
     <tr>
       <td>Liczba plików gpx:</td>
       <td><%= @location_name.count %></td>
    </tr>
    <tr>
+   <% if @user == current_user %>
    <td><%= link_to "Edytuj profil", edit_user_registration_path(:id => @user.id) %></td></tr>
+   <% end %>
   </table>
   </br>
   
@@ -45,8 +49,10 @@
     <% @location_name.each do |file|%>
       <tr>
         <td><%= file %> </td>
+        <% if @user == current_user %>
         <td> <%= link_to "Usuń", location_path(file), :method => :delete,:confirm => true %></td>
         <td><%= link_to "Pobierz",download_gpx_locations_path(file)%></td>
+        <% end %>
       </tr>
     <% end %>
     

@@ -1,0 +1,16 @@
+  <table class="gpx_list">
+    <spam class="table_title">Pliki gpx użytkownika:</spam>
+    <tr>
+      <th></th>
+      <th></th>
+    </tr>
+    <% @location_name.each do |file|%>
+      <tr>
+        <td><%= file %> </td>
+        <% if @user == current_user %>
+        <td> <%= link_to "Usuń", location_path(file), :method => :delete,:confirm => true %></td>
+        <td><%= link_to "Pobierz",download_gpx_locations_path(file)%></td>
+        <% end %>
+      </tr>
+    <% end %>
+  </table>

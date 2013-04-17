@@ -1,0 +1,48 @@
+<%=content_for :title,"Profile"%>
+
+<div id="profile">
+  <table class="user_attributes">
+    <spam class="table_title">Użytkownik:</spam>
+    <tr>
+      <th><th>
+      <th><th>
+    </tr>
+    <tr>
+      <td>Id:</td>
+      <td><%= @user.id %></td>
+    </tr>
+    <tr>
+    <td>
+     Email:
+    </td>
+     <td>
+     <%= @user.email %>
+    </td>
+    </tr>
+    <%if @user == current_user %>
+    <tr>
+      <td>Utworzono:</td>
+      <td><%= @user.created_at.to_date %></td>
+    </tr>
+    <tr>
+      <td>Edytowano:</td>
+      <td><%= @user.updated_at.to_date %></td>
+    </tr>
+    <% end %>
+    <tr>
+      <td>Liczba plików gpx:</td>
+      <td><%= @location_name.count %></td>
+   </tr>
+   <tr>
+   <% if @user == current_user %>
+   <td><%= link_to "Edytuj profil", edit_user_registration_path(:id => @user.id) %></td></tr>
+   <% end %>
+  </table>
+  </br>
+  
+  <%= render :partial => 'users/partials/friendship'%>
+  <% if @location_name.count > 0 %>
+    <%= render :partial => 'users/partials/gpx_list'%>
+  <% end %>
+
+</div>

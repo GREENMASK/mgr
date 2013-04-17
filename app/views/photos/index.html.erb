@@ -11,14 +11,15 @@
       <div class="name_image">
         <p><%= p.name %></p>
       </div>
+      <% if @user == current_user%>
       <div class="action_image">
-
         <%= link_to "Edytuj","#"%>
         <%= link_to "Usuń" ,
             user_photo_path(@user,p),
             :confirm => 'Czy napewno chcesz usunąć?',
             :method => :delete %>
       </div>
+      <% end %>
     </div>
   <%end%>
 </div>

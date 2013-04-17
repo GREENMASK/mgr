@@ -1,8 +1,10 @@
 Mgr::Application.routes.draw do
+  
+
   devise_for :users, 
   :controllers => { :sessions => "users/sessions",
                     :registrations => "users/registrations",
-                    :passwords => "users/passwords" }
+                    :passwords => "users/passwords"}
 
   root :to => "gpx#index"
   match '/about' ,:to => "gpx#about"
@@ -20,11 +22,18 @@ Mgr::Application.routes.draw do
    end 
  end
   
-  resources :user,:only =>[:show], :path =>"users" do 
+  resources :users,:only =>[:show] do 
    collection do
     get 'profile'
+    get 'list'
    end
    resources :photos
   end
-
+  
+  resources :friendships, :only=>[:create, :destroy] do 
+    collection do
+      delete 'destroy_send_invite'
+      delete 'destroy_invited'
+    end
+  end
 end

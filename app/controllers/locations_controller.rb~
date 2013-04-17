@@ -111,6 +111,7 @@ class LocationsController < ApplicationController
   end
   
   def load_user
+   raise params.inspect
    @user = current_user
   end
   

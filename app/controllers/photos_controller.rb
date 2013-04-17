@@ -4,7 +4,6 @@ class PhotosController < ApplicationController
   before_filter :load_user
   before_filter :load_photo, :only=>[:show,:destroy,:edit]
 
-
   def index
     @photos = @user.photos
   end

@@ -4,19 +4,22 @@
     <div class="image_container">
 
         <div class="image">
-        <%= link_to(image_tag(p.image_url(:thumb).to_s), p.image_url.to_s,:rel=> "image_group",:title =>p.description.to_s )%></div>
+        <center>
+        <%= link_to(image_tag(p.image_url(:thumb).to_s), p.image_url.to_s,:rel=> "image_group",:title =>p.description.to_s )%>
+</center></div>
 
       <div class="name_image">
         <p><%= p.name %></p>
       </div>
+      <% if @user == current_user%>
       <div class="action_image">
-
         <%= link_to "Edytuj","#"%>
         <%= link_to "Usuń" ,
             user_photo_path(@user,p),
             :confirm => 'Czy napewno chcesz usunąć?',
             :method => :delete %>
       </div>
+      <% end %>
     </div>
   <%end%>
 </div>

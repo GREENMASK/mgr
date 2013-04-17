@@ -6,12 +6,15 @@
   <li><%= link_to "Mapa", user_path(current_user)%>
     <% if params[:action] == "show" %>
     <ul>
-      <li><%= link_to "Profil terenu", "#", :class=>"profile_area"%></li>
+      <li><%= link_to "Profil terenu", "#", :class=>"profile_area"%>
+        <%= render :partial => "users/partials/profile_buttons"%>
+      </li>
     </ul>
     <% end %>
   </li>
   <li><%= link_to "Galeria", user_photos_path(@user)%></li>
-  <li><%= link_to "Profil", profile_user_index_path(:id => @user.id)%>
+  <li><%= link_to "Lista", list_users_path %></li>
+  <li><%= link_to "Profil", profile_users_path(:id => @user.id)%>
   </li>
   <% end %>
   <li><%= link_to "O nas", about_path %></li>

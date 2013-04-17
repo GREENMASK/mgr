@@ -1,0 +1,18 @@
+<%= content_for :title,"Map" %>
+<%= content_for :overlay do %>
+  <center><%= render :partial => "photos/partials/add_image" %><center>
+<% end %>
+
+<section id="action">
+  
+</section>
+
+<div id="show_body">
+  <div class="action_buttons">
+    <%= render :partial => "user/partials/gpx_action"%>
+  </div>
+  <div id="mapa">
+  </div>
+</div>
+
+
