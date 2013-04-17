@@ -20,18 +20,18 @@ function create_markers(ob_json){
   openMapaCenter(ob_json);
 
   for(i=0;i<(points.length);i++){
-    add_marker(points[i],ob_json[i].id ,ob_json[i].photo);
+    add_marker(points[i],ob_json[i].id ,ob_json[i].photo,ob_json[i].current_user);
   }
   right_click_marker_action();
 }
 
 // funkcja dodaje marker na obiekt mapy
-function add_marker(point,id,type){
-  markersArray.push(create_marker_object(point,id,type));
+function add_marker(point,id,type,cu){
+  markersArray.push(create_marker_object(point,id,type,cu));
 }
 
 //funkcja tworzy strukutre marker
-function create_marker_object(point,id,type){
+function create_marker_object(point,id,type,cu){
   var icon,icon_s;
   var tab =[];
   tab = choose_type_marker(type);
@@ -47,6 +47,9 @@ function create_marker_object(point,id,type){
   marker.set("id",id);
   if(type == "photo"){
     marker.set("photo",true);
+  }
+  if(cu){
+    marker.set("cu",true);
   }
   return marker;
 }

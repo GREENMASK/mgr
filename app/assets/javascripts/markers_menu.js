@@ -78,20 +78,27 @@ function setMenuXY(caurrentLatLng){
 
 
 function menuContextString(object){
- var str = '<ul>'
- str = str + '<li><a class="menu_context_destroy">Usuń marker<\/a><\/li>';
- if(object.getDraggable()){
-   str = str + '<li><a class="update_move_marker_position">Zapisz<\/a><\/li>';
+ var str = '<ul>';
+ if(object.get("cu")){
+   str = str + '<li><a class="menu_context_destroy">Usuń marker<\/a><\/li>';
+   if(object.getDraggable()){
+      str = str + '<li><a class="update_move_marker_position">Zapisz<\/a><\/li>';
+    }
+   else{
+      str = str + '<li><a class="start_move_marker">Zmień pozycje<\/a><\/li>';
+    }
+   str = str+ '<li><a class="add_image_postion">Dodaj zdjęcie<\/a></li>'; 
  }
- else{
-   str = str + '<li><a class="start_move_marker">Zmień pozycje<\/a><\/li>';
- }
+ 
  
  if(object.get("photo")){
    str= str + '<li><a class="load_marker_photo">Pokaż zdjecia<\/a><\/li>' 
  }
- str = str+ '<li><a class="add_image_postion">Dodaj zdjęcie<\/a></li>';
+ if(str.length < 5){ 
+   str = '<li><a>Brak dostępu<\/a><\/li>';  
+ }
  str = str +'<\/ul>';
+ 
  return str;
 }
 
