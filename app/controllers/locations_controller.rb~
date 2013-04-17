@@ -111,8 +111,10 @@ class LocationsController < ApplicationController
   end
   
   def load_user
-   raise params.inspect
-   @user = current_user
+   if params[:user_id]
+    @user = User.find(params[:user_id])
+   end
+   @user ||= current_user
   end
   
   def photo_include?(loc)
