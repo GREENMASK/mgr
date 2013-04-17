@@ -1,6 +1,0 @@
-<ul class="list_locations">
-  <% @location_name.each do |ln|%>
-  <li><%= link_to ln.name, "#", :class=>:wczytaj_gpx %></li>
-  <% end %>
-</ul>
-

@@ -1,4 +1,0 @@
-<%=content_for :title,"Galery"%>
-<div id="galery">
-  <%= render :partial => "user/partials/add_image"%>
-</div>
