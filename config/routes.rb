@@ -22,10 +22,9 @@ Mgr::Application.routes.draw do
    end 
  end
   
-  resources :users,:only =>[:show] do 
+  resources :users,:only =>[:show,:index] do 
    collection do
     get 'profile'
-    get 'list'
    end
    resources :photos
   end

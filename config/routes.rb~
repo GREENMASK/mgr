@@ -22,7 +22,7 @@ Mgr::Application.routes.draw do
    end 
  end
   
-  resources :users,:only =>[:show] do 
+  resources :users,:only =>[:show,:index] do 
    collection do
     get 'profile'
     get 'list'
@@ -33,7 +33,7 @@ Mgr::Application.routes.draw do
   resources :friendships, :only=>[:create, :destroy] do 
     collection do
       delete 'destroy_send_invite'
-      delete 'destroy_inviated'
+      delete 'destroy_invited'
     end
   end
 end

@@ -6,8 +6,10 @@ class UsersController < ApplicationController
   before_filter :user_authorize, :only =>[:show]
 
     
-  def list
-    @users = User.all
+  def index
+    @search= User.search(params[:q])
+    user_array = @search.result
+    @users = Kaminari.paginate_array(user_array).page(params[:page]).per(10)
   end
   
   def show

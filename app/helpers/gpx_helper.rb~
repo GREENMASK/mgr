@@ -26,15 +26,15 @@ module GpxHelper
      end
     end  
   end 
-  raise (user == current_user).to_s 
+
   if tab.empty?
     html +='<tr><td>Brak znajomych</td></tr>'
   else
-    tab.each do |user|
+    tab.each do |us|
       html+="<tr>
-		<td> #{ link_to user.email, profile_users_path(:id=> user.id) }</td>"
+		<td> #{ link_to us.email, profile_users_path(:id=> us.id) }</td>"
       if user == current_user
-        html+=   "<td> #{ link_to 'Usun' , friendship_path(user),:method => :delete }</td>"
+        html+=   "<td> #{ link_to 'Usun' , friendship_path(us),:method => :delete }</td>"
       end      
       html+="</tr>"
     end
@@ -69,6 +69,7 @@ module GpxHelper
 	</tr>"
       end 
     end
+  html += "#{ paginate @users }"
   html.html_safe
  end
  

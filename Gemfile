@@ -41,6 +41,8 @@ gem 'devise'
 gem 'jquery-rails'
 gem 'libxml-ruby'
 gem 'remotipart', '~> 1.0'
+gem 'kaminari'
+gem 'ransack'
 
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'

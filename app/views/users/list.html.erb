@@ -1,4 +1,12 @@
 <%=content_for :title,"Urzytkownicy"%>
+
+<%= search_form_for @search do |f|%>
+  <div class="field">
+    <%= f.label :email_cont ,"Email"%>
+    <%= f.text_field :email_cont %>
+  </div>
+  <%= f.submit "Szukaj" %>
+<% end %>
 <div id="profile">
   <table class="user_attributes">
     <spam class="table_title">Użytkownicy:</spam>
@@ -8,4 +16,5 @@
     </tr>
     <%= load_user_list(@users)%>
   </table>
+  <%= paginate @users %>
 </div>

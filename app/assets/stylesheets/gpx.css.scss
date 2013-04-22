@@ -389,6 +389,8 @@ div#profile table td {
 }
 
 div#profile table{
+  width:400px;
+  margin:5px 0 ;
   background:url("white_wall.png");
   border:2px solid black;
 }
@@ -617,3 +619,78 @@ ul.broswer_list li a:hover {
   color:#2fb9eb;
 }
 
+
+//Znajomi
+@mixin paginate_view{
+  margin:0 2px;
+  text-decoration:none;
+  font-size:15px;
+  font-style:italic;
+  font-weight:bold;
+  color:white;
+}
+
+form#user_search{
+  width:auto;
+  margin: 10px auto;
+  padding: 10px 5px;
+  border:2px solid black;
+  background:url("white_wall.png");
+}
+
+div.user_serach_field{
+  margin: 10px 0;
+  @include profile_link;
+}
+
+input.search_user{
+  @include menu_buttom(16px);
+  padding: 0 3px;
+   border-radius: 25px;
+   -webkit-border-radius: 25px;
+   -moz-border-radius: 25px;
+}
+input.search_user:hover{
+  @include menu_buttom_hover;
+}
+
+
+nav.pagination{
+  margin:10px auto;
+}
+span.next a{
+  @include paginate_view;
+}
+span.next a:hover{
+  padding: 0 2px;
+  font-size:18px;
+}
+
+span.last a{
+  @include paginate_view;
+}
+span.last a:hover{
+  padding: 0 2px;
+  font-size:18px;
+}
+span.first a{
+  @include paginate_view;
+}
+span.first a:hover{
+  padding: 0 2px;
+  font-size:18px;
+}
+span.prev a{
+  @include paginate_view;
+}
+span.prev a:hover{
+  padding: 0 2px;
+  font-size:18px;
+}
+span.page a{
+  @include paginate_view;
+}
+span.page a:hover{
+  padding: 0 2px;
+  font-size:18px;
+}
