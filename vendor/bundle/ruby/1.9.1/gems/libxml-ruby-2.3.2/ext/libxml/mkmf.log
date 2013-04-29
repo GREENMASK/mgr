@@ -1,0 +1,414 @@
+have_library: checking for socket() in -lsocket... -------------------- no
+
+"gcc -o conftest -I/home/piotr/.rvm/rubies/ruby-1.9.3-p392/include/ruby-1.9.1/i686-linux -I/home/piotr/.rvm/rubies/ruby-1.9.3-p392/include/ruby-1.9.1/ruby/backward -I/home/piotr/.rvm/rubies/ruby-1.9.3-p392/include/ruby-1.9.1 -I.  -D_FILE_OFFSET_BITS=64   -O3 -ggdb -Wall -Wextra -Wno-unused-parameter -Wno-parentheses -Wno-long-long -Wno-missing-field-initializers -Wpointer-arith -Wwrite-strings -Wdeclaration-after-statement -Wimplicit-function-declaration  -fPIC conftest.c  -L. -L/home/piotr/.rvm/rubies/ruby-1.9.3-p392/lib -Wl,-R/home/piotr/.rvm/rubies/ruby-1.9.3-p392/lib -L/home/piotr/.rvm/rubies/ruby-1.9.3-p392/lib -Wl,-R/home/piotr/.rvm/rubies/ruby-1.9.3-p392/lib -L.  -rdynamic -Wl,-export-dynamic     -Wl,-R -Wl,/home/piotr/.rvm/rubies/ruby-1.9.3-p392/lib -L/home/piotr/.rvm/rubies/ruby-1.9.3-p392/lib -lruby  -lpthread -lrt -ldl -lcrypt -lm   -lc"
+checked program was:
+/* begin */
+1: #include "ruby.h"
+2: 
+3: int main() {return 0;}
+/* end */
+
+"gcc -o conftest -I/home/piotr/.rvm/rubies/ruby-1.9.3-p392/include/ruby-1.9.1/i686-linux -I/home/piotr/.rvm/rubies/ruby-1.9.3-p392/include/ruby-1.9.1/ruby/backward -I/home/piotr/.rvm/rubies/ruby-1.9.3-p392/include/ruby-1.9.1 -I.  -D_FILE_OFFSET_BITS=64   -O3 -ggdb -Wall -Wextra -Wno-unused-parameter -Wno-parentheses -Wno-long-long -Wno-missing-field-initializers -Wpointer-arith -Wwrite-strings -Wdeclaration-after-statement -Wimplicit-function-declaration  -fPIC conftest.c  -L. -L/home/piotr/.rvm/rubies/ruby-1.9.3-p392/lib -Wl,-R/home/piotr/.rvm/rubies/ruby-1.9.3-p392/lib -L/home/piotr/.rvm/rubies/ruby-1.9.3-p392/lib -Wl,-R/home/piotr/.rvm/rubies/ruby-1.9.3-p392/lib -L.  -rdynamic -Wl,-export-dynamic     -Wl,-R -Wl,/home/piotr/.rvm/rubies/ruby-1.9.3-p392/lib -L/home/piotr/.rvm/rubies/ruby-1.9.3-p392/lib -lruby -lsocket  -lpthread -lrt -ldl -lcrypt -lm   -lc"
+conftest.c: In function ‘t’:
+conftest.c:5:53: error: ‘socket’ undeclared (first use in this function)
+conftest.c:5:53: note: each undeclared identifier is reported only once for each function it appears in
+conftest.c:5:28: warning: variable ‘p’ set but not used [-Wunused-but-set-variable]
+checked program was:
+/* begin */
+1: #include "ruby.h"
+2: 
+3: /*top*/
+4: int main() {return 0;}
+5: int t() { void ((*volatile p)()); p = (void ((*)()))socket; return 0; }
+/* end */
+
+"gcc -o conftest -I/home/piotr/.rvm/rubies/ruby-1.9.3-p392/include/ruby-1.9.1/i686-linux -I/home/piotr/.rvm/rubies/ruby-1.9.3-p392/include/ruby-1.9.1/ruby/backward -I/home/piotr/.rvm/rubies/ruby-1.9.3-p392/include/ruby-1.9.1 -I.  -D_FILE_OFFSET_BITS=64   -O3 -ggdb -Wall -Wextra -Wno-unused-parameter -Wno-parentheses -Wno-long-long -Wno-missing-field-initializers -Wpointer-arith -Wwrite-strings -Wdeclaration-after-statement -Wimplicit-function-declaration  -fPIC conftest.c  -L. -L/home/piotr/.rvm/rubies/ruby-1.9.3-p392/lib -Wl,-R/home/piotr/.rvm/rubies/ruby-1.9.3-p392/lib -L/home/piotr/.rvm/rubies/ruby-1.9.3-p392/lib -Wl,-R/home/piotr/.rvm/rubies/ruby-1.9.3-p392/lib -L.  -rdynamic -Wl,-export-dynamic     -Wl,-R -Wl,/home/piotr/.rvm/rubies/ruby-1.9.3-p392/lib -L/home/piotr/.rvm/rubies/ruby-1.9.3-p392/lib -lruby -lsocket  -lpthread -lrt -ldl -lcrypt -lm   -lc"
+conftest.c: In function ‘t’:
+conftest.c:5:1: warning: implicit declaration of function ‘socket’ [-Wimplicit-function-declaration]
+/usr/bin/ld: cannot find -lsocket
+collect2: error: ld returned 1 exit status
+checked program was:
+/* begin */
+1: #include "ruby.h"
+2: 
+3: /*top*/
+4: int main() {return 0;}
+5: int t() { socket(); return 0; }
+/* end */
+
+--------------------
+
+have_library: checking for gethostbyname() in -lnsl... -------------------- yes
+
+"gcc -o conftest -I/home/piotr/.rvm/rubies/ruby-1.9.3-p392/include/ruby-1.9.1/i686-linux -I/home/piotr/.rvm/rubies/ruby-1.9.3-p392/include/ruby-1.9.1/ruby/backward -I/home/piotr/.rvm/rubies/ruby-1.9.3-p392/include/ruby-1.9.1 -I.  -D_FILE_OFFSET_BITS=64   -O3 -ggdb -Wall -Wextra -Wno-unused-parameter -Wno-parentheses -Wno-long-long -Wno-missing-field-initializers -Wpointer-arith -Wwrite-strings -Wdeclaration-after-statement -Wimplicit-function-declaration  -fPIC conftest.c  -L. -L/home/piotr/.rvm/rubies/ruby-1.9.3-p392/lib -Wl,-R/home/piotr/.rvm/rubies/ruby-1.9.3-p392/lib -L/home/piotr/.rvm/rubies/ruby-1.9.3-p392/lib -Wl,-R/home/piotr/.rvm/rubies/ruby-1.9.3-p392/lib -L.  -rdynamic -Wl,-export-dynamic     -Wl,-R -Wl,/home/piotr/.rvm/rubies/ruby-1.9.3-p392/lib -L/home/piotr/.rvm/rubies/ruby-1.9.3-p392/lib -lruby -lnsl  -lpthread -lrt -ldl -lcrypt -lm   -lc"
+conftest.c: In function ‘t’:
+conftest.c:5:53: error: ‘gethostbyname’ undeclared (first use in this function)
+conftest.c:5:53: note: each undeclared identifier is reported only once for each function it appears in
+conftest.c:5:28: warning: variable ‘p’ set but not used [-Wunused-but-set-variable]
+checked program was:
+/* begin */
+1: #include "ruby.h"
+2: 
+3: /*top*/
+4: int main() {return 0;}
+5: int t() { void ((*volatile p)()); p = (void ((*)()))gethostbyname; return 0; }
+/* end */
+
+"gcc -o conftest -I/home/piotr/.rvm/rubies/ruby-1.9.3-p392/include/ruby-1.9.1/i686-linux -I/home/piotr/.rvm/rubies/ruby-1.9.3-p392/include/ruby-1.9.1/ruby/backward -I/home/piotr/.rvm/rubies/ruby-1.9.3-p392/include/ruby-1.9.1 -I.  -D_FILE_OFFSET_BITS=64   -O3 -ggdb -Wall -Wextra -Wno-unused-parameter -Wno-parentheses -Wno-long-long -Wno-missing-field-initializers -Wpointer-arith -Wwrite-strings -Wdeclaration-after-statement -Wimplicit-function-declaration  -fPIC conftest.c  -L. -L/home/piotr/.rvm/rubies/ruby-1.9.3-p392/lib -Wl,-R/home/piotr/.rvm/rubies/ruby-1.9.3-p392/lib -L/home/piotr/.rvm/rubies/ruby-1.9.3-p392/lib -Wl,-R/home/piotr/.rvm/rubies/ruby-1.9.3-p392/lib -L.  -rdynamic -Wl,-export-dynamic     -Wl,-R -Wl,/home/piotr/.rvm/rubies/ruby-1.9.3-p392/lib -L/home/piotr/.rvm/rubies/ruby-1.9.3-p392/lib -lruby -lnsl  -lpthread -lrt -ldl -lcrypt -lm   -lc"
+conftest.c: In function ‘t’:
+conftest.c:5:1: warning: implicit declaration of function ‘gethostbyname’ [-Wimplicit-function-declaration]
+checked program was:
+/* begin */
+1: #include "ruby.h"
+2: 
+3: /*top*/
+4: int main() {return 0;}
+5: int t() { gethostbyname(); return 0; }
+/* end */
+
+--------------------
+
+have_library: checking for atan() in -lm... -------------------- no
+
+"gcc -o conftest -I/home/piotr/.rvm/rubies/ruby-1.9.3-p392/include/ruby-1.9.1/i686-linux -I/home/piotr/.rvm/rubies/ruby-1.9.3-p392/include/ruby-1.9.1/ruby/backward -I/home/piotr/.rvm/rubies/ruby-1.9.3-p392/include/ruby-1.9.1 -I.  -D_FILE_OFFSET_BITS=64   -O3 -ggdb -Wall -Wextra -Wno-unused-parameter -Wno-parentheses -Wno-long-long -Wno-missing-field-initializers -Wpointer-arith -Wwrite-strings -Wdeclaration-after-statement -Wimplicit-function-declaration  -fPIC conftest.c  -L. -L/home/piotr/.rvm/rubies/ruby-1.9.3-p392/lib -Wl,-R/home/piotr/.rvm/rubies/ruby-1.9.3-p392/lib -L/home/piotr/.rvm/rubies/ruby-1.9.3-p392/lib -Wl,-R/home/piotr/.rvm/rubies/ruby-1.9.3-p392/lib -L.  -rdynamic -Wl,-export-dynamic    -lnsl  -Wl,-R -Wl,/home/piotr/.rvm/rubies/ruby-1.9.3-p392/lib -L/home/piotr/.rvm/rubies/ruby-1.9.3-p392/lib -lruby -lm -lnsl  -lpthread -lrt -ldl -lcrypt -lm   -lc"
+conftest.c: In function ‘t’:
+conftest.c:5:53: error: ‘atan’ undeclared (first use in this function)
+conftest.c:5:53: note: each undeclared identifier is reported only once for each function it appears in
+conftest.c:5:28: warning: variable ‘p’ set but not used [-Wunused-but-set-variable]
+checked program was:
+/* begin */
+1: #include "ruby.h"
+2: 
+3: /*top*/
+4: int main() {return 0;}
+5: int t() { void ((*volatile p)()); p = (void ((*)()))atan; return 0; }
+/* end */
+
+"gcc -o conftest -I/home/piotr/.rvm/rubies/ruby-1.9.3-p392/include/ruby-1.9.1/i686-linux -I/home/piotr/.rvm/rubies/ruby-1.9.3-p392/include/ruby-1.9.1/ruby/backward -I/home/piotr/.rvm/rubies/ruby-1.9.3-p392/include/ruby-1.9.1 -I.  -D_FILE_OFFSET_BITS=64   -O3 -ggdb -Wall -Wextra -Wno-unused-parameter -Wno-parentheses -Wno-long-long -Wno-missing-field-initializers -Wpointer-arith -Wwrite-strings -Wdeclaration-after-statement -Wimplicit-function-declaration  -fPIC conftest.c  -L. -L/home/piotr/.rvm/rubies/ruby-1.9.3-p392/lib -Wl,-R/home/piotr/.rvm/rubies/ruby-1.9.3-p392/lib -L/home/piotr/.rvm/rubies/ruby-1.9.3-p392/lib -Wl,-R/home/piotr/.rvm/rubies/ruby-1.9.3-p392/lib -L.  -rdynamic -Wl,-export-dynamic    -lnsl  -Wl,-R -Wl,/home/piotr/.rvm/rubies/ruby-1.9.3-p392/lib -L/home/piotr/.rvm/rubies/ruby-1.9.3-p392/lib -lruby -lm -lnsl  -lpthread -lrt -ldl -lcrypt -lm   -lc"
+conftest.c: In function ‘t’:
+conftest.c:5:1: warning: implicit declaration of function ‘atan’ [-Wimplicit-function-declaration]
+conftest.c:5:11: warning: incompatible implicit declaration of built-in function ‘atan’ [enabled by default]
+conftest.c:5:1: error: too few arguments to function ‘atan’
+checked program was:
+/* begin */
+1: #include "ruby.h"
+2: 
+3: /*top*/
+4: int main() {return 0;}
+5: int t() { atan(); return 0; }
+/* end */
+
+--------------------
+
+have_library: checking for atan() in -lm... -------------------- yes
+
+"gcc -o conftest -I/home/piotr/.rvm/rubies/ruby-1.9.3-p392/include/ruby-1.9.1/i686-linux -I/home/piotr/.rvm/rubies/ruby-1.9.3-p392/include/ruby-1.9.1/ruby/backward -I/home/piotr/.rvm/rubies/ruby-1.9.3-p392/include/ruby-1.9.1 -I.  -D_FILE_OFFSET_BITS=64   -O3 -ggdb -Wall -Wextra -Wno-unused-parameter -Wno-parentheses -Wno-long-long -Wno-missing-field-initializers -Wpointer-arith -Wwrite-strings -Wdeclaration-after-statement -Wimplicit-function-declaration  -fPIC -fno-builtin conftest.c  -L. -L/home/piotr/.rvm/rubies/ruby-1.9.3-p392/lib -Wl,-R/home/piotr/.rvm/rubies/ruby-1.9.3-p392/lib -L/home/piotr/.rvm/rubies/ruby-1.9.3-p392/lib -Wl,-R/home/piotr/.rvm/rubies/ruby-1.9.3-p392/lib -L.  -rdynamic -Wl,-export-dynamic    -lnsl  -Wl,-R -Wl,/home/piotr/.rvm/rubies/ruby-1.9.3-p392/lib -L/home/piotr/.rvm/rubies/ruby-1.9.3-p392/lib -lruby -lm -lnsl  -lpthread -lrt -ldl -lcrypt -lm   -lc"
+conftest.c: In function ‘t’:
+conftest.c:5:53: error: ‘atan’ undeclared (first use in this function)
+conftest.c:5:53: note: each undeclared identifier is reported only once for each function it appears in
+conftest.c:5:28: warning: variable ‘p’ set but not used [-Wunused-but-set-variable]
+checked program was:
+/* begin */
+1: #include "ruby.h"
+2: 
+3: /*top*/
+4: int main() {return 0;}
+5: int t() { void ((*volatile p)()); p = (void ((*)()))atan; return 0; }
+/* end */
+
+"gcc -o conftest -I/home/piotr/.rvm/rubies/ruby-1.9.3-p392/include/ruby-1.9.1/i686-linux -I/home/piotr/.rvm/rubies/ruby-1.9.3-p392/include/ruby-1.9.1/ruby/backward -I/home/piotr/.rvm/rubies/ruby-1.9.3-p392/include/ruby-1.9.1 -I.  -D_FILE_OFFSET_BITS=64   -O3 -ggdb -Wall -Wextra -Wno-unused-parameter -Wno-parentheses -Wno-long-long -Wno-missing-field-initializers -Wpointer-arith -Wwrite-strings -Wdeclaration-after-statement -Wimplicit-function-declaration  -fPIC -fno-builtin conftest.c  -L. -L/home/piotr/.rvm/rubies/ruby-1.9.3-p392/lib -Wl,-R/home/piotr/.rvm/rubies/ruby-1.9.3-p392/lib -L/home/piotr/.rvm/rubies/ruby-1.9.3-p392/lib -Wl,-R/home/piotr/.rvm/rubies/ruby-1.9.3-p392/lib -L.  -rdynamic -Wl,-export-dynamic    -lnsl  -Wl,-R -Wl,/home/piotr/.rvm/rubies/ruby-1.9.3-p392/lib -L/home/piotr/.rvm/rubies/ruby-1.9.3-p392/lib -lruby -lm -lnsl  -lpthread -lrt -ldl -lcrypt -lm   -lc"
+conftest.c: In function ‘t’:
+conftest.c:5:1: warning: implicit declaration of function ‘atan’ [-Wimplicit-function-declaration]
+checked program was:
+/* begin */
+1: #include "ruby.h"
+2: 
+3: /*top*/
+4: int main() {return 0;}
+5: int t() { atan(); return 0; }
+/* end */
+
+--------------------
+
+have_library: checking for inflate() in -lz... -------------------- yes
+
+"gcc -o conftest -I/home/piotr/.rvm/rubies/ruby-1.9.3-p392/include/ruby-1.9.1/i686-linux -I/home/piotr/.rvm/rubies/ruby-1.9.3-p392/include/ruby-1.9.1/ruby/backward -I/home/piotr/.rvm/rubies/ruby-1.9.3-p392/include/ruby-1.9.1 -I.  -D_FILE_OFFSET_BITS=64   -O3 -ggdb -Wall -Wextra -Wno-unused-parameter -Wno-parentheses -Wno-long-long -Wno-missing-field-initializers -Wpointer-arith -Wwrite-strings -Wdeclaration-after-statement -Wimplicit-function-declaration  -fPIC conftest.c  -L. -L/home/piotr/.rvm/rubies/ruby-1.9.3-p392/lib -Wl,-R/home/piotr/.rvm/rubies/ruby-1.9.3-p392/lib -L/home/piotr/.rvm/rubies/ruby-1.9.3-p392/lib -Wl,-R/home/piotr/.rvm/rubies/ruby-1.9.3-p392/lib -L.  -rdynamic -Wl,-export-dynamic    -lm -lnsl  -Wl,-R -Wl,/home/piotr/.rvm/rubies/ruby-1.9.3-p392/lib -L/home/piotr/.rvm/rubies/ruby-1.9.3-p392/lib -lruby -lz -lm -lnsl  -lpthread -lrt -ldl -lcrypt -lm   -lc"
+conftest.c: In function ‘t’:
+conftest.c:5:53: error: ‘inflate’ undeclared (first use in this function)
+conftest.c:5:53: note: each undeclared identifier is reported only once for each function it appears in
+conftest.c:5:28: warning: variable ‘p’ set but not used [-Wunused-but-set-variable]
+checked program was:
+/* begin */
+1: #include "ruby.h"
+2: 
+3: /*top*/
+4: int main() {return 0;}
+5: int t() { void ((*volatile p)()); p = (void ((*)()))inflate; return 0; }
+/* end */
+
+"gcc -o conftest -I/home/piotr/.rvm/rubies/ruby-1.9.3-p392/include/ruby-1.9.1/i686-linux -I/home/piotr/.rvm/rubies/ruby-1.9.3-p392/include/ruby-1.9.1/ruby/backward -I/home/piotr/.rvm/rubies/ruby-1.9.3-p392/include/ruby-1.9.1 -I.  -D_FILE_OFFSET_BITS=64   -O3 -ggdb -Wall -Wextra -Wno-unused-parameter -Wno-parentheses -Wno-long-long -Wno-missing-field-initializers -Wpointer-arith -Wwrite-strings -Wdeclaration-after-statement -Wimplicit-function-declaration  -fPIC conftest.c  -L. -L/home/piotr/.rvm/rubies/ruby-1.9.3-p392/lib -Wl,-R/home/piotr/.rvm/rubies/ruby-1.9.3-p392/lib -L/home/piotr/.rvm/rubies/ruby-1.9.3-p392/lib -Wl,-R/home/piotr/.rvm/rubies/ruby-1.9.3-p392/lib -L.  -rdynamic -Wl,-export-dynamic    -lm -lnsl  -Wl,-R -Wl,/home/piotr/.rvm/rubies/ruby-1.9.3-p392/lib -L/home/piotr/.rvm/rubies/ruby-1.9.3-p392/lib -lruby -lz -lm -lnsl  -lpthread -lrt -ldl -lcrypt -lm   -lc"
+conftest.c: In function ‘t’:
+conftest.c:5:1: warning: implicit declaration of function ‘inflate’ [-Wimplicit-function-declaration]
+checked program was:
+/* begin */
+1: #include "ruby.h"
+2: 
+3: /*top*/
+4: int main() {return 0;}
+5: int t() { inflate(); return 0; }
+/* end */
+
+--------------------
+
+have_library: checking for iconv_open() in -liconv... -------------------- no
+
+"gcc -o conftest -I/home/piotr/.rvm/rubies/ruby-1.9.3-p392/include/ruby-1.9.1/i686-linux -I/home/piotr/.rvm/rubies/ruby-1.9.3-p392/include/ruby-1.9.1/ruby/backward -I/home/piotr/.rvm/rubies/ruby-1.9.3-p392/include/ruby-1.9.1 -I.  -D_FILE_OFFSET_BITS=64   -O3 -ggdb -Wall -Wextra -Wno-unused-parameter -Wno-parentheses -Wno-long-long -Wno-missing-field-initializers -Wpointer-arith -Wwrite-strings -Wdeclaration-after-statement -Wimplicit-function-declaration  -fPIC conftest.c  -L. -L/home/piotr/.rvm/rubies/ruby-1.9.3-p392/lib -Wl,-R/home/piotr/.rvm/rubies/ruby-1.9.3-p392/lib -L/home/piotr/.rvm/rubies/ruby-1.9.3-p392/lib -Wl,-R/home/piotr/.rvm/rubies/ruby-1.9.3-p392/lib -L.  -rdynamic -Wl,-export-dynamic    -lz -lm -lnsl  -Wl,-R -Wl,/home/piotr/.rvm/rubies/ruby-1.9.3-p392/lib -L/home/piotr/.rvm/rubies/ruby-1.9.3-p392/lib -lruby -liconv -lz -lm -lnsl  -lpthread -lrt -ldl -lcrypt -lm   -lc"
+conftest.c: In function ‘t’:
+conftest.c:5:53: error: ‘iconv_open’ undeclared (first use in this function)
+conftest.c:5:53: note: each undeclared identifier is reported only once for each function it appears in
+conftest.c:5:28: warning: variable ‘p’ set but not used [-Wunused-but-set-variable]
+checked program was:
+/* begin */
+1: #include "ruby.h"
+2: 
+3: /*top*/
+4: int main() {return 0;}
+5: int t() { void ((*volatile p)()); p = (void ((*)()))iconv_open; return 0; }
+/* end */
+
+"gcc -o conftest -I/home/piotr/.rvm/rubies/ruby-1.9.3-p392/include/ruby-1.9.1/i686-linux -I/home/piotr/.rvm/rubies/ruby-1.9.3-p392/include/ruby-1.9.1/ruby/backward -I/home/piotr/.rvm/rubies/ruby-1.9.3-p392/include/ruby-1.9.1 -I.  -D_FILE_OFFSET_BITS=64   -O3 -ggdb -Wall -Wextra -Wno-unused-parameter -Wno-parentheses -Wno-long-long -Wno-missing-field-initializers -Wpointer-arith -Wwrite-strings -Wdeclaration-after-statement -Wimplicit-function-declaration  -fPIC conftest.c  -L. -L/home/piotr/.rvm/rubies/ruby-1.9.3-p392/lib -Wl,-R/home/piotr/.rvm/rubies/ruby-1.9.3-p392/lib -L/home/piotr/.rvm/rubies/ruby-1.9.3-p392/lib -Wl,-R/home/piotr/.rvm/rubies/ruby-1.9.3-p392/lib -L.  -rdynamic -Wl,-export-dynamic    -lz -lm -lnsl  -Wl,-R -Wl,/home/piotr/.rvm/rubies/ruby-1.9.3-p392/lib -L/home/piotr/.rvm/rubies/ruby-1.9.3-p392/lib -lruby -liconv -lz -lm -lnsl  -lpthread -lrt -ldl -lcrypt -lm   -lc"
+conftest.c: In function ‘t’:
+conftest.c:5:1: warning: implicit declaration of function ‘iconv_open’ [-Wimplicit-function-declaration]
+/usr/bin/ld: cannot find -liconv
+collect2: error: ld returned 1 exit status
+checked program was:
+/* begin */
+1: #include "ruby.h"
+2: 
+3: /*top*/
+4: int main() {return 0;}
+5: int t() { iconv_open(); return 0; }
+/* end */
+
+--------------------
+
+have_library: checking for libiconv_open() in -liconv... -------------------- no
+
+"gcc -o conftest -I/home/piotr/.rvm/rubies/ruby-1.9.3-p392/include/ruby-1.9.1/i686-linux -I/home/piotr/.rvm/rubies/ruby-1.9.3-p392/include/ruby-1.9.1/ruby/backward -I/home/piotr/.rvm/rubies/ruby-1.9.3-p392/include/ruby-1.9.1 -I.  -D_FILE_OFFSET_BITS=64   -O3 -ggdb -Wall -Wextra -Wno-unused-parameter -Wno-parentheses -Wno-long-long -Wno-missing-field-initializers -Wpointer-arith -Wwrite-strings -Wdeclaration-after-statement -Wimplicit-function-declaration  -fPIC conftest.c  -L. -L/home/piotr/.rvm/rubies/ruby-1.9.3-p392/lib -Wl,-R/home/piotr/.rvm/rubies/ruby-1.9.3-p392/lib -L/home/piotr/.rvm/rubies/ruby-1.9.3-p392/lib -Wl,-R/home/piotr/.rvm/rubies/ruby-1.9.3-p392/lib -L.  -rdynamic -Wl,-export-dynamic    -lz -lm -lnsl  -Wl,-R -Wl,/home/piotr/.rvm/rubies/ruby-1.9.3-p392/lib -L/home/piotr/.rvm/rubies/ruby-1.9.3-p392/lib -lruby -liconv -lz -lm -lnsl  -lpthread -lrt -ldl -lcrypt -lm   -lc"
+conftest.c: In function ‘t’:
+conftest.c:5:53: error: ‘libiconv_open’ undeclared (first use in this function)
+conftest.c:5:53: note: each undeclared identifier is reported only once for each function it appears in
+conftest.c:5:28: warning: variable ‘p’ set but not used [-Wunused-but-set-variable]
+checked program was:
+/* begin */
+1: #include "ruby.h"
+2: 
+3: /*top*/
+4: int main() {return 0;}
+5: int t() { void ((*volatile p)()); p = (void ((*)()))libiconv_open; return 0; }
+/* end */
+
+"gcc -o conftest -I/home/piotr/.rvm/rubies/ruby-1.9.3-p392/include/ruby-1.9.1/i686-linux -I/home/piotr/.rvm/rubies/ruby-1.9.3-p392/include/ruby-1.9.1/ruby/backward -I/home/piotr/.rvm/rubies/ruby-1.9.3-p392/include/ruby-1.9.1 -I.  -D_FILE_OFFSET_BITS=64   -O3 -ggdb -Wall -Wextra -Wno-unused-parameter -Wno-parentheses -Wno-long-long -Wno-missing-field-initializers -Wpointer-arith -Wwrite-strings -Wdeclaration-after-statement -Wimplicit-function-declaration  -fPIC conftest.c  -L. -L/home/piotr/.rvm/rubies/ruby-1.9.3-p392/lib -Wl,-R/home/piotr/.rvm/rubies/ruby-1.9.3-p392/lib -L/home/piotr/.rvm/rubies/ruby-1.9.3-p392/lib -Wl,-R/home/piotr/.rvm/rubies/ruby-1.9.3-p392/lib -L.  -rdynamic -Wl,-export-dynamic    -lz -lm -lnsl  -Wl,-R -Wl,/home/piotr/.rvm/rubies/ruby-1.9.3-p392/lib -L/home/piotr/.rvm/rubies/ruby-1.9.3-p392/lib -lruby -liconv -lz -lm -lnsl  -lpthread -lrt -ldl -lcrypt -lm   -lc"
+conftest.c: In function ‘t’:
+conftest.c:5:1: warning: implicit declaration of function ‘libiconv_open’ [-Wimplicit-function-declaration]
+/usr/bin/ld: cannot find -liconv
+collect2: error: ld returned 1 exit status
+checked program was:
+/* begin */
+1: #include "ruby.h"
+2: 
+3: /*top*/
+4: int main() {return 0;}
+5: int t() { libiconv_open(); return 0; }
+/* end */
+
+--------------------
+
+have_library: checking for libiconv_open() in -llibiconv... -------------------- no
+
+"gcc -o conftest -I/home/piotr/.rvm/rubies/ruby-1.9.3-p392/include/ruby-1.9.1/i686-linux -I/home/piotr/.rvm/rubies/ruby-1.9.3-p392/include/ruby-1.9.1/ruby/backward -I/home/piotr/.rvm/rubies/ruby-1.9.3-p392/include/ruby-1.9.1 -I.  -D_FILE_OFFSET_BITS=64   -O3 -ggdb -Wall -Wextra -Wno-unused-parameter -Wno-parentheses -Wno-long-long -Wno-missing-field-initializers -Wpointer-arith -Wwrite-strings -Wdeclaration-after-statement -Wimplicit-function-declaration  -fPIC conftest.c  -L. -L/home/piotr/.rvm/rubies/ruby-1.9.3-p392/lib -Wl,-R/home/piotr/.rvm/rubies/ruby-1.9.3-p392/lib -L/home/piotr/.rvm/rubies/ruby-1.9.3-p392/lib -Wl,-R/home/piotr/.rvm/rubies/ruby-1.9.3-p392/lib -L.  -rdynamic -Wl,-export-dynamic    -lz -lm -lnsl  -Wl,-R -Wl,/home/piotr/.rvm/rubies/ruby-1.9.3-p392/lib -L/home/piotr/.rvm/rubies/ruby-1.9.3-p392/lib -lruby -llibiconv -lz -lm -lnsl  -lpthread -lrt -ldl -lcrypt -lm   -lc"
+conftest.c: In function ‘t’:
+conftest.c:5:53: error: ‘libiconv_open’ undeclared (first use in this function)
+conftest.c:5:53: note: each undeclared identifier is reported only once for each function it appears in
+conftest.c:5:28: warning: variable ‘p’ set but not used [-Wunused-but-set-variable]
+checked program was:
+/* begin */
+1: #include "ruby.h"
+2: 
+3: /*top*/
+4: int main() {return 0;}
+5: int t() { void ((*volatile p)()); p = (void ((*)()))libiconv_open; return 0; }
+/* end */
+
+"gcc -o conftest -I/home/piotr/.rvm/rubies/ruby-1.9.3-p392/include/ruby-1.9.1/i686-linux -I/home/piotr/.rvm/rubies/ruby-1.9.3-p392/include/ruby-1.9.1/ruby/backward -I/home/piotr/.rvm/rubies/ruby-1.9.3-p392/include/ruby-1.9.1 -I.  -D_FILE_OFFSET_BITS=64   -O3 -ggdb -Wall -Wextra -Wno-unused-parameter -Wno-parentheses -Wno-long-long -Wno-missing-field-initializers -Wpointer-arith -Wwrite-strings -Wdeclaration-after-statement -Wimplicit-function-declaration  -fPIC conftest.c  -L. -L/home/piotr/.rvm/rubies/ruby-1.9.3-p392/lib -Wl,-R/home/piotr/.rvm/rubies/ruby-1.9.3-p392/lib -L/home/piotr/.rvm/rubies/ruby-1.9.3-p392/lib -Wl,-R/home/piotr/.rvm/rubies/ruby-1.9.3-p392/lib -L.  -rdynamic -Wl,-export-dynamic    -lz -lm -lnsl  -Wl,-R -Wl,/home/piotr/.rvm/rubies/ruby-1.9.3-p392/lib -L/home/piotr/.rvm/rubies/ruby-1.9.3-p392/lib -lruby -llibiconv -lz -lm -lnsl  -lpthread -lrt -ldl -lcrypt -lm   -lc"
+conftest.c: In function ‘t’:
+conftest.c:5:1: warning: implicit declaration of function ‘libiconv_open’ [-Wimplicit-function-declaration]
+/usr/bin/ld: cannot find -llibiconv
+collect2: error: ld returned 1 exit status
+checked program was:
+/* begin */
+1: #include "ruby.h"
+2: 
+3: /*top*/
+4: int main() {return 0;}
+5: int t() { libiconv_open(); return 0; }
+/* end */
+
+--------------------
+
+have_library: checking for iconv_open() in -llibiconv... -------------------- no
+
+"gcc -o conftest -I/home/piotr/.rvm/rubies/ruby-1.9.3-p392/include/ruby-1.9.1/i686-linux -I/home/piotr/.rvm/rubies/ruby-1.9.3-p392/include/ruby-1.9.1/ruby/backward -I/home/piotr/.rvm/rubies/ruby-1.9.3-p392/include/ruby-1.9.1 -I.  -D_FILE_OFFSET_BITS=64   -O3 -ggdb -Wall -Wextra -Wno-unused-parameter -Wno-parentheses -Wno-long-long -Wno-missing-field-initializers -Wpointer-arith -Wwrite-strings -Wdeclaration-after-statement -Wimplicit-function-declaration  -fPIC conftest.c  -L. -L/home/piotr/.rvm/rubies/ruby-1.9.3-p392/lib -Wl,-R/home/piotr/.rvm/rubies/ruby-1.9.3-p392/lib -L/home/piotr/.rvm/rubies/ruby-1.9.3-p392/lib -Wl,-R/home/piotr/.rvm/rubies/ruby-1.9.3-p392/lib -L.  -rdynamic -Wl,-export-dynamic    -lz -lm -lnsl  -Wl,-R -Wl,/home/piotr/.rvm/rubies/ruby-1.9.3-p392/lib -L/home/piotr/.rvm/rubies/ruby-1.9.3-p392/lib -lruby -llibiconv -lz -lm -lnsl  -lpthread -lrt -ldl -lcrypt -lm   -lc"
+conftest.c: In function ‘t’:
+conftest.c:5:53: error: ‘iconv_open’ undeclared (first use in this function)
+conftest.c:5:53: note: each undeclared identifier is reported only once for each function it appears in
+conftest.c:5:28: warning: variable ‘p’ set but not used [-Wunused-but-set-variable]
+checked program was:
+/* begin */
+1: #include "ruby.h"
+2: 
+3: /*top*/
+4: int main() {return 0;}
+5: int t() { void ((*volatile p)()); p = (void ((*)()))iconv_open; return 0; }
+/* end */
+
+"gcc -o conftest -I/home/piotr/.rvm/rubies/ruby-1.9.3-p392/include/ruby-1.9.1/i686-linux -I/home/piotr/.rvm/rubies/ruby-1.9.3-p392/include/ruby-1.9.1/ruby/backward -I/home/piotr/.rvm/rubies/ruby-1.9.3-p392/include/ruby-1.9.1 -I.  -D_FILE_OFFSET_BITS=64   -O3 -ggdb -Wall -Wextra -Wno-unused-parameter -Wno-parentheses -Wno-long-long -Wno-missing-field-initializers -Wpointer-arith -Wwrite-strings -Wdeclaration-after-statement -Wimplicit-function-declaration  -fPIC conftest.c  -L. -L/home/piotr/.rvm/rubies/ruby-1.9.3-p392/lib -Wl,-R/home/piotr/.rvm/rubies/ruby-1.9.3-p392/lib -L/home/piotr/.rvm/rubies/ruby-1.9.3-p392/lib -Wl,-R/home/piotr/.rvm/rubies/ruby-1.9.3-p392/lib -L.  -rdynamic -Wl,-export-dynamic    -lz -lm -lnsl  -Wl,-R -Wl,/home/piotr/.rvm/rubies/ruby-1.9.3-p392/lib -L/home/piotr/.rvm/rubies/ruby-1.9.3-p392/lib -lruby -llibiconv -lz -lm -lnsl  -lpthread -lrt -ldl -lcrypt -lm   -lc"
+conftest.c: In function ‘t’:
+conftest.c:5:1: warning: implicit declaration of function ‘iconv_open’ [-Wimplicit-function-declaration]
+/usr/bin/ld: cannot find -llibiconv
+collect2: error: ld returned 1 exit status
+checked program was:
+/* begin */
+1: #include "ruby.h"
+2: 
+3: /*top*/
+4: int main() {return 0;}
+5: int t() { iconv_open(); return 0; }
+/* end */
+
+--------------------
+
+have_library: checking for iconv_open() in -lc... -------------------- yes
+
+"gcc -o conftest -I/home/piotr/.rvm/rubies/ruby-1.9.3-p392/include/ruby-1.9.1/i686-linux -I/home/piotr/.rvm/rubies/ruby-1.9.3-p392/include/ruby-1.9.1/ruby/backward -I/home/piotr/.rvm/rubies/ruby-1.9.3-p392/include/ruby-1.9.1 -I.  -D_FILE_OFFSET_BITS=64   -O3 -ggdb -Wall -Wextra -Wno-unused-parameter -Wno-parentheses -Wno-long-long -Wno-missing-field-initializers -Wpointer-arith -Wwrite-strings -Wdeclaration-after-statement -Wimplicit-function-declaration  -fPIC conftest.c  -L. -L/home/piotr/.rvm/rubies/ruby-1.9.3-p392/lib -Wl,-R/home/piotr/.rvm/rubies/ruby-1.9.3-p392/lib -L/home/piotr/.rvm/rubies/ruby-1.9.3-p392/lib -Wl,-R/home/piotr/.rvm/rubies/ruby-1.9.3-p392/lib -L.  -rdynamic -Wl,-export-dynamic    -lz -lm -lnsl  -Wl,-R -Wl,/home/piotr/.rvm/rubies/ruby-1.9.3-p392/lib -L/home/piotr/.rvm/rubies/ruby-1.9.3-p392/lib -lruby -lc -lz -lm -lnsl  -lpthread -lrt -ldl -lcrypt -lm   -lc"
+conftest.c: In function ‘t’:
+conftest.c:5:53: error: ‘iconv_open’ undeclared (first use in this function)
+conftest.c:5:53: note: each undeclared identifier is reported only once for each function it appears in
+conftest.c:5:28: warning: variable ‘p’ set but not used [-Wunused-but-set-variable]
+checked program was:
+/* begin */
+1: #include "ruby.h"
+2: 
+3: /*top*/
+4: int main() {return 0;}
+5: int t() { void ((*volatile p)()); p = (void ((*)()))iconv_open; return 0; }
+/* end */
+
+"gcc -o conftest -I/home/piotr/.rvm/rubies/ruby-1.9.3-p392/include/ruby-1.9.1/i686-linux -I/home/piotr/.rvm/rubies/ruby-1.9.3-p392/include/ruby-1.9.1/ruby/backward -I/home/piotr/.rvm/rubies/ruby-1.9.3-p392/include/ruby-1.9.1 -I.  -D_FILE_OFFSET_BITS=64   -O3 -ggdb -Wall -Wextra -Wno-unused-parameter -Wno-parentheses -Wno-long-long -Wno-missing-field-initializers -Wpointer-arith -Wwrite-strings -Wdeclaration-after-statement -Wimplicit-function-declaration  -fPIC conftest.c  -L. -L/home/piotr/.rvm/rubies/ruby-1.9.3-p392/lib -Wl,-R/home/piotr/.rvm/rubies/ruby-1.9.3-p392/lib -L/home/piotr/.rvm/rubies/ruby-1.9.3-p392/lib -Wl,-R/home/piotr/.rvm/rubies/ruby-1.9.3-p392/lib -L.  -rdynamic -Wl,-export-dynamic    -lz -lm -lnsl  -Wl,-R -Wl,/home/piotr/.rvm/rubies/ruby-1.9.3-p392/lib -L/home/piotr/.rvm/rubies/ruby-1.9.3-p392/lib -lruby -lc -lz -lm -lnsl  -lpthread -lrt -ldl -lcrypt -lm   -lc"
+conftest.c: In function ‘t’:
+conftest.c:5:1: warning: implicit declaration of function ‘iconv_open’ [-Wimplicit-function-declaration]
+checked program was:
+/* begin */
+1: #include "ruby.h"
+2: 
+3: /*top*/
+4: int main() {return 0;}
+5: int t() { iconv_open(); return 0; }
+/* end */
+
+--------------------
+
+have_library: checking for xmlParseDoc() in -lxml2... -------------------- yes
+
+"gcc -o conftest -I/home/piotr/.rvm/rubies/ruby-1.9.3-p392/include/ruby-1.9.1/i686-linux -I/home/piotr/.rvm/rubies/ruby-1.9.3-p392/include/ruby-1.9.1/ruby/backward -I/home/piotr/.rvm/rubies/ruby-1.9.3-p392/include/ruby-1.9.1 -I.  -D_FILE_OFFSET_BITS=64   -O3 -ggdb -Wall -Wextra -Wno-unused-parameter -Wno-parentheses -Wno-long-long -Wno-missing-field-initializers -Wpointer-arith -Wwrite-strings -Wdeclaration-after-statement -Wimplicit-function-declaration  -fPIC conftest.c  -L. -L/home/piotr/.rvm/rubies/ruby-1.9.3-p392/lib -Wl,-R/home/piotr/.rvm/rubies/ruby-1.9.3-p392/lib -L/home/piotr/.rvm/rubies/ruby-1.9.3-p392/lib -Wl,-R/home/piotr/.rvm/rubies/ruby-1.9.3-p392/lib -L.  -rdynamic -Wl,-export-dynamic    -lc -lz -lm -lnsl  -Wl,-R -Wl,/home/piotr/.rvm/rubies/ruby-1.9.3-p392/lib -L/home/piotr/.rvm/rubies/ruby-1.9.3-p392/lib -lruby -lxml2 -lc -lz -lm -lnsl  -lpthread -lrt -ldl -lcrypt -lm   -lc"
+conftest.c: In function ‘t’:
+conftest.c:5:53: error: ‘xmlParseDoc’ undeclared (first use in this function)
+conftest.c:5:53: note: each undeclared identifier is reported only once for each function it appears in
+conftest.c:5:28: warning: variable ‘p’ set but not used [-Wunused-but-set-variable]
+checked program was:
+/* begin */
+1: #include "ruby.h"
+2: 
+3: /*top*/
+4: int main() {return 0;}
+5: int t() { void ((*volatile p)()); p = (void ((*)()))xmlParseDoc; return 0; }
+/* end */
+
+"gcc -o conftest -I/home/piotr/.rvm/rubies/ruby-1.9.3-p392/include/ruby-1.9.1/i686-linux -I/home/piotr/.rvm/rubies/ruby-1.9.3-p392/include/ruby-1.9.1/ruby/backward -I/home/piotr/.rvm/rubies/ruby-1.9.3-p392/include/ruby-1.9.1 -I.  -D_FILE_OFFSET_BITS=64   -O3 -ggdb -Wall -Wextra -Wno-unused-parameter -Wno-parentheses -Wno-long-long -Wno-missing-field-initializers -Wpointer-arith -Wwrite-strings -Wdeclaration-after-statement -Wimplicit-function-declaration  -fPIC conftest.c  -L. -L/home/piotr/.rvm/rubies/ruby-1.9.3-p392/lib -Wl,-R/home/piotr/.rvm/rubies/ruby-1.9.3-p392/lib -L/home/piotr/.rvm/rubies/ruby-1.9.3-p392/lib -Wl,-R/home/piotr/.rvm/rubies/ruby-1.9.3-p392/lib -L.  -rdynamic -Wl,-export-dynamic    -lc -lz -lm -lnsl  -Wl,-R -Wl,/home/piotr/.rvm/rubies/ruby-1.9.3-p392/lib -L/home/piotr/.rvm/rubies/ruby-1.9.3-p392/lib -lruby -lxml2 -lc -lz -lm -lnsl  -lpthread -lrt -ldl -lcrypt -lm   -lc"
+conftest.c: In function ‘t’:
+conftest.c:5:1: warning: implicit declaration of function ‘xmlParseDoc’ [-Wimplicit-function-declaration]
+checked program was:
+/* begin */
+1: #include "ruby.h"
+2: 
+3: /*top*/
+4: int main() {return 0;}
+5: int t() { xmlParseDoc(); return 0; }
+/* end */
+
+--------------------
+
+have_header: checking for libxml/xmlversion.h... -------------------- no
+
+"gcc -E -I/home/piotr/.rvm/rubies/ruby-1.9.3-p392/include/ruby-1.9.1/i686-linux -I/home/piotr/.rvm/rubies/ruby-1.9.3-p392/include/ruby-1.9.1/ruby/backward -I/home/piotr/.rvm/rubies/ruby-1.9.3-p392/include/ruby-1.9.1 -I.  -D_FILE_OFFSET_BITS=64   -O3 -ggdb -Wall -Wextra -Wno-unused-parameter -Wno-parentheses -Wno-long-long -Wno-missing-field-initializers -Wpointer-arith -Wwrite-strings -Wdeclaration-after-statement -Wimplicit-function-declaration  -fPIC  conftest.c -o conftest.i"
+conftest.c:3:31: fatal error: libxml/xmlversion.h: Nie ma takiego pliku ani katalogu
+compilation terminated.
+checked program was:
+/* begin */
+1: #include "ruby.h"
+2: 
+3: #include <libxml/xmlversion.h>
+/* end */
+
+--------------------
+
+find_header: checking for libxml/xmlversion.h in /opt/include/libxml2,/usr/local/include/libxml2,/usr/include/libxml2... -------------------- yes
+
+"gcc -E -I/home/piotr/.rvm/rubies/ruby-1.9.3-p392/include/ruby-1.9.1/i686-linux -I/home/piotr/.rvm/rubies/ruby-1.9.3-p392/include/ruby-1.9.1/ruby/backward -I/home/piotr/.rvm/rubies/ruby-1.9.3-p392/include/ruby-1.9.1 -I.  -D_FILE_OFFSET_BITS=64   -O3 -ggdb -Wall -Wextra -Wno-unused-parameter -Wno-parentheses -Wno-long-long -Wno-missing-field-initializers -Wpointer-arith -Wwrite-strings -Wdeclaration-after-statement -Wimplicit-function-declaration  -fPIC  conftest.c -o conftest.i"
+conftest.c:3:31: fatal error: libxml/xmlversion.h: Nie ma takiego pliku ani katalogu
+compilation terminated.
+checked program was:
+/* begin */
+1: #include "ruby.h"
+2: 
+3: #include <libxml/xmlversion.h>
+/* end */
+
+"gcc -E -I/home/piotr/.rvm/rubies/ruby-1.9.3-p392/include/ruby-1.9.1/i686-linux -I/home/piotr/.rvm/rubies/ruby-1.9.3-p392/include/ruby-1.9.1/ruby/backward -I/home/piotr/.rvm/rubies/ruby-1.9.3-p392/include/ruby-1.9.1 -I.  -D_FILE_OFFSET_BITS=64   -O3 -ggdb -Wall -Wextra -Wno-unused-parameter -Wno-parentheses -Wno-long-long -Wno-missing-field-initializers -Wpointer-arith -Wwrite-strings -Wdeclaration-after-statement -Wimplicit-function-declaration  -fPIC -I/opt/include/libxml2 conftest.c -o conftest.i"
+conftest.c:3:31: fatal error: libxml/xmlversion.h: Nie ma takiego pliku ani katalogu
+compilation terminated.
+checked program was:
+/* begin */
+1: #include "ruby.h"
+2: 
+3: #include <libxml/xmlversion.h>
+/* end */
+
+"gcc -E -I/home/piotr/.rvm/rubies/ruby-1.9.3-p392/include/ruby-1.9.1/i686-linux -I/home/piotr/.rvm/rubies/ruby-1.9.3-p392/include/ruby-1.9.1/ruby/backward -I/home/piotr/.rvm/rubies/ruby-1.9.3-p392/include/ruby-1.9.1 -I.  -D_FILE_OFFSET_BITS=64   -O3 -ggdb -Wall -Wextra -Wno-unused-parameter -Wno-parentheses -Wno-long-long -Wno-missing-field-initializers -Wpointer-arith -Wwrite-strings -Wdeclaration-after-statement -Wimplicit-function-declaration  -fPIC -I/usr/local/include/libxml2 conftest.c -o conftest.i"
+conftest.c:3:31: fatal error: libxml/xmlversion.h: Nie ma takiego pliku ani katalogu
+compilation terminated.
+checked program was:
+/* begin */
+1: #include "ruby.h"
+2: 
+3: #include <libxml/xmlversion.h>
+/* end */
+
+"gcc -E -I/home/piotr/.rvm/rubies/ruby-1.9.3-p392/include/ruby-1.9.1/i686-linux -I/home/piotr/.rvm/rubies/ruby-1.9.3-p392/include/ruby-1.9.1/ruby/backward -I/home/piotr/.rvm/rubies/ruby-1.9.3-p392/include/ruby-1.9.1 -I.  -D_FILE_OFFSET_BITS=64   -O3 -ggdb -Wall -Wextra -Wno-unused-parameter -Wno-parentheses -Wno-long-long -Wno-missing-field-initializers -Wpointer-arith -Wwrite-strings -Wdeclaration-after-statement -Wimplicit-function-declaration  -fPIC -I/usr/include/libxml2 conftest.c -o conftest.i"
+checked program was:
+/* begin */
+1: #include "ruby.h"
+2: 
+3: #include <libxml/xmlversion.h>
+/* end */
+
+--------------------
+
+extconf.h is:
+/* begin */
+1: #ifndef EXTCONF_H
+2: #define EXTCONF_H
+3: #define HAVE_ZLIB_H 1
+4: #endif
+/* end */
+
