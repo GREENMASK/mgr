@@ -12,12 +12,8 @@
       <td><%= @user.id %></td>
     </tr>
     <tr>
-    <td>
-     Email:
-    </td>
-     <td>
-     <%= @user.email %>
-    </td>
+     <td>Email:</td>
+     <td><%= @user.email %></td>
     </tr>
     <%if @user == current_user %>
     <tr>
@@ -42,7 +38,7 @@
   
   <%= render :partial => 'users/partials/friendship'%>
   <% if @location_name.count > 0 %>
-  <%= render :partial => 'users/partials/gpx_list'%>
+    <%= render :partial => 'users/partials/gpx_list'%>
   <% end %>
 
 </div>

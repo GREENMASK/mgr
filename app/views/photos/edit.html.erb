@@ -1,0 +1,20 @@
+<div class="session_form">
+<center>
+<%= form_for @photo ,:url => user_photo_path(@photo,:user_id => @user.id) do |f|%>
+   <div>
+     <%= image_tag @photo.image_url(:thumb) %>
+   </div>
+   <div>
+    <%= f.label :name, "Nazwa" %>
+    <%= f.text_field :name %>
+   </div>
+   <div>
+    <%= f.label :description, "Opis:"%>
+    <%= f.text_area :description, :size => "30x7" %>
+   </div>
+   <div>
+   <%= f.submit "Zapisz" %></div>
+<% end %>
+   <p><%= link_to "Anuluj",user_photos_path(:id => @user.id),:class=>"delete_acount" %></p>
+</center>
+</div>

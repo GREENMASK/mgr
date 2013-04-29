@@ -1,0 +1,9 @@
+class AddNameToUsers < ActiveRecord::Migration
+  def change
+    add_column :users, :name, :string, :default => ""
+    add_column :users, :second_name, :string, :default => ""
+    User.all.each do |u|
+      u.update_attributes!(:name => "",:second_name=>"")
+    end
+  end
+end

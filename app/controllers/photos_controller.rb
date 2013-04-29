@@ -2,7 +2,7 @@ class PhotosController < ApplicationController
   include ApplicationHelper
   before_filter :authenticate_user!
   before_filter :load_user
-  before_filter :load_photo, :only=>[:show,:destroy,:edit]
+  before_filter :load_photo, :only=>[:show,:destroy,:edit,:update]
 
   def index
     @photos = @user.photos
@@ -26,6 +26,16 @@ class PhotosController < ApplicationController
   end
   
   def edit
+  end
+  
+  def update
+ 
+    if @photo.update_attributes(params[:photo])
+      flash[:notice]="Poprawnie zapisano zmiany."
+    else
+      flash[:alert] ="Blad akutalizacji."
+    end
+    redirect_to user_photos_path(:user_id => @user.id)
   end
   
   def destroy

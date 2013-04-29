@@ -14,4 +14,9 @@
 
   <div><%= f.submit "Zaloguj  się" %></div>
 <% end %>
+  <div>
+    <%- if devise_mapping.recoverable? && controller_name != 'passwords' %>
+  <%= link_to "Zapomniałeś hasła?", new_password_path(resource_name),:class=>"delete_acount" %><br />
+<% end -%>
+  </div>
 </center></div>

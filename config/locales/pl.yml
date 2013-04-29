@@ -2,7 +2,7 @@ pl:
   errors:
     messages:
       expired: 'stracił ważność, wyślij zapytanie o nowy'
-      not_found: 'nie znaleziono'
+      not_found: 'Nie znaleziono'
       already_confirmed: 'już został aktywowany, możesz się zalogować'
       not_locked: 'nie był zablokowany'
       not_saved:
@@ -72,6 +72,9 @@ pl:
               blank:        'Hasło nie może być puste'
               too_short:    'Hasło jest zbyt krótkie'
               confirmation: 'Różne hasła'
+            reset_password_token:
+              blank:        'Brak klucza'
+              invalid:      'Zły klucz'
   controller:
     photo:
       destroy:

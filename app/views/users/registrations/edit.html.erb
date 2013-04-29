@@ -5,7 +5,10 @@
 
   <div><%= f.label :email %><br />
   <%= f.email_field :email %></div>
-
+  <div><%= f.label :name,"Imie" %><br />
+  <%= f.text_field :name %></div>
+    <div><%= f.label :second_name,"Nazwisko" %><br />
+  <%= f.text_field :second_name %></div>
   <div><%= f.label "Nowe hasło" %></br>
     <i>(pozostaw puste, jeśli nie chcesz zmieniać)</i><br/>
     <%= f.password_field :password, :autocomplete => "off" %>
@@ -17,10 +20,15 @@
   <div><%= f.label "Obecne hasło" %></br>
   <%= f.password_field :current_password %></div>
 
-  <div><%= f.submit "Zapisz" %></div>
+  <div>
+  <%= f.submit "Zapisz" %>
+  </div>
+  
 <% end %>
  
  <div><p>
- <%= link_to "Usuń konto", registration_path(resource_name.downcase,:id=>@user.id), :data => { :confirm => "Are you sure?" }, :method => :delete, :class=>"delete_acount" %></p></div>
+  <%= link_to "Anuluj", profile_users_path(:id=> @user.id),:class=>"delete_acount" %>  
+  <%= link_to "Usuń konto", registration_path(resource_name.downcase,:id=>@user.id), :data => { :confirm => "Are you sure?" }, :method => :delete, :class=>"delete_acount" %>
+</p></div>
 </center>
 </div>

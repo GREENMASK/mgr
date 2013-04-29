@@ -121,6 +121,7 @@ class LocationsController < ApplicationController
     new_loc = []
     loc.each do |l|
      l[:photo] = l.photos.empty? ? 0 : "photo"
+     l[:current_user] = @user == current_user ? true : 0
      new_loc.push(l)
     end
     new_loc

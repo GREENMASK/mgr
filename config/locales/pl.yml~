@@ -41,7 +41,7 @@ pl:
       updated: 'Zaktualizowałeś swoje dane.'
       update_needs_confirmation: 'Aby potwierdzić zmiany, musimy zweryfikować Twój nowy adres e-mail. Za chwilę wyślemy instrukcję na nowy adres.'
       destroyed: 'Usunąłeś swoje konto.'
-      wrong_destryed: 'Błąd usuwania konta'
+      wrong_destroyed: 'Błąd usuwania konta'
 #      inactive_signed_up: 'Zarejestrowałeś się pomyślnie. Nie zostałeś jednak zalogowany ponieważ konto jest %{reason}.'
 #      reasons:
 #        inactive: 'nieaktywne'
@@ -72,6 +72,9 @@ pl:
               blank:        'Hasło nie może być puste'
               too_short:    'Hasło jest zbyt krótkie'
               confirmation: 'Różne hasła'
+            reset_password_token:
+              blank:        'Brak klucza.'
+              invalid:      'Zły klucz.'
   controller:
     photo:
       destroy:

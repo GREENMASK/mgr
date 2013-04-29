@@ -9,24 +9,22 @@ class Users::PasswordsController < DeviseController
 
   def create
     self.resource = resource_class.send_reset_password_instructions(resource_params)
-
     if successfully_sent?(resource)
       respond_with({}, :location => after_sending_reset_password_instructions_path_for(resource_name))
     else
+      flash[:alert] = resource.errors.values.sum
       respond_with(resource)
     end
   end
 
   def edit
     self.resource = resource_class.new
-    #raise resource.inspect
-    resource.reset_password_token = "235rtsfga"#params[:reset_password_token]
+    resource.reset_password_token = params[:reset_password_token]
     render :template => 'users/passwords/edit'
   end
 
   def update
     self.resource = resource_class.reset_password_by_token(resource_params)
-
     if resource.errors.empty?
       resource.unlock_access! if unlockable?(resource)
       flash_message = resource.active_for_authentication? ? :updated : :updated_not_active
@@ -34,6 +32,7 @@ class Users::PasswordsController < DeviseController
       sign_in(resource_name, resource)
       respond_with resource, :location => after_sign_in_path_for(resource)
     else
+      flash[:alert]= resource.errors.values.sum
       respond_with resource
     end
   end

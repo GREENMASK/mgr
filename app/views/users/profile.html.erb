@@ -12,12 +12,16 @@
       <td><%= @user.id %></td>
     </tr>
     <tr>
-    <td>
-     Email:
-    </td>
-     <td>
-     <%= @user.email %>
-    </td>
+     <td>Imie:</td>
+     <td><%= @user.name %></td>
+    </tr>
+    <tr>
+     <td>Nazwisko:</td>
+     <td><%= @user.second_name %></td>
+    </tr>
+    <tr>
+     <td>Email:</td>
+     <td><%= @user.email %></td>
     </tr>
     <%if @user == current_user %>
     <tr>

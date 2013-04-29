@@ -13,6 +13,10 @@
   <% end -%>
 
   <div><%= f.submit "Zaloguj  się" %></div>
-  <div><p></p></div>
 <% end %>
+  <div>
+    <%- if devise_mapping.recoverable? && controller_name != 'passwords' %>
+  <%= link_to "Forgot your password?", new_password_path(resource_name),:class=>"delete_acount" %><br />
+<% end -%>
+  </div>
 </center></div>

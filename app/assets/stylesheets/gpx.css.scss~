@@ -180,7 +180,10 @@ div.session_form{
   border-style:solid;
   border-width:5px;
 }
-
+div.session_form h2{
+  margin:0;
+  padding:0;
+}
 div.session_form center form{
   position:relative;
   top: 20px;
@@ -200,7 +203,10 @@ div.session_form div label{
   font-weight: bold;
   font-size: 18px;
   }
-  
+  div.field_with_errors input{
+  border-style:solid;
+  border-color:red;
+  }
 div.session_form div input[type="submit"]{
   position:relative;
   left:33%;
@@ -580,6 +586,7 @@ spam.new_name{
 
 a.delete_acount{
   @include menu_buttom(15);
+    margin: 0 20px;
 }
 
 a.delete_acount:hover{
@@ -634,7 +641,7 @@ form#user_search{
   width:auto;
   margin: 10px auto;
   padding: 10px 5px;
-  border-bottom:2px solid white;
+  border:2px solid black;
   background:url("white_wall.png");
 }
 
