@@ -1,7 +1,6 @@
 source 'https://rubygems.org'
 
 gem 'rails', '3.2.3'
-
 gem 'json'
 
 group :development do
@@ -18,9 +17,8 @@ group :test do
   gem 'faker'
 end
 
-gem 'shelly-dependencies'
+
 group :production do
-  gem 'shelly-dependencies'
   gem 'thin'
   gem 'pg'
 end
@@ -58,3 +56,5 @@ gem 'ransack'
 
 # To use debugger
 # gem 'ruby-debug19', :require => 'ruby-debug'
+#gem 'shelly-dependencies'
+  #gem 'shelly-dependencies'
