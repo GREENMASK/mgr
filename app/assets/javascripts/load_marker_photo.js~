@@ -6,6 +6,7 @@ function load_marker_photo(object){
 }
 
 function get_marker_photo(object){
+  alert(location.pathname.toString());
   $.ajax({
     url:'/locations/show_photos',
     type:'GET',
@@ -35,6 +36,5 @@ function create_images_list(json){
  for(i in json["data"]){
    str.push(json.data[i].url.toString());
  }
- alert(str);
  return str;
 }

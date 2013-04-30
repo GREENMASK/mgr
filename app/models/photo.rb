@@ -4,7 +4,7 @@ class Photo < ActiveRecord::Base
   
   skip_callback :destroy, :after, :remove_image!
   
-  attr_accessible :description, :image, :name, :location_id
+  attr_accessible :description, :image, :name, :location_id,:public_status
   mount_uploader :image, ImageUploader
   
   validates :name,    presence: true

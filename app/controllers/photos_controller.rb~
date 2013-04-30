@@ -33,7 +33,7 @@ class PhotosController < ApplicationController
     if @photo.update_attributes(params[:photo])
       flash[:notice]="Poprawnie zapisano zmiany."
     else
-      flash[:alert] ="Bład akutalizacji."
+      flash[:alert] ="Blad akutalizacji."
     end
     redirect_to user_photos_path(:user_id => @user.id)
   end
@@ -57,4 +57,13 @@ class PhotosController < ApplicationController
   def load_photo
     @photo = @user.photos.find(params[:id])
   end
+  
+  def load_public_status_photo
+     if @user != current_user
+       @user.photos.where("public_status == ?", true)
+     else
+       @user.photos
+     end
+  end
+  
 end

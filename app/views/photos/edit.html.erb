@@ -13,6 +13,10 @@
     <%= f.text_area :description, :size => "30x7" %>
    </div>
    <div>
+     <%= f.label :public_status, "Publiczne ?"%>
+     <i>(Czy zdjęcie ma być dostępne dla innych użytkowników ?)</i>
+     <%= f.check_box :public_status %></div>
+   <div>
    <%= f.submit "Zapisz" %></div>
 <% end %>
    <p><%= link_to "Anuluj",user_photos_path(:id => @user.id),:class=>"delete_acount" %></p>

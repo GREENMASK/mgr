@@ -5,7 +5,7 @@ class PhotosController < ApplicationController
   before_filter :load_photo, :only=>[:show,:destroy,:edit,:update]
 
   def index
-    @photos = @user.photos
+    @photos = load_public_status_photo
   end
   
   def new
@@ -57,4 +57,13 @@ class PhotosController < ApplicationController
   def load_photo
     @photo = @user.photos.find(params[:id])
   end
+  
+  def load_public_status_photo
+     if @user != current_user
+       @user.photos.where("public_status == ?", true)
+     else
+       @user.photos
+     end
+  end
+  
 end

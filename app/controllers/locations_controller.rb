@@ -87,7 +87,7 @@ class LocationsController < ApplicationController
   def show_photos 
     respond_to do |format| 
       @location = Location.find(params[:id])
-      @photos = @location.photos
+      @photos = load_public_status_photo
       unless @photos.empty?
         format.js{render :json => {data: photo_url(@photos)}}
       end
@@ -125,5 +125,13 @@ class LocationsController < ApplicationController
      new_loc.push(l)
     end
     new_loc
+  end
+  
+  def load_public_status_photo
+     if @user != current_user
+       @location.photos.where("public_status == ?", true)
+     else
+       @location.photos
+     end
   end
 end

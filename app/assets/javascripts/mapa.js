@@ -152,7 +152,7 @@ function deleteOverlays() {
 function change_marker_icon(id){
   var mark;
   mark = find_marker(id);
-  add_marker(mark.getPosition(),id,"photo");
+  add_marker(mark.getPosition(),id,"photo",mark.get("cu"));
 }
 
 // znajdowanie markera po id,usuniecie starego

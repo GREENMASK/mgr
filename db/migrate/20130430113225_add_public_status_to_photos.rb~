@@ -1,0 +1,5 @@
+class AddPublicStatusToPhotos < ActiveRecord::Migration
+  def up
+    add_column :photos, :public_status, :boolean, :default => true
+  end
+end

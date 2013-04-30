@@ -11,7 +11,7 @@ class FriendshipsController < ApplicationController
   end
 
   def destroy
-    if Friendship.destroy_relation(,params[:id])
+    if Friendship.destroy_relation(current_user,params[:id])
       flash[:notice] = "Delete."
     end
     redirect_to list_users_path

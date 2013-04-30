@@ -79,6 +79,7 @@ function setMenuXY(caurrentLatLng){
 
 function menuContextString(object){
  var str = '<ul>';
+ 
  if(object.get("cu")){
    str = str + '<li><a class="menu_context_destroy">Usuń marker<\/a><\/li>';
    if(object.getDraggable()){

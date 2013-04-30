@@ -6,11 +6,12 @@ function load_marker_photo(object){
 }
 
 function get_marker_photo(object){
+  var path_tab =location.pathname.split("/");
   $.ajax({
     url:'/locations/show_photos',
     type:'GET',
     dataType:'json',
-    data:{'id':object.id },
+    data:{'id':object.id,'user_id':path_tab[2] },
     success:function(json){
       show_marker_gallery(json);
     }
