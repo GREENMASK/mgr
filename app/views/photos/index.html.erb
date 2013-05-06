@@ -13,8 +13,8 @@
       </div>
       <% if @user == current_user%>
       <div class="action_image">
-        <%= link_to "Edytuj",edit_user_photo_path(@user,p)%>
-        <%= link_to "Usuń" ,
+        <%= link_to t('view.link.edit'),edit_user_photo_path(@user,p)%>
+        <%= link_to t('view.link.delete') ,
             user_photo_path(@user,p),
             :confirm => 'Czy napewno chcesz usunąć?',
             :method => :delete %>

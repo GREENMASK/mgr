@@ -1,4 +1,4 @@
-<%=content_for :title,"Urzytkownicy"%>
+<%=content_for :title,"Użytkownicy"%>
 
 
 <div id="profile">
@@ -7,6 +7,14 @@
       <div class="user_serach_field">
 	<%= f.label :email_cont ,"Email:"%>
 	<%= f.text_field :email_cont %>
+      </div>
+      <div class="user_serach_field">
+	<%= f.label :name_cont, "Imię: " %>
+	<%= f.text_field :name_cont %>
+      </div>
+      <div class="user_serach_field">
+	<%= f.label :second_name_cont, "Nazwisko:" %>
+	<%= f.text_field :second_name_cont %>
       </div>
 	<%= f.submit "Szukaj", :class=> "search_user"%>
     <% end %>

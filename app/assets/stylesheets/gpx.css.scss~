@@ -197,7 +197,10 @@ div.session_form div{
   margin:10px 0;
   padding:5px 0;
 }
-
+div.field_with_errors{
+  margin:0;
+  padding:0;
+}
 div.session_form div label{
   color:#30302f;
   font-weight: bold;
@@ -646,10 +649,15 @@ form#user_search{
 }
 
 div.user_serach_field{
-  margin: 10px 0;
+  margin: 10px 0; 
   @include profile_link;
 }
-
+div.user_serach_field input{
+  width:350px;
+}
+div.user_serach_field label{
+  width:50px;
+}
 input.search_user{
   @include menu_buttom(16px);
   padding: 0 3px;

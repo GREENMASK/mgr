@@ -2,7 +2,7 @@ pl:
   errors:
     messages:
       expired: 'stracił ważność, wyślij zapytanie o nowy'
-      not_found: 'nie znaleziono'
+      not_found: 'Nie znaleziono'
       already_confirmed: 'już został aktywowany, możesz się zalogować'
       not_locked: 'nie był zablokowany'
       not_saved:
@@ -73,10 +73,20 @@ pl:
               too_short:    'Hasło jest zbyt krótkie'
               confirmation: 'Różne hasła'
             reset_password_token:
-              blank:        'Brak klucza.'
-              invalid:      'Zły klucz.'
+              blank:        'Brak klucza'
+              invalid:      'Zły klucz'
   controller:
     photo:
       destroy:
         success: 'Popranie usunięto zdjęcie'
         faild:   'Bład usuwania zdjęcia'
+  view:
+    link:
+      delete:          'Usuń'
+      edit:            'Edytuj'
+      download:        'Pobierz'
+      accept_invition: 'Zaakceptuj zaproszenie'
+      reject_invation: 'Odrzuć zaproszenie'
+      add_to_friends:  'Dodaj do znajomych'
+      remove_invation: 'Usuń zaproszenie'
+      

@@ -34,7 +34,7 @@ module GpxHelper
       html+="<tr>
 		<td> #{ link_to us.email, profile_users_path(:id=> us.id) }</td>"
       if user == current_user
-        html+=   "<td> #{ link_to 'Usun' , friendship_path(us),:method => :delete }</td>"
+        html+=   "<td> #{ link_to t('view.link.delete') , friendship_path(us),:method => :delete }</td>"
       end      
       html+="</tr>"
     end
@@ -52,20 +52,20 @@ module GpxHelper
 	html += "
 	<tr>
 	  <td>#{link_to user.email.to_s, profile_users_path(:id => user.id)}</td>
-	  <td>#{link_to 'Akceptuj zaprosznie',friendships_path(:friend_id => user.id), :method=> :post }</td>
-	  <td>#{link_to 'Odrzuc zaproszenie', destroy_invited_friendships_path(:id => user.id),:method=> :delete}</td>
+	  <td>#{link_to t('view.link.accept_invition'),friendships_path(:friend_id => user.id), :method=> :post }</td>
+	  <td>#{link_to t('view.link.reject_invation'), destroy_invited_friendships_path(:id => user.id),:method=> :delete}</td>
 	</tr>"
      elsif current_user.send_invite?(user)	
 	html += "
 	<tr>
 	  <td>#{link_to user.email.to_s, profile_users_path(:id => user.id)}</td>
-	  <td>#{link_to 'Usun zaproszenie',destroy_send_invite_friendships_path(:id => user.id), :method => :delete }</td>
+	  <td>#{link_to t('view.link.remove_invation'),destroy_send_invite_friendships_path(:id => user.id), :method => :delete }</td>
 	</tr>"
       else
 	html += "
 	<tr>
 	  <td>#{link_to user.email.to_s, profile_users_path(:id => user.id)}</td>
-	  <td>#{link_to 'Dodaj do znajomych',friendships_path(:friend_id => user.id), :method=> :post }</td>
+	  <td>#{link_to t('view.link.add_to_friends'),friendships_path(:friend_id => user.id), :method=> :post }</td>
 	</tr>"
       end 
     end

@@ -13,7 +13,7 @@
     <% end %>
   </li>
   <li><%= link_to "Galeria", user_photos_path(@user)%></li>
-  <li><%= link_to "Urzytkownicy", list_users_path %></li>
+  <li><%= link_to "Znajomi", users_path %></li>
   <li><%= link_to "Profil", profile_users_path(:id => @user.id)%>
   </li>
   <% end %>

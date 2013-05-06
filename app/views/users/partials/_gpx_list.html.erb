@@ -8,8 +8,8 @@
       <tr>
         <td><%= file %> </td>
         <% if @user == current_user %>
-        <td> <%= link_to "Usuń", location_path(file), :method => :delete,:confirm => true %></td>
-        <td><%= link_to "Pobierz",download_gpx_locations_path(file)%></td>
+        <td> <%= link_to I18n.t'view.link.delete', location_path(file), :method => :delete,:confirm => true %></td>
+        <td><%= link_to I18n.t'view.link.download',download_gpx_locations_path(file)%></td>
         <% end %>
       </tr>
     <% end %>

@@ -80,3 +80,13 @@ pl:
       destroy:
         success: 'Popranie usunięto zdjęcie'
         faild:   'Bład usuwania zdjęcia'
+  view:
+    link:
+      delete:          'Usuń'
+      edit:            'Edytuj'
+      download:        'Pobierz'
+      accept_invition: 'Zaakceptuj zaproszenie'
+      reject_invation: 'Odrzuć zaproszenie'
+      add_to_friends:  'Dodaj do znajomych'
+      remove_invation: 'Usuń zaproszenie'
+      
