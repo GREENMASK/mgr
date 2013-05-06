@@ -3,6 +3,7 @@ source 'https://rubygems.org'
 gem 'rails', '3.2.3'
 
 gem 'json'
+gem 'mysql'
 
 group :development do
   gem 'rspec-rails'
