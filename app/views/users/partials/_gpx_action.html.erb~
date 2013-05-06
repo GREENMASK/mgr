@@ -22,24 +22,24 @@
   </spam>
 </li>
 <li><%=link_to "Edytuj GPX","#",:class=> "edit_gpx"%></li>
-<spam class="edit_gpx_points">
-  <li><%= link_to "Usuń", "#",:class=> "get_markers_to_remove"%>
-    <spam class="remove_gpx_points">
-    <ul>
-      <li><%= link_to "Zapisz","#",:class =>"set_markers_to_remove" %></li>
-      <li><%= link_to "Wyczyść","#",:class =>"clear_all_markers_to_remove" %></li>
-    </ul>
-    </spam>
-  </li>
-  
-  <li><%= link_to "Dodaj","#",:class=>"create_new_markers"%>
-    <spam class="add_gpx_points">
   <ul>
-    <li><%= link_to "Zapisz","#",:class => "add_new_markers"%></li>
-    <li><%= link_to "Wyczyść","#",:class =>"clear_all_new_markers" %></li>
-  </ul>
-  </spam>
-  </li>
-</spam>
+    <spam class="edit_gpx_points">
+      <li><%= link_to "Usuń", "#",:class=> "get_markers_to_remove"%>
+	<spam class="remove_gpx_points">
+	  <ul>
+	    <li><%= link_to "Zapisz","#",:class =>"set_markers_to_remove" %></li>
+	    <li><%= link_to "Wyczyść","#",:class =>"clear_all_markers_to_remove" %></li>
+	  </ul>
+	</spam>
+      </li>
+      <li><%= link_to "Dodaj","#",:class=>"create_new_markers"%>
+	<spam class="add_gpx_points">
+	  <ul>
+	    <li><%= link_to "Zapisz","#",:class => "add_new_markers"%></li>
+	    <li><%= link_to "Wyczyść","#",:class =>"clear_all_new_markers" %></li>
+	  </ul>
+	</spam>
+      </li>
+    </spam></ul>
 <% end %>
 </ul>

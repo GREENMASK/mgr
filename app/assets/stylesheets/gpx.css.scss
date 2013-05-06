@@ -232,31 +232,98 @@ div#navi{
  left: 72px;
  bottom: -41px;
 }
+///////////mapa///////////
 div#show_body{
- display:block;
- width:800px;
- margin:50px auto;
+ width:1000px;
+}
 
   div.load_gpx_name{
+    display:none;
     color: #3b3d34;
     font-family:"Arial",sans-serif;
     font-weight: bold;
-    padding-right: 2px;
+    border-bottom: 2px solid black;
+  }
+  div.action_buttons{
+    float:left;
+    width:150px;
+    margin:20px 0 0 25px;
+    background:#F2F2F2;
   }
   div#mapa{
     background:#4f4f4f;
+    float:left;
+    margin: 20px 25px 0 0 ;
     position:relative;
     overflow: auto;
     width:800px;
     height:490px;
     z-index:1;
   }
-}
+
 
 section#action{
   margin: 0 auto;
 }
+////////// action_buttons menu ////////
 
+div.action_buttons ul,
+div.action_buttons li{
+   margin: 0 0 0 10px;
+   padding: 0px;	
+}
+
+div.action_buttons li{
+  list-style:none;
+  position:relative;
+}
+
+div.action_buttons > ul li{
+  display:block;
+  margin: 5px 0 ;
+  z-index:50;
+}
+
+div.action_buttons > ul ul li{
+  margin: 0 0 0 10px;
+  padding:0;
+}
+div.action_buttons > ul  li a{
+  font-size: 18px;
+}
+div.action_buttons > ul ul li a{
+  font-size: 16px;
+}
+div.action_buttons > ul ul ul li a{
+  font-size: 14px;
+}
+
+.new_gpx_points{
+  display:none;
+}
+.edit_gpx_points{
+  display:none;
+}
+.remove_gpx_points{
+  display:none;
+  }
+.add_gpx_points{
+  display:none;
+  }
+  
+.list_locations{
+  width:100px;
+  list-style:none;
+  display:none;
+}
+
+div.action_buttons a{
+  @include menu_buttom(16px);
+}
+
+div.action_buttons a:hover{
+  @include menu_buttom_hover;
+}
 ///Dodawanie image
 
 div#add_image{
@@ -426,70 +493,7 @@ spam.table_title{
   color:#f5f4ed;
 } 
 
-////////// action_buttons menu ////////
-div.action_buttons{
-  display:table;
-  margin: 0 auto;
-  padding:0 25px;
-  @include header_menu_style;
-}
 
-
-div.action_buttons ul,
-div.action_buttons li{
-	margin: 0px;
-	padding: 0px;
-	
-}
-
-div.action_buttons li{
-  list-style:none;
-  position:relative;
-}
-
-div.action_buttons > ul li{
-  float:left;
-  margin:0 2px;
-  padding:0 2px;
-}
-
-div.action_buttons > ul ul li{
-  float:none;
-}
-div.action_buttons > ul ul li a{
-  @include header_menu_style;
-}
-div.action_buttons ul ul{
-  z-index:50;
-  position:absolute;
-}
-
-.new_gpx_points{
-  display:none;
-}
-.edit_gpx_points{
-  display:none;
-}
-.remove_gpx_points{
-  display:none;
-  }
-.add_gpx_points{
-  display:none;
-  }
-  
-.list_locations{
-  width:100px;
-  list-style:none;
-  display:none;
-}
-
-div.action_buttons a{
-  @include menu_buttom(16px);
-}
-
-div.action_buttons a:hover{
-  @include menu_buttom_hover;
-}
  
 
 /* ADD GPX form / formulasz dodawania pliku gpx*/
@@ -497,10 +501,10 @@ div#add_gpx{
   display:none;
   width:400px;
   height:250px;
-  position:absolute;
   top:20px;
   margin:0;
   padding:0;
+  z-index:70;
   @include header_menu_style;
 }
 div.box_form{
@@ -708,4 +712,16 @@ span.page a{
 span.page a:hover{
   padding: 0 2px;
   font-size:18px;
+}
+///////Legenda//////////
+ul.legend li{
+  padding: 5px 0;
+
+}
+
+i.legend_title{
+  font-size:18px;
+}
+ul.legend li i{
+  font-size:13px;
 }

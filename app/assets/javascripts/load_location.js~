@@ -24,6 +24,7 @@ function get_ajax(value,id){
 		dataType: 'json',
 		success: function(html) {
                  create_markers(html);// mapa.js
+		 $("div.load_gpx_name")
 		},
 		beforeSend: function() {
 		},
