@@ -17,7 +17,12 @@ function mapaStart()
 function create_markers(ob_json){
   deleteOverlays();// usuwa poprzednie markery
   var points = create_points(ob_json);
-  openMapaCenter(ob_json);
+  
+
+  //if(ob_json.length > 1){
+    openMapaCenter(ob_json);
+  //}
+  
 
   for(i=0;i<(points.length);i++){
     add_marker(points[i],ob_json[i].id ,ob_json[i].photo,ob_json[i].current_user);
@@ -119,7 +124,7 @@ function createBounds(lat,lng){
   
         
   var center = square.getCenter();
-  mapa.setCenter(center,7);
+  mapa.setCenter(center,6);
   
   mapa.fitBounds(square);
   
@@ -130,9 +135,13 @@ function createLatLng(json){
    var lats = new Array();
    var lngs = new Array();
 
-  for(i=0;i<(json.length-1);i++){
+  for(i=0;i<(json.length);i++){
      lats.push(parseFloat(json[i].lat));
      lngs.push(parseFloat(json[i].lng));
+  }
+  if(json.lenght < 2){
+    lats.push(lats[0]);
+    lngs.push(lngs[0]);
   }
   return [lats,lngs];
 }

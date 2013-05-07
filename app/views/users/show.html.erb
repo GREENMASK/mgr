@@ -1,8 +1,5 @@
 <%= content_for :title,"Mapa" %>
-<%= content_for :overlay do %>
-  <center><%= render :partial => "photos/partials/add_image" %><center>
-<% end %>
-
+  <%= render :partial => "photos/partials/add_image" %>
 <section id="action"> 
 </section>
 
@@ -10,25 +7,7 @@
   <div class="action_buttons">
     <%= render :partial => "users/partials/gpx_action"%>
     </br>
-    <ul class="legend">
-      <i class="legend_title">Legenda:</i>
-      <li>
-	<%= image_tag "http://maps.google.com/mapfiles/kml/pal2/icon13.png"%>
-	<i>Punkt.</i>
-      </li>
-      <li>
-	<%= image_tag "http://maps.google.com/mapfiles/kml/pal3/icon46.png" %>
-	<i>Nowy punkt.</i>
-      </li>
-      <li>
-	<%= image_tag "http://maps.google.com/mapfiles/kml/pal3/icon39.png" %>
-	<i>Punkt do usunięcia.</i></li>
-      <li>
-	 <%= image_tag "camera.png"%>
-	<i>Punkt posiadający zdjęcie/a.</i>  
-      </li>
-    </ul>
-    
+    <%= render :partial => "users/partials/legend"%>
   </div>
   <div id="mapa">
   </div>

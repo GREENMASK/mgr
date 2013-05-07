@@ -56,8 +56,8 @@ function getCanvasXY(caurrentLatLng){
 
 
 function setMenuXY(caurrentLatLng){
-  var mapWidth = $('#map_canvas').width();
-  var mapHeight = $('#map_canvas').height();
+  var mapWidth = $('#mapa').width();
+  var mapHeight = $('#mapa').height();
   var menuWidth = $('.contextmenu').width();
   var menuHeight = $('.contextmenu').height();
   var clickedPosition = getCanvasXY(caurrentLatLng);
@@ -72,8 +72,8 @@ function setMenuXY(caurrentLatLng){
     y = y - menuHeight;
   }
 
-  $('.contextmenu').css('left',x  );
-  $('.contextmenu').css('top',y );
+  $('.contextmenu').css('left',x + 10);
+  $('.contextmenu').css('top' ,y - 20);
 };
 
 

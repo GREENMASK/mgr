@@ -62,7 +62,7 @@ div.logo{
   display:inline;
   margin: 0 0 0 50px;
 }
-/*Fron menu */
+/*Front menu */
 div.front_menu{
   float:right;
   
@@ -257,7 +257,7 @@ div#show_body{
     position:relative;
     overflow: auto;
     width:800px;
-    height:550px;
+    height:490px;
     z-index:1;
   }
 
@@ -324,68 +324,6 @@ div.action_buttons a{
 div.action_buttons a:hover{
   @include menu_buttom_hover;
 }
-///Dodawanie image
-
-div#add_image{
-  display:block;
-  width:400px;
-  height:300px;
-  position:relative;
-  top:40px;
-  margin:0;
-  padding:0;
-  padding-top:10px;
-  @include header_menu_style;
-}
-div#add_image form{
-  margin:5px 0 0 0;
-}
-div#add_image ul{
-  margin:10px 0;
-}
-div#add_image ul li{
-  display:list-item;
-  position:relative;
-  width:310px;
-  margin:5px 0;
-  list-style:none;
-}
-
-div#add_image ul li label.text{ 
-  float:left;
-  width:100%;
-  font-size:17px;
-  text-align:left;
-  color:#3b3d34;
-}
-
-div#add_image ul li input.wpis{
-  width:100%;
-}
-div#add_iamge ul li input.file{
-  width:150px;
-  font-size:14px;
-}
-div#add_image ul li input.submit{
-  width:100%;
-  @include submit_buttom;
-}
-/* OVERLAY */
-
-div#overlay{
-    display:none;
-    background-image:url("overlay.png");
-    position:fixed;
-    width:100%;
-    height: 100%;
-    top: 0;
-    left: 0;
-    z-index: 4000;
-    .close_overlay{
-      background-image:url("close.png");
-    }
-}
-//////////////////////////////////  
 
 /* profil terenu */
 ul.profile_buttons{
@@ -493,25 +431,33 @@ spam.table_title{
   color:#f5f4ed;
 } 
 
+ ///Dodawanie image
 
- 
+div#add_image{
+  display:none;
+  width:400px;
+  height:300px;
+  @include header_menu_style;
+}
+
 
 /* ADD GPX form / formulasz dodawania pliku gpx*/
 div#add_gpx{
   display:none;
-  width:400px;
+  width:380px;
   height:250px;
-  top:20px;
   margin:0;
   padding:0;
-  z-index:70;
-  @include header_menu_style;
+
 }
 div.box_form{
   margin:auto 0px;
   width:380px;
   position:relative;
-  left:10px;
+  @include header_menu_style;
+}
+div.box_form ul{
+  list-style:none;
 }
 div.box_form ul li{
   display:list-item;
@@ -542,13 +488,6 @@ div.box_form li input.submit{
   @include submit_buttom;
 }
 
-// zamykanie okienka add_gpx
-.close_add_gpx{
-  position:relative;
-  left:140px;
-  width:30px;
-  height:30px;
-}
 
 ///////////////////////context_menu marker////////
 
@@ -558,6 +497,8 @@ div.box_form li input.submit{
   border:1px solid #8888FF;
   z-index: 10;  
   position: relative;
+  left:200px;
+  top: 40px;
   width: 100px;
 }
  .contextmenu ul{

@@ -1,5 +1,6 @@
 <div id="add_image">
   <%= form_for @photo ,:url=>user_photos_path(@user),:html=>{:mulitpart => true} ,:remote => true do |p| %>
+  <div class="box_form">
     <ul>
     <li><%= p.label "Nazwa:",:class=>"text" %></li>
     <li><%= p.text_field :name,:class=>"wpis"%></li>
@@ -8,8 +9,8 @@
     <li><%= p.text_area  :description, :cols=> 37, :rows => 5,:class=>"text"%></li>
     <li><%= p.label      "Location:",:class=>"text" %></li>
     <li><%= p.text_field :location_id,:readonly => true,:class=>"wpis" %></li>
-    <li><%= p.submit :class=>"submit" %></li>
+    <li><%= p.submit "Wyślij zdjęcie", :class=>"submit" %></li>
     </ul>
+  </div>
   <% end %>
-  
 </div>
