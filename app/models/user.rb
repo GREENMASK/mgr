@@ -2,6 +2,7 @@ class User < ActiveRecord::Base
   # Include default devise modules. Others available are:
   # :token_authenticatable, :confirmable,
   # :lockable, :timeoutable and :omniauthable
+  replicated_model()
   has_many :locations
   has_many :photos
   has_many :friendships
@@ -34,10 +35,12 @@ class User < ActiveRecord::Base
     friendships.where(friend_id: user.id).exists?
   end
   
-  def self.destroy_all(user)
+  def self.destroy_account(user)
     User.transaction do 
       user.locations.destroy_all
-      user.photos.destroy_all
+      user.photos.using(:shard_1).destroy_all
+      user.friendships.destroy_all
+      user.inverse_friendships.destroy_all
       user.destroy
     end
   end

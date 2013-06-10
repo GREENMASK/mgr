@@ -1,4 +1,5 @@
 class AddNameToUsers < ActiveRecord::Migration
+  using(:master)
   def change
     add_column :users, :name, :string, :default => ""
     add_column :users, :second_name, :string, :default => ""

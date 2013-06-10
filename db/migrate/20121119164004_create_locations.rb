@@ -1,4 +1,5 @@
 class CreateLocations < ActiveRecord::Migration
+  using(:master)
   def change
     create_table :locations do |t|
       t.string :name

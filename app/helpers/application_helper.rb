@@ -22,8 +22,8 @@ module ApplicationHelper
   def authorize_user(user)
     b = case
         when user.nil? then false
-	when User.friends?(current_user,user) then true
-        when user.id == current_user.id then true
+	when user.id == current_user.id then true
+	when User.using(:master).friends?(current_user,user) then true
         when user.id != current_user.id then false
     end
     unless b

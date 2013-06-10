@@ -1,11 +1,15 @@
 class PhotosController < ApplicationController
   include ApplicationHelper
+  
+  around_filter :select_shard
   before_filter :authenticate_user!
   before_filter :load_user
   before_filter :load_photo, :only=>[:show,:destroy,:edit,:update]
 
   def index
-    @photos = @user.photos
+    Octopus.using(:shard_1) do 
+      @photos = Photo.find_all_by_user_id(@user.id)
+    end
   end
   
   def new
@@ -16,8 +20,9 @@ class PhotosController < ApplicationController
   
   def create
     respond_to do |format| 
-    @photo = @user.photos.new(params[:photo])
-    @photo_id = @photo.location_id
+      @photo = Photo.using(:shard_1).new(params[:photo])
+      @photo.user_id = @user.id
+      @photo_id = @photo.location_id
     
       if @photo.save
         format.js 
@@ -29,41 +34,37 @@ class PhotosController < ApplicationController
   end
   
   def update
- 
     if @photo.update_attributes(params[:photo])
       flash[:notice]="Poprawnie zapisano zmiany."
     else
       flash[:alert] ="Blad akutalizacji."
     end
-    redirect_to user_photos_path(:user_id => @user.id)
+    redirect_to user_photos_path
   end
   
   def destroy
     if @photo.destroy
-      flash[:notice] = I18n.t(:success, :scope => [:controller, :photo, :destroy]) 
+      flash[:notice] = t(:success, :scope => [:controller, :photo, :destroy]) 
     else
-      flash[:alert] = I18n.t :faild, :scope => [:controller, :photo, :destroy]
+      flash[:alert] = t(:faild, :scope => [:controller, :photo, :destroy])
     end
-    redirect_to user_photos_path(@user)
+    redirect_to user_photos_path
   end
   
   private
   
   def load_user
-    @user = User.find(params[:user_id])
-    authorize_user(@user)
+    Octopus.using(:master) do
+      @user = User.find(params[:user_id])
+    end
   end
 
   def load_photo
-    @photo = @user.photos.find(params[:id])
+    @photo = Photo.using(:shard_1).find(params[:id])
   end
   
-  def load_public_status_photo
-     if @user != current_user
-       @user.photos.where("public_status == ?", true)
-     else
-       @user.photos
-     end
-  end
   
+  def select_shard(&block)
+    Octopus.using(:master, &block)
+  end
 end

@@ -1,0 +1,48 @@
+octopus:
+  #replicated: true
+  #fully_replicated: true
+  environments:
+    - development
+    - production
+  development:
+    shard_1:
+      adapter: postgresql
+      database: magisterka2 
+      host: localhost
+      username: piotr 
+      password: burza22
+      pool: 5
+      reconnect: true
+      timeout: 15000
+#     shard_1:
+#       adapter: mysql2
+#       database: magisterka2 
+#       host: db4free.net
+#       port: 3306
+#       username: amitolotto2 
+#       password: kondor22
+#       pool: 5
+#       reconnect: true
+#       timeout: 15000
+#     shard_2:
+#       adapter: postgresql
+#       encoding: unicode
+#       pool: 5
+#       database: dehuko5vsfpmje
+#       username: iaxxbwhpqdqaza
+#       password: I0BXiFgybWPsFCxgpe40Yt1Ndd
+#       host: ec2-174-129-204-172.compute-1.amazonaws.com
+#       port: 5432
+#       reconnect: true
+#       timeout: 15000
+      
+#     slave2:
+#       adapter: mysql2
+#       database: magisterka 
+#       host: db4free.net
+#       port: 3306
+#       username: amitolotto
+#       password: burza22
+#       pool: 5
+#       reconnect: true
+#       timeout: 15000

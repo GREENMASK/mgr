@@ -2,11 +2,13 @@ class Location < ActiveRecord::Base
   require 'xml/libxml'
   require 'xml'
   require 'pp'
+
   include Geolocation # ./lib/geolocation.rb
   
   belongs_to :user
   has_many :photos
   
+  #attr_accessible :name,:lat,:lng,:user_id
   attr_accessor :gpx,:range
 
   
@@ -70,7 +72,7 @@ class Location < ActiveRecord::Base
 
      Location.transaction do 
        json["locations"].each do |l|
-         Location.create(:name=> name,
+         Location.using(:shard_1).create(:name=> name,
                          :lat => l[1]["lat"].to_f,
                          :lng => l[1]["lng"].to_f)
        end
@@ -91,11 +93,10 @@ class Location < ActiveRecord::Base
     
     return false unless json
     name = json["name"]
-    return false unless user_loaction_exist?(name)
-    
+        
     Location.transaction do 
     json["locations"].each do |l|
-      Location.create(:name=> name,
+      Location.using(:shard_1).create(:name=> name,
                          :lat => l[1]["lat"].to_f,
                          :lng => l[1]["lng"].to_f)
       end

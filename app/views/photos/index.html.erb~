@@ -1,19 +1,24 @@
 <%=content_for :title,"Galery"%>
 <div id="galery">
   <% @photos.each do |p|%>
+    <% if p.public_status %>
+    
+    <% elsif !p.public_status && @user == current_user %>
+    <% end %>
     <div class="image_container">
 
         <div class="image">
         <center>
-        <%= link_to(image_tag(p.image_url(:thumb).to_s), p.image_url.to_s,:rel=> "image_group",:title =>p.description.to_s )%>
-</center></div>
+	  <%= link_to(image_tag(p.image_url(:thumb).to_s), p.image_url.to_s,:rel=> "image_group",:title =>p.description.to_s )%>
+	</center>
+	</div>
 
       <div class="name_image">
         <p><%= p.name %></p>
       </div>
-      <% if @user == current_user%>
+      <% if @user == current_user %>
       <div class="action_image">
-        <%= link_to "Edytuj",edit_user_photo_path(@user,p)%>
+        <%= link_to t('view.link.edit'),edit_user_photo_path(@user,p)%>
         <%= link_to t('view.link.delete') ,
             user_photo_path(@user,p),
             :confirm => 'Czy napewno chcesz usunąć?',

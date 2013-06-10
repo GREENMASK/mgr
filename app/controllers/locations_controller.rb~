@@ -48,7 +48,7 @@ class LocationsController < ApplicationController
     else
       flash[:alert] = "Blad usuwania pliku #{params[:id]}"
     end
-    redirect_to profile_user_index_path(:id => @user.id)
+    redirect_to profile_users_path(:id => @user.id)
   end
   
   def destroy_checked
@@ -72,7 +72,7 @@ class LocationsController < ApplicationController
        end
      end
   end
-  
+
   def update
     @location = Location.find(params[:id])
     respond_to do |format|
@@ -87,7 +87,7 @@ class LocationsController < ApplicationController
   def show_photos 
     respond_to do |format| 
       @location = Location.find(params[:id])
-      @photos = load_public_status_photo
+      @photos = Photo.using(:shard_1).find_all_by_location_id(@location.id)
       unless @photos.empty?
         format.js{render :json => {data: photo_url(@photos)}}
       end
@@ -104,16 +104,20 @@ class LocationsController < ApplicationController
   def photo_url(photo)
     tab=[]
     photo.each do |p|
-      p[:url]=p.image_url
-      tab.push(p)
+      if p.public_status
+	 p[:url]=p.image_url
+         tab.push(p)
+      elsif !p.paublic_status && @user == current_user
+	 p[:url]=p.image_url
+         tab.push(p)
+      end
     end
     tab
   end
   
   def load_user
-   raise params.inspect 
    if params[:user_id]
-    @user = User.find(params[:user_id])
+    @user = User.using(:master).find(params[:user_id])
    end
    @user ||= current_user
   end
@@ -121,18 +125,11 @@ class LocationsController < ApplicationController
   def photo_include?(loc)
     new_loc = []
     loc.each do |l|
-     l[:photo] = l.photos.empty? ? 0 : "photo"
-     l[:current_user] = @user == current_user ? true : 0
+      l[:photo] = Photo.using(:shard_1).find_all_by_location_id(l.id).empty? ? 0 : "photo"
+      l[:current_user] = @user == current_user ? true : 0
      new_loc.push(l)
     end
     new_loc
   end
   
-  def load_public_status_photo
-     if @user != current_user
-       @location.photos.where("public_status == ?", true)
-     else
-       @location.photos
-     end
-  end
 end

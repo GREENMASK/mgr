@@ -4,12 +4,12 @@
       <th></th>
       <th></th>
     </tr>
-    <% @location_name.each do |file|%>
+    <% @location_name.each do |file_name|%>
       <tr>
-        <td><%= file %> </td>
+        <td><%= file_name %> </td>
         <% if @user == current_user %>
-        <td> <%= link_to I18n.t'view.link.delete', location_path(file), :method => :delete,:confirm => true %></td>
-        <td><%= link_to "Pobierz",download_gpx_locations_path(file)%></td>
+	 <td> <%= link_to I18n.t'view.link.delete', location_path(file_name), :method => :delete,:confirm => true %></td>
+        <td><%= link_to I18n.t('view.link.download'), download_gpx_locations_path(file_name) %></td>
         <% end %>
       </tr>
     <% end %>

@@ -1,17 +1,19 @@
 <%=content_for :title,"Galery"%>
 <div id="galery">
   <% @photos.each do |p|%>
-    <div class="image_container">
+    <% if p.public_status %>
+           <div class="image_container">
 
         <div class="image">
         <center>
-        <%= link_to(image_tag(p.image_url(:thumb).to_s), p.image_url.to_s,:rel=> "image_group",:title =>p.description.to_s )%>
-</center></div>
+	  <%= link_to(image_tag(p.image_url(:thumb).to_s), p.image_url.to_s,:rel=> "image_group",:title =>p.description.to_s )%>
+	</center>
+	</div>
 
       <div class="name_image">
         <p><%= p.name %></p>
       </div>
-      <% if @user == current_user%>
+      <% if @user == current_user %>
       <div class="action_image">
         <%= link_to t('view.link.edit'),edit_user_photo_path(@user,p)%>
         <%= link_to t('view.link.delete') ,
@@ -21,5 +23,27 @@
       </div>
       <% end %>
     </div>
+    <% elsif !p.public_status && @user == current_user %>
+        <div class="image_container">
+
+        <div class="image">
+        <center>
+	  <%= link_to(image_tag(p.image_url(:thumb).to_s), p.image_url.to_s,:rel=> "image_group",:title =>p.description.to_s )%>
+	</center>
+	</div>
+
+      <div class="name_image">
+        <p><%= p.name %></p>
+      </div>
+      <div class="action_image">
+        <%= link_to t('view.link.edit'),edit_user_photo_path(@user,p)%>
+        <%= link_to t('view.link.delete') ,
+            user_photo_path(@user,p),
+            :confirm => 'Czy napewno chcesz usunąć?',
+            :method => :delete %>
+      </div>
+    </div>
+    <% end %>
+
   <%end%>
 </div>

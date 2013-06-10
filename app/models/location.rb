@@ -2,11 +2,13 @@ class Location < ActiveRecord::Base
   require 'xml/libxml'
   require 'xml'
   require 'pp'
+
   include Geolocation # ./lib/geolocation.rb
   
   belongs_to :user
   has_many :photos
   
+  #attr_accessible :name,:lat,:lng,:user_id
   attr_accessor :gpx,:range
 
   

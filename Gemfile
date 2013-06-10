@@ -4,6 +4,8 @@ gem 'rails', '3.2.3'
 
 gem 'json'
 gem 'mysql2'
+gem 'mysql'
+gem 'pg'
 
 group :development do
   gem 'rspec-rails'
@@ -23,7 +25,6 @@ gem 'shelly-dependencies'
 group :production do
   gem 'shelly-dependencies'
   gem 'thin'
-  gem 'pg'
 end
 # Gems used only for assets and not required
 # in production environments by default.
@@ -36,6 +37,7 @@ group :assets do
   gem 'uglifier', '>= 1.0.3'
 end
 
+gem 'ar-octopus', :require => 'octopus'
 gem 'rmagick'
 gem 'carrierwave'
 gem 'devise'

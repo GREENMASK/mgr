@@ -15,7 +15,7 @@ class UsersController < ApplicationController
   def show
     @location_file = @user.locations.new
     @location_name = locations_name_to_array
-    @photo = @user.photos.new
+    @photo = @user.photos.using(:shard_1).new
   end
   
   def profile
@@ -25,7 +25,7 @@ class UsersController < ApplicationController
   private
   
   def load_user
-    @user = User.find_by_id(params[:id]) 
+    @user = User.using(:master).find_by_id(params[:id]) 
     @user = @user ? @user : current_user 
   end
   

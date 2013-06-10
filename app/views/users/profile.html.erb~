@@ -12,6 +12,14 @@
       <td><%= @user.id %></td>
     </tr>
     <tr>
+     <td>Imie:</td>
+     <td><%= @user.name %></td>
+    </tr>
+    <tr>
+     <td>Nazwisko:</td>
+     <td><%= @user.second_name %></td>
+    </tr>
+    <tr>
      <td>Email:</td>
      <td><%= @user.email %></td>
     </tr>
@@ -38,7 +46,23 @@
   
   <%= render :partial => 'users/partials/friendship'%>
   <% if @location_name.count > 0 %>
-    <%= render :partial => 'users/partials/gpx_list'%>
+    <% render :partial => 'users/partials/gpx_list'%>
+      <table class="gpx_list">
+    <spam class="table_title">Pliki gpx użytkownika:</spam>
+    <tr>
+      <th></th>
+      <th></th>
+    </tr>
+    <% @location_name.each do |file|%>
+      <tr>
+        <td><%= file %> </td>
+        <% if @user == current_user %>
+        <td> <%= link_to I18n.t'view.link.delete', location_path(file), :method => :delete,:confirm => true %></td>
+        <td><%= link_to I18n.t'view.link.download',download_gpx_locations_path(file)%></td>
+        <% end %>
+      </tr>
+    <% end %>
+  </table>
   <% end %>
 
 </div>

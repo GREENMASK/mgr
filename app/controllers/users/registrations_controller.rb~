@@ -38,7 +38,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
       end
       sign_in resource_name, resource, :bypass => true
       #respond_with resource, :location => after_update_path_for(resource)
-      redirect_to users_profile_path(resource)
+      redirect_to profile_users_path(resource)
     else
       clean_up_passwords resource
       respond_with resource

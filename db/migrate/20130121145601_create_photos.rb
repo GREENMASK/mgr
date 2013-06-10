@@ -1,4 +1,5 @@
 class CreatePhotos < ActiveRecord::Migration
+  using(:shard_1)
   def change
     create_table :photos do |t|
       t.string :name
