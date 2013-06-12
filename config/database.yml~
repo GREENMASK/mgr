@@ -12,9 +12,8 @@
 development:
   adapter: mysql2
   database: magisterka 
-  host: db4free.net 
-  port: 3306
-  username: amitolotto 
+  host: localhost
+  username: piotr 
   password: burza22 
   pool: 5
   reconnect: true

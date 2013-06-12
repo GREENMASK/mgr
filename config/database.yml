@@ -9,26 +9,26 @@
 #   pool: 5
 #   timeout: 15000
   
-development:
-  adapter: mysql2
-  database: magisterka 
-  host: localhost
-  username: piotr 
-  password: burza22 
-  pool: 5
-  reconnect: true
-  timeout: 15000
-#   
 # development:
 #   adapter: mysql2
-#   database: sql28101
-#   host: sql2.freemysqlhosting.net
-#   port: 3306
-#   username: sql28101
-#   password: tZ7%gY7*
+#   database: magisterka 
+#   host: localhost
+#   username: piotr 
+#   password: burza22 
 #   pool: 5
 #   reconnect: true
 #   timeout: 15000
+#   
+development:
+  adapter: mysql2
+  database: sql28101
+  host: sql2.freemysqlhosting.net
+  port: 3306
+  username: sql28101
+  password: tZ7%gY7*
+  pool: 5
+  reconnect: true
+  timeout: 15000
 
 # development:
 #   adapter: mysql2
